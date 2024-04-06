@@ -1,11 +1,6 @@
 
 <div>
-    <!-- Logo -->
-    <a href="{{ route('index') }}" wire:navigate>
-        <img class="mb-4 h-50px" src="{{ asset('/safari-pinned-tab.svg') }}" alt="logo">
-    </a>
-    <!-- Title -->
-    <h1 class="mb-2 h3">Welcome back</h1>
+    <h1 class="mb-2 h3">Dormitory Owner</h1>
 
     @if (session()->has('message'))
         <div class="alert alert-success">
@@ -18,7 +13,7 @@
         </div>
     @endif
 
-    {{-- <p class="mb-0">New here?<a href="{{ route('register') }}" wire:navigate> Create an account</a></p> --}}
+    <p class="mb-0">New?<a href="#" wire:navigate> Create your dorm owner account</a></p>
 
     <!-- Form START -->
     <form class="mt-4 text-start needs-validation" wire:submit.prevent="attemptLogin" novalidate>
@@ -43,7 +38,7 @@
                 <input type="checkbox" class="form-check-input" id="rememberCheck" wire:model="remember">
                 <label class="form-check-label" for="remember"><small>Remember me?</small></label>
             </div>
-            {{-- <a href="{{ route('forgot-password') }}" wire:navigate><small>Forgot password?</small></a> --}}
+            {{-- <a href="#" wire:navigate><small>Forgot password?</small></a> --}}
         </div>
         <!-- Button -->
         <div class="d-grid gap-2">
@@ -64,7 +59,7 @@
 
         <!-- Google and facebook button -->
         <div class="gap-3 vstack">
-            <a href="#" class="mb-0 btn btn-light"><i class="fab fa-fw fa-google text-google-icon me-2"></i>Google</a>
+            <a href="#" class="mb-0 btn btn-white"><i class="fab fa-fw fa-google text-google-icon me-2"></i>Google</a>
         </div>
 
         <!-- Copyright -->

@@ -1,16 +1,11 @@
 
 <div>
-    <!-- Logo -->
-    <a href="{{ route('index') }}" wire:navigate>
-        <img class="mb-4 h-50px" src="{{ asset('/safari-pinned-tab.svg') }}" alt="logo">
-    </a>
-    <!-- Title -->
-    <h1 class="mb-2 h3">Welcome back</h1>
+    <h1 class="mb-2 h3">Admin login</h1>
 
     @if (session()->has('message'))
         <div class="alert alert-success">
             {{ session('message') }}
-        </div>error_message
+        </div>
     @endif
     @if (session()->has('error_message'))
         <div class="alert alert-danger">

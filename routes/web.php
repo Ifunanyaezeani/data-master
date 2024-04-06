@@ -6,10 +6,10 @@ use App\Livewire\DormOwner\Login as DormOwnerLogin;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware(['guest'])->group(function(){
+// all user entry point
+Route::get('/', fn () => view('pages.index'))->name('index');
 
-    // all user entry point
-    Route::get('/', fn()=>view('welcome'))->name('index');
+Route::middleware(['guest'])->group(function(){
 
     // basic student guest route
     Route::get('/student/auth/login', Login::class)->name('student.login');
