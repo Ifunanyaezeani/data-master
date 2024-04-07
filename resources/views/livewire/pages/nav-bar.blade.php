@@ -18,7 +18,7 @@
                                      class="position-absolute top-50 start-50 translate-middle fw-bold">
                                      <i class="bi bi-people"></i></span></div>
                          </div>
-                         <span class="text-dark">Get Started</span>&nbsp;&nbsp;&nbsp;
+                         <span class="text-dark">Login Now</span>&nbsp;&nbsp;&nbsp;
                      </div>
 
 
