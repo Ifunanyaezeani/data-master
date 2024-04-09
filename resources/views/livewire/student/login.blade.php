@@ -60,7 +60,7 @@
 
         <!-- Google and facebook button -->
         <div class="gap-3 vstack">
-            <a href="#" class="mb-0 btn btn-light"><i class="fab fa-fw fa-google text-google-icon me-2"></i>Google</a>
+            <a href="#" class="mb-0 btn btn-white"><i class="fab fa-fw fa-google text-google-icon me-2"></i>Google</a>
         </div>
 
         <!-- Copyright -->
