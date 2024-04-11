@@ -9,15 +9,6 @@
 	<meta name="author" content="Webestica.com">
 	<meta name="description" content="Data Master">
 
-	<!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset("/apple-touch-icon.png")}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset("/favicon-16x16.png")}}">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="{{asset("/safari-pinned-tab.svg")}}" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
@@ -84,10 +75,7 @@
 
     </main>
 
-    <!-- Bootstrap JS -->
-    <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- ThemeFunctions -->
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/functions.js') }}"></script>
 
 </body>
