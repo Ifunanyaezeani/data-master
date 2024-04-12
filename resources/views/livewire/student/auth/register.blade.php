@@ -5,44 +5,56 @@
     <p class="mb-0">Already a member?<a href="{{ route('student.login') }}" wire:navigate> Log in</a></p>
 
     <!-- Form START -->
-    <form class="mt-4 text-start">
-        @csrf
+    <form class="mt-4 text-start needs-validation" wire:submit.prevent="registerStudent" novalidate>
         <div class="row mb-3">
             <!-- first name -->
             <div class="col-6">
                 <label class="form-label">First Name</label>
-                <input type="text" class="form-control @error('first_name') is-invalid @enderror" value="{{ old('first_name') }}" name="first_name">
-                @error('first_name') <span class="invalid-feedback"><small><i>{{ $message }}</i></small></span> @enderror
+                <input type="text" class="form-control @error('firstName') is-invalid @enderror"  wire:model='firstName'>
+                @error('firstName') <span class="invalid-feedback"><small><i>{{ $message }}</i></small></span> @enderror
             </div>
             <!-- last name -->
             <div class="col-6">
                 <label class="form-label">Last Name</label>
-                <input type="text" class="form-control @error('last_name') is-invalid @enderror" value="{{ old('last_name') }}" name="last_name">
-                @error('last_name') <span class="invalid-feedback"><small><i>{{ $message }}</i></small></span> @enderror
+                <input type="text" class="form-control @error('lastName') is-invalid @enderror" wire:model='lastName'>
+                @error('lastName') <span class="invalid-feedback"><small><i>{{ $message }}</i></small></span> @enderror
             </div>
         </div>
         <!-- Email -->
         <div class="mb-3">
             <label class="form-label">Enter email</label>
-            <input type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" name="email">
+            <input type="email" class="form-control @error('email') is-invalid @enderror" wire:model='email'>
             @error('email') <span class="invalid-feedback"><small><i>{{ $message }}</i></small></span> @enderror
         </div>
         <!-- Password -->
         <div class="mb-4 position-relative">
             <label class="form-label">Create password</label>
-            <input class="form-control fakepassword @error('password') is-invalid @enderror" type="password" id="psw-input" name="password">
+            <input class="form-control fakepassword @error('password') is-invalid @enderror" type="password" id="psw-input" wire:model='password'>
             <span class="p-0 mt-3 position-absolute top-50 end-0 translate-middle-y">
                 <i class="p-2 cursor-pointer fakepasswordicon fas fa-eye-slash"></i>
             </span>
             @error('password') <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span> @enderror
         </div>
-        <!-- Remember me -->
+        <!-- terms -->
         <div class="mb-3">
-            <input type="checkbox" class="form-check-input" id="rememberCheck" required>
-            <label class="form-check-label" for="rememberCheck">I accept the <a href="http://" wire:navigate>Terms and Conditions</a></label>
+            <input type="checkbox" class="form-check-input @error('terms') is-invalid @enderror" wire:model='terms' required>
+            <label class="form-check-label">I accept the <a href="http://" wire:navigate>Terms and Conditions</a></label>
+            @error('terms')
+            <div class="invalid-feedback">
+                You must accept our terms before submitting.
+            </div>
+            @enderror
         </div>
         <!-- Button -->
-        <div><button type="submit" class="mb-0 btn btn-primary w-100">Sign up</button></div>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary mb-0 mt-2" wire:loading.attr="disabled">
+                <span wire:loading.remove>Register</span>
+                <span wire:loading wire:target="registerStudent" class="text-center">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    <span class="visually-hidden">Loading...</span>
+                </span>
+            </button>
+        </div>
 
         <!-- Divider -->
         <div class="my-4 position-relative">
