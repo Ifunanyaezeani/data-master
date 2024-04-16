@@ -13,7 +13,7 @@
         </div>
     @endif
 
-    <p class="mb-0">New?<a href="#" wire:navigate> Create your dorm owner account</a></p>
+    <p class="mb-0">New?<a href="{{ route('dorm-owner.register') }}" wire:navigate> Create your dorm owner account</a></p>
 
     <!-- Form START -->
     <form class="mt-4 text-start needs-validation" wire:submit.prevent="attemptLogin" novalidate>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\DormOwner;
+namespace App\Livewire\DormOwner\Auth;
 
 use Livewire\Component;
 use Livewire\Attributes\Layout;
@@ -22,7 +22,7 @@ class Login extends Component
     {
 
         $credentials = $this->validate();
-        if (Auth::attempt($credentials, $this->remember)) {
+        if (Auth::guard('dorm_owner')->attempt($credentials, $this->remember)) {
             session()->regenerate();
             $this->redirectIntended('/', true);
         } else {
@@ -32,6 +32,6 @@ class Login extends Component
 
     public function render()
     {
-        return view('livewire.dorm-owner.login');
+        return view('livewire.dorm-owner.auth.login');
     }
 }

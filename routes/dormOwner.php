@@ -2,10 +2,11 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Livewire\DormOwner\Login as DormOwnerLogin;
+use App\Livewire\DormOwner\Auth\Login as DormOwnerLogin;
+use App\Livewire\DormOwner\Auth\Register;
 
-
-Route::middleware(['guest:admin'])->group(function () {
+Route::middleware(['guest:dorm_owner'])->prefix('/dorm-owner/auth')->group(function () {
     // basic dorm-owner guest route
-    Route::get('/dorm-owner/auth/login', DormOwnerLogin::class)->name('dorm-owner.login');
+    Route::get('/login', DormOwnerLogin::class)->name('dorm-owner.login');
+    Route::get('/register', Register::class)->name('dorm-owner.register');
 });
