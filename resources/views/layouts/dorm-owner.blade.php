@@ -47,8 +47,10 @@
                             <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/p1.svg') }}"
                                 alt="">
                         </div>
-                        <h4 class="mb-2 mb-sm-0 ms-sm-3"><span class="fw-light">Hi</span> {{ Auth::user()->first_name }}
-                            {{ Auth::user()->last_name }}</h4>
+                        <h4 class="mb-2 mb-sm-0 ms-sm-3"><span class="fw-light">Hi</span>
+                            {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
+                        </h4>
+                        <a href="add-listing.html" class="btn btn-sm btn-primary-soft mb-0 ms-auto flex-shrink-0"><i class="bi bi-plus-lg fa-fw me-2"></i>Add New Dormitroy</a>
                     </div>
 
                     <div class="offcanvas-xl offcanvas-end mt-xl-3" tabindex="-1" id="dashboardMenu">
@@ -85,7 +87,7 @@
                     <!-- Nav links END -->
                 </div>
             </div>
-        </section>>
+        </section>
 
         <section class="pt-0">
             <div class="container vstack gap-4">

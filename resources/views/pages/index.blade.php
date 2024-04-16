@@ -3,7 +3,7 @@
 @section('contents')
 
     <!-- ======================= Main banner START -->
-    <section class="d-flex align-items-center" style="min-height: 100vh">
+    <section class="d-flex align-items-center" style="min-height: 70vh">
         <div class="container mx-auto z-index-9 position-relative">
 
             <div class="mb-5 row">

@@ -61,6 +61,13 @@
                             data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
                             <i class="fa-solid fa-sliders-h me-1"></i> Show filters
                         </button>
+                        <ul class="nav nav-pills nav-pills-dark" id="tour-pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link rounded mb-0" href="{{ route('explore.compare') }}">
+                                    <i class="bi fa-fw bi-list-ul"></i> Compare dormitory
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -115,7 +122,8 @@
                                     <div class="col-12">
                                         <!-- Checkbox -->
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="priceRange1">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="priceRange1">
                                             <label class="form-check-label" for="priceRange1">Up to $500</label>
                                         </div>
                                         <!-- Checkbox -->

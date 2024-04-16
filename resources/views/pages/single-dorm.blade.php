@@ -1,5 +1,12 @@
 @extends('layouts.main')
 
+@section('style')
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/glightbox/css/glightbox.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/flatpickr/css/flatpickr.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/choices/css/choices.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/tiny-slider/tiny-slider.css') }}">
+@endsection
+
 @section('contents')
 
     <section class="py-0 pt-sm-5">
@@ -61,64 +68,14 @@
     <section class="card-grid pt-0">
         <div class="container">
             <div class="row g-2">
-                <!-- Image -->
-                <div class="col-md-6">
-                    <a data-glightbox data-gallery="gallery" href="assets/images/gallery/14.jpg">
-                        <div class="card card-grid-lg card-element-hover card-overlay-hover overflow-hidden" style="background-image:url(assets/images/gallery/14.jpg); background-position: center left; background-size: cover;">
-                            <!-- Card hover element -->
+                <div class="col-md-12">
+                    <a data-glightbox data-gallery="gallery" href="{{ asset('assets/images/gallery/14.jpg') }}">
+                        <div class="card card-grid-lg card-element-hover card-overlay-hover overflow-hidden" style="background-image:url({{ asset('assets/images/gallery/14.jpg') }}); background-position: center left; background-size: cover;">
                             <div class="hover-element position-absolute w-100 h-100">
                                 <i class="bi bi-fullscreen fs-6 text-white position-absolute top-50 start-50 translate-middle bg-dark rounded-1 p-2 lh-1"></i>
                             </div>
                         </div>
                     </a>
-                </div>
-
-                <div class="col-md-6">
-                    <!-- Card item START -->
-                    <div class="row g-2">
-                        <!-- Image -->
-                        <div class="col-12">
-                            <a data-glightbox data-gallery="gallery" href="assets/images/gallery/13.jpg">
-                                <div class="card card-grid-sm card-element-hover card-overlay-hover overflow-hidden" style="background-image:url(assets/images/gallery/13.jpg); background-position: center left; background-size: cover;">
-                                    <!-- Card hover element -->
-                                    <div class="hover-element position-absolute w-100 h-100">
-                                        <i class="bi bi-fullscreen fs-6 text-white position-absolute top-50 start-50 translate-middle bg-dark rounded-1 p-2 lh-1"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Image -->
-                        <div class="col-md-6">
-                            <a data-glightbox data-gallery="gallery" href="assets/images/gallery/12.jpg">
-                                <div class="card card-grid-sm card-element-hover card-overlay-hover overflow-hidden" style="background-image:url(assets/images/gallery/12.jpg); background-position: center left; background-size: cover;">
-                                    <!-- Card hover element -->
-                                    <div class="hover-element position-absolute w-100 h-100">
-                                        <i class="bi bi-fullscreen fs-6 text-white position-absolute top-50 start-50 translate-middle bg-dark rounded-1 p-2 lh-1"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Images -->
-                        <div class="col-md-6">
-                            <div class="card card-grid-sm overflow-hidden" style="background-image:url(assets/images/gallery/11.jpg); background-position: center left; background-size: cover;">
-                                <!-- Background overlay -->
-                                <div class="bg-overlay bg-dark opacity-7"></div>
-
-                                <!-- Popup Images -->
-                                <a data-glightbox="" data-gallery="gallery" href="assets/images/gallery/11.jpg" class="stretched-link z-index-9"></a>
-                                <a data-glightbox="" data-gallery="gallery" href="assets/images/gallery/15.jpg"></a>
-                                <a data-glightbox="" data-gallery="gallery" href="assets/images/gallery/16.jpg"></a>
-
-                                <!-- Overlay text -->
-                                <div class="card-img-overlay d-flex h-100 w-100">
-                                    <h6 class="card-title m-auto fw-light text-decoration-underline"><a href="#" class="text-white">View all</a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card item END -->
                 </div>
             </div>
         </div>
@@ -335,16 +292,16 @@
                                                 <div class="tiny-slider arrow-round arrow-xs arrow-dark overflow-hidden rounded-2">
                                                     <div class="tiny-slider-inner" data-autoplay="true" data-arrow="true" data-dots="false" data-items="1">
                                                         <!-- Image item -->
-                                                        <div><img src="assets/images/category/hotel/4by3/04.jpg" alt="Card image"></div>
+                                                        <div><img src="{{ asset('assets/images/category/hotel/4by3/04.jpg') }}" alt="Card image"></div>
 
                                                         <!-- Image item -->
-                                                        <div><img src="assets/images/category/hotel/4by3/02.jpg" alt="Card image"></div>
+                                                        <div><img src="{{ asset('assets/images/category/hotel/4by3/02.jpg') }}" alt="Card image"></div>
 
                                                         <!-- Image item -->
-                                                        <div><img src="assets/images/category/hotel/4by3/03.jpg" alt="Card image"></div>
+                                                        <div><img src="{{ asset('assets/images/category/hotel/4by3/03.jpg') }}" alt="Card image"></div>
 
                                                         <!-- Image item -->
-                                                        <div><img src="assets/images/category/hotel/4by3/01.jpg" alt="Card image"></div>
+                                                        <div><img src="{{ asset('assets/images/category/hotel/4by3/01.jpg') }}" alt="Card image"></div>
                                                     </div>
                                                 </div>
                                                 <!-- Slider END -->
@@ -406,16 +363,16 @@
                                                 <div class="tiny-slider arrow-round arrow-xs arrow-dark overflow-hidden rounded-2">
                                                     <div class="tiny-slider-inner" data-autoplay="true" data-arrow="true" data-dots="false" data-items="1">
                                                         <!-- Image item -->
-                                                        <div><img src="assets/images/category/hotel/4by3/03.jpg" alt="Card image"></div>
+                                                        <div><img src="{{ asset('assets/images/category/hotel/4by3/03.jpg') }}" alt="Card image"></div>
 
                                                         <!-- Image item -->
-                                                        <div><img src="assets/images/category/hotel/4by3/02.jpg" alt="Card image"></div>
+                                                        <div><img src="{{ asset('assets/images/category/hotel/4by3/02.jpg') }}" alt="Card image"></div>
 
                                                         <!-- Image item -->
-                                                        <div><img src="assets/images/category/hotel/4by3/04.jpg" alt="Card image"></div>
+                                                        <div><img src="{{ asset('assets/images/category/hotel/4by3/04.jpg') }}" alt="Card image"></div>
 
                                                         <!-- Image item -->
-                                                        <div><img src="assets/images/category/hotel/4by3/01.jpg" alt="Card image"></div>
+                                                        <div><img src="{{ asset('assets/images/category/hotel/4by3/01.jpg') }}" alt="Card image"></div>
                                                     </div>
                                                 </div>
                                                 <!-- Slider END -->
@@ -814,4 +771,107 @@
         </div>
     </section>
 
+@endsection
+
+@section('room-modal')
+    <!-- Room modal START -->
+<div class="modal fade" id="roomDetail" tabindex="-1" aria-labelledby="roomDetailLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content p-0">
+
+			<!-- Title -->
+			<div class="modal-header p-3">
+				<h5 class="modal-title mb-0" id="roomDetailLabel">Room detail</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body p-0">
+
+				<!-- Card START -->
+				<div class="card bg-transparent p-3">
+					<!-- Slider START -->
+					<div class="tiny-slider arrow-round arrow-dark overflow-hidden rounded-2">
+						<div class="tiny-slider-inner rounded-2 overflow-hidden" data-autoplay="true" data-arrow="true" data-dots="false" data-items="1">
+							<!-- Image item -->
+							<div> <img src="{{ asset('assets/images/gallery/16.jpg') }}" class="rounded-2" alt="Card image"></div>
+
+							<!-- Image item -->
+							<div> <img src="{{ asset('assets/images/gallery/15.jpg') }}" class="rounded-2" alt="Card image"> </div>
+
+							<!-- Image item -->
+							<div> <img src="{{ asset('assets/images/gallery/13.jpg') }}" class="rounded-2" alt="Card image"> </div>
+
+							<!-- Image item -->
+							<div> <img src="{{ asset('assets/images/gallery/12.jpg') }}" class="rounded-2" alt="Card image"> </div>
+						</div>
+					</div>
+					<!-- Slider END -->
+
+					<!-- Card header -->
+					<div class="card-header bg-transparent pb-0">
+						<h3 class="card-title mb-0">Deluxe Pool View</h3>
+					</div>
+
+					<!-- Card body START -->
+					<div class="card-body">
+						<!-- Content -->
+						<p>Club rooms are well furnished with air conditioner, 32 inch LCD television and a mini bar. They have attached bathroom with showerhead and hair dryer and 24 hours supply of hot and cold running water. Complimentary wireless internet access is available. Additional amenities include bottled water, a safe and a desk.</p>
+
+						<div class="row">
+							<h5 class="mb-0">Amenities</h5>
+
+							<!-- List -->
+							<div class="col-md-6">
+								<!-- List -->
+								<ul class="list-group list-group-borderless mt-2 mb-0">
+									<li class="list-group-item d-flex mb-0">
+										<i class="fa-solid fa-check-circle text-success me-2"></i><span class="h6 fw-light mb-0">Swimming pool</span>
+									</li>
+									<li class="list-group-item d-flex mb-0">
+										<i class="fa-solid fa-check-circle text-success me-2"></i><span class="h6 fw-light mb-0">Spa</span>
+									</li>
+									<li class="list-group-item d-flex mb-0">
+										<i class="fa-solid fa-check-circle text-success me-2"></i><span class="h6 fw-light mb-0">Kids play area.</span>
+									</li>
+									<li class="list-group-item d-flex mb-0">
+										<i class="fa-solid fa-check-circle text-success me-2"></i><span class="h6 fw-light mb-0">Gym</span>
+									</li>
+								</ul>
+							</div>
+
+							<!-- List -->
+							<div class="col-md-6">
+								<!-- List -->
+								<ul class="list-group list-group-borderless mt-2 mb-0">
+									<li class="list-group-item d-flex mb-0">
+										<i class="fa-solid fa-check-circle text-success me-2"></i><span class="h6 fw-light mb-0">TV</span>
+									</li>
+									<li class="list-group-item d-flex mb-0">
+										<i class="fa-solid fa-check-circle text-success me-2"></i><span class="h6 fw-light mb-0">Mirror</span>
+									</li>
+									<li class="list-group-item d-flex mb-0">
+										<i class="fa-solid fa-check-circle text-success me-2"></i><span class="h6 fw-light mb-0">AC</span>
+									</li>
+									<li class="list-group-item d-flex mb-0">
+										<i class="fa-solid fa-check-circle text-success me-2"></i><span class="h6 fw-light mb-0">Slippers</span>
+									</li>
+								</ul>
+							</div>
+						</div> <!-- Row END -->
+					</div>
+					<!-- Card body END -->
+				</div>
+				<!-- Card END -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Room modal END -->
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('assets/vendor/choices/js/choices.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/tiny-slider/tiny-slider.js') }}"></script>
+    <script src="{{ asset('assets/vendor/sticky-js/sticky.min.js') }}"></script>
 @endsection
