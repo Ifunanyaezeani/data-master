@@ -16,7 +16,7 @@
     <header class="navbar-light header-sticky">
         <nav class="navbar navbar-expand-xl">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('index') }}" wire:navigate>
+                <a class="navbar-brand" href="{{ route('dorm-owner.dashboard') }}" wire:navigate>
                     <span class="navbar-brand-item"><Strong>Data Master</Strong></span>
                 </a>
 
@@ -30,12 +30,12 @@
                     </span>
                 </button>
 
-                <livewire:pages.student-logout>
+                <livewire:pages.dorm-owner-logout>
 
             </div>
         </nav>
     </header>
-    {{-- wire:click="logout" --}}
+
     <main>
 
         <section class="pt-4">
@@ -50,9 +50,7 @@
                         <h4 class="mb-2 mb-sm-0 ms-sm-3"><span class="fw-light">Hi</span> {{ Auth::user()->first_name }}
                             {{ Auth::user()->last_name }}</h4>
                     </div>
-                    <!-- Avatar and info START -->
 
-                    <!-- Nav links START -->
                     <div class="offcanvas-xl offcanvas-end mt-xl-3" tabindex="-1" id="dashboardMenu">
                         <div class="offcanvas-header border-bottom p-3">
                             <h5 class="offcanvas-title">Menu</h5>
