@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['guest'])->group(function () {
     // basic student guest route
     Route::prefix('/student/auth')->group(function () {
-        Route::get('/login', Login::class)->name('student.login');
-        Route::get('/register', Register::class)->name('student.register');
+        Route::get('/login', Login::class)->name('login');
+        Route::get('/register', Register::class)->name('register');
     });
 });
 

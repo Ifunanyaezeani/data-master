@@ -18,7 +18,7 @@ class StudentLogout extends Component
         Session::invalidate();
         Session::regenerateToken();
         Session::flash('message', 'You\'ve been successfully logged out');
-        $this->redirect(route('student.login'), navigate: true);
+        $this->redirect(route('login'), navigate: true);
     }
 
     public function render()

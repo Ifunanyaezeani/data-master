@@ -2,7 +2,7 @@
 <div>
 
     <h1 class="mb-2 h3">Create student account</h1>
-    <p class="mb-0">Already a member?<a href="{{ route('student.login') }}" wire:navigate> Log in</a></p>
+    <p class="mb-0">Already a member?<a href="{{ route('login') }}" wire:navigate> Log in</a></p>
 
     <!-- Form START -->
     <form class="mt-4 text-start needs-validation" wire:submit.prevent="registerStudent" novalidate>

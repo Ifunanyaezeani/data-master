@@ -24,7 +24,7 @@ class Login extends Component
         $credentials = $this->validate();
         if (Auth::guard('dorm_owner')->attempt($credentials, $this->remember)) {
             session()->regenerate();
-            $this->redirectIntended(route('student.dashboard'), true);
+            $this->redirectIntended(route('dorm-owner.dashboard'), true);
         } else {
             $this->addError('email', 'Invalid email or password.');
         }

@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 </head>
 
-<body>
+<body class="bg-light">
 
     <header class="navbar-light header-sticky">
         <nav class="navbar navbar-expand-xl">

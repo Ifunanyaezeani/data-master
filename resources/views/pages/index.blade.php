@@ -15,7 +15,7 @@
 
                     <!-- Search START -->
                     <div class="col-xl-10 mx-auto mt-3">
-                        <a class="btn btn-lg btn-primary mb-0" href="#">Explore Dormitories Now</a>
+                        <a class="btn btn-lg btn-primary mb-0" href="{{ route('explore') }}">Explore Dormitories Now</a>
                     </div>
                     <!-- Search END -->
                 </div>

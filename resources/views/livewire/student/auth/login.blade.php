@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <p class="mb-0">You're new?<a href="{{ route('student.register') }}" wire:navigate> Create  a student account</a></p>
+    <p class="mb-0">You're new?<a href="{{ route('register') }}" wire:navigate> Create  a student account</a></p>
 
     <!-- Form START -->
     <form class="mt-4 text-start needs-validation" wire:submit.prevent="attemptLogin" novalidate>

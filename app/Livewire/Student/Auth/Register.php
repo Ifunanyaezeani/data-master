@@ -45,7 +45,7 @@ class Register extends Component
         Session::flash('message', 'New account was successfully create as student, proceed to login');
 
         // Redirect to login screen
-        $this->redirectIntended(Route('student.login'), navigate:true);
+        $this->redirectIntended(Route('login'), navigate:true);
     }
 
     public function render()
