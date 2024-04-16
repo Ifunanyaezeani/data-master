@@ -7,6 +7,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
+use Illuminate\Routing\Route;
 
 #[Layout('layouts.auth')]
 class Login extends Component
@@ -21,11 +22,13 @@ class Login extends Component
 
     public function attemptLogin(): void
     {
-
+        // validate login credentials
         $credentials = $this->validate();
+
+        // perform the login attempt
         if (Auth::attempt($credentials, $this->remember)) {
             session()->regenerate();
-            $this->redirectIntended('/', true);
+            $this->redirectIntended(Route('student.dashboard'), navigate:true);
         } else {
             $this->addError('email', 'Invalid email or password.');
         }

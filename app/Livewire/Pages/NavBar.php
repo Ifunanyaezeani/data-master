@@ -18,10 +18,10 @@ class NavBar extends Component
 
         Session::invalidate();
         Session::regenerateToken();
-        $this->redirect(route('index'), navigate: true);
-    } 
+        $this->redirect(route('index'), navigate: false);
+    }
 
-    
+
     public function render()
     {
         return view('livewire.pages.nav-bar');

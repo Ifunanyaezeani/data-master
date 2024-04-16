@@ -1,4 +1,4 @@
-<div class="col-lg-4 col-xl-3">
+{{-- <div class="col-lg-4 col-xl-3">
     <!-- Responsive offcanvas body START -->
     <div class="offcanvas-lg offcanvas-end" tabindex="-1" id="offcanvasSidebar">
         <!-- Offcanvas header -->
@@ -66,4 +66,41 @@
         </div>
     </div>
     <!-- Responsive offcanvas body END -->
+</div> --}}
+
+<div class="offcanvas-xl offcanvas-end mt-xl-3" tabindex="-1" id="dashboardMenu">
+    <div class="offcanvas-header border-bottom p-3">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#dashboardMenu"
+            aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body p-3 p-xl-0">
+
+        <div class="navbar navbar-expand-xl">
+            <ul class="navbar-nav navbar-offcanvas-menu">
+
+                <li class="nav-item"> <a class="nav-link {{ $this->active_link(route('student.dashboard')) }}"  href="{{ route('student.dashboard') }}" wire:navigate>
+                    <i class="bi bi-house-door fa-fw me-1"></i>Dashboard</a>
+                </li>
+
+                <li class="nav-item"> <a class="nav-link {{ $this->active_link(route('student.dormitory')) }}" href="{{ route('student.dormitory') }}" wire:navigate>
+                    <i class="bi bi-journals fa-fw me-1"></i>My Dormitory</a>
+                </li>
+
+                <li class="nav-item"> <a class="nav-link {{ $this->active_link(route('student.pair')) }}" href="{{ route('student.pair') }}" wire:navigate>
+                    <i class="bi bi-bookmark-heart fa-fw me-1"></i>My Pair</a>
+                </li>
+
+                <li class="nav-item"> <a class="nav-link {{ $this->active_link(route('student.review')) }}" href="{{ route('student.review') }}" wire:navigate>
+                    <i class="bi bi-star fa-fw me-1"></i>My Reviews</a>
+                </li>
+
+                <li> <a class="nav-link {{ $this->active_link(route('student.setting')) }}" href="{{ route('student.setting') }}" wire:navigate>
+                    <i class="bi bi-gear fa-fw me-1"></i>Settings</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
 </div>

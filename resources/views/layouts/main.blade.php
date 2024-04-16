@@ -9,13 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Discover the dorm that fits your needs and budget with our comprehensive system.">
 
-
-    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/font-awesome/css/all.min.css') }}"> --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}">
-    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/tiny-slider/tiny-slider.css') }}"> --}}
-    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/glightbox/css/glightbox.css') }}"> --}}
-
-	{{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/choices/css/choices.min.css')}}"> --}}
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 
@@ -24,22 +18,16 @@
 <body class="bg-light">
 
     <header class="navbar-light header-sticky">
-       <livewire:pages.nav-bar>
+        <livewire:pages.nav-bar>
     </header>
 
     <main>
         @yield('contents')
     </main>
 
-
-    {{-- @auth
-        @include('layouts.partials.bottombar')
-    @endauth --}}
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     @yield('scripts')
-    <script src="{{ asset("assets/js/functions.js") }}"></script>
-
+    <script src="{{ asset('assets/js/functions.js') }}"></script>
 </body>
 
 </html>
-

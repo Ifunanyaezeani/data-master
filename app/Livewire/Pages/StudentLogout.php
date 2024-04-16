@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
-class UserMenu extends Component
+class StudentLogout extends Component
 {
     /**
      * Log the current user out of the application.
@@ -17,16 +17,12 @@ class UserMenu extends Component
 
         Session::invalidate();
         Session::regenerateToken();
-        $this->redirect(route('index'), navigate: true);
+        Session::flash('message', 'You\'ve been successfully logged out');
+        $this->redirect(route('student.login'), navigate: true);
     }
 
-    public function active_link($route_name)
-    {
-        return route($route_name) == request()->url() ? 'active' : '';
-    }
-    
     public function render()
     {
-        return view('livewire.pages.user-menu');
+        return view('livewire.pages.student-logout');
     }
 }
