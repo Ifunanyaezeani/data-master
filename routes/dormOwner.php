@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\DormOwner\Auth\Login as DormOwnerLogin;
 use App\Livewire\DormOwner\Auth\Register;
+use App\Livewire\DormOwner\Dashboard\AddDormitory;
 use App\Livewire\DormOwner\Dashboard\Booking;
 use App\Livewire\DormOwner\Dashboard\Dormitory;
 use App\Livewire\DormOwner\Dashboard\Index;
@@ -22,4 +23,6 @@ Route::middleware(['auth:dorm_owner'])->prefix('/dashboard')->group(function () 
     Route::get('/bookings', Booking::class)->name('dorm-owner.booking');
     Route::get('/reviews', Review::class)->name('dorm-owner.review');
     Route::get('/settings', Setting::class)->name('dorm-owner.setting');
+
+    Route::get('/add-dormitory', AddDormitory::class)->name('dorm-owner.add-dorm');
 });
