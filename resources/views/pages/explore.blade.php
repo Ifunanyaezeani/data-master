@@ -39,8 +39,8 @@
 
                             <!-- Button -->
                             <div class="col-md-6 col-lg-2 mt-md-auto">
-                                <a class="btn btn-lg btn-primary w-100 mb-0" href="#"><i
-                                        class="bi bi-search fa-fw"></i>Search</a>
+                                <a class="btn btn-lg btn-primary w-100 mb-0" href="#">
+                                   Search <i class="bi bi-search fa-fw"></i></a>
                             </div>
 
                         </form>
@@ -59,12 +59,12 @@
                     <div class="hstack gap-3 justify-content-between justify-content-md-end">
                         <button class="btn btn-primary-soft btn-primary-check mb-0 d-xl-none" type="button"
                             data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
-                            <i class="fa-solid fa-sliders-h me-1"></i> Show filters
+                            <i class="bi bi-funnel me-1"></i>filters
                         </button>
                         <ul class="nav nav-pills nav-pills-dark" id="tour-pills-tab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link rounded mb-0" href="{{ route('explore.compare') }}">
-                                    <i class="bi fa-fw bi-list-ul"></i> Compare dormitory
+                                    <i class="bi bi-tags"></i> Compare dormitory
                                 </a>
                             </li>
                         </ul>
