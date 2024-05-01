@@ -45,7 +45,7 @@ class Register extends Component
         Session::flash('message', 'New account was successfully create as dormitory owner, proceed to login');
 
         // Redirect to login screen
-        $this->redirectIntended(Route('dorm-owner.login'), navigate: true);
+        $this->redirect(Route('dorm-owner.login'), navigate: true);
     }
 
     public function render()

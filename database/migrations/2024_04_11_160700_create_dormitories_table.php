@@ -14,10 +14,15 @@ return new class extends Migration
         Schema::create('dormitories', function (Blueprint $table) {
             $table->id();
             $table->string('dorm_name');
-            $table->string('address');
+            $table->string('slug');
+            $table->string('street_address');
+            $table->string('regin');
+            $table->string('city');
             $table->foreignId('dorm_owner_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('dorm_type');
+            $table->string('status');
             $table->longText('description');
+            $table->longText('policy')->nullable();
             $table->string('main_image');
             $table->timestamps();
         });

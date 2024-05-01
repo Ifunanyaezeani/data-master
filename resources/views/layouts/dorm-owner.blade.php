@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/apexcharts/css/apexcharts.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/choices/css/choices.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.snow.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
@@ -73,6 +75,7 @@
     <script src="{{ asset('assets/vendor/apexcharts/js/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/choices/js/choices.min.js') }}"></script>
     <script src="{{ asset('assets/js/functions.js') }}"></script>
+</script>
 
 </body>
 
