@@ -2,6 +2,10 @@
 
 namespace App\Livewire\Admin\Dashboard;
 
+use App\Models\Dormitory;
+use App\Models\DormOwner;
+use App\Models\Room;
+use App\Models\User;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 
@@ -10,6 +14,14 @@ class Index extends Component
 {
     public function render()
     {
-        return view('livewire.admin.dashboard.index');
+        return view('livewire.admin.dashboard.index',[
+            'totalDorm' => Dormitory::count(),
+            'totalRoom' => Room::count(),
+            'totalStudent' => User::count(),
+            'totalDormOwner' => DormOwner::count(),
+            'latestDorm' => Dormitory::latest()->take(4)->get(),
+            'recentStudent' => User::latest()->take(6)->get(),
+            'recentDormOwner' => DormOwner::latest()->take(6)->get()
+        ]);
     }
 }

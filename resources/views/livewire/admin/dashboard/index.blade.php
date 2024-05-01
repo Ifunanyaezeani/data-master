@@ -17,8 +17,8 @@
                   <div class="d-flex justify-content-between align-items-center">
                       <!-- Digit -->
                       <div>
-                          <h4 class="mb-0">56</h4>
-                          <span class="h6 fw-light mb-0">Total Hotels</span>
+                          <h4 class="mb-0">{{ $totalDorm }}</h4>
+                          <span class="h6 fw-light mb-0">Total Dormitories</span>
                       </div>
                       <!-- Icon -->
                       <div class="icon-lg rounded-circle bg-warning text-white mb-0"><i
@@ -27,14 +27,32 @@
               </div>
           </div>
 
+
+          <!-- Counter item -->
+          <div class="col-md-6 col-xxl-3">
+              <div class="card card-body bg-primary bg-opacity-10 border border-primary border-opacity-25 p-4 h-100">
+                  <div class="d-flex justify-content-between align-items-center">
+                      <!-- Digit -->
+                      <div>
+                          <h4 class="mb-0">{{ $totalRoom }}</h4>
+                          <span class="h6 fw-light mb-0">Total Rooms</span>
+                      </div>
+                      <!-- Icon -->
+                      <div class="icon-lg rounded-circle bg-primary text-white mb-0"><i
+                              class="fa-solid fa-bed fa-fw"></i></div>
+                  </div>
+              </div>
+          </div>
+
+
           <!-- Counter item -->
           <div class="col-md-6 col-xxl-3">
               <div class="card card-body bg-success bg-opacity-10 border border-success border-opacity-25 p-4 h-100">
                   <div class="d-flex justify-content-between align-items-center">
                       <!-- Digit -->
                       <div>
-                          <h4 class="mb-0">$836,789</h4>
-                          <span class="h6 fw-light mb-0">Total Incomes</span>
+                          <h4 class="mb-0">{{ $totalDormOwner }}</h4>
+                          <span class="h6 fw-light mb-0">Dormitory Owners</span>
                       </div>
                       <!-- Icon -->
                       <div class="icon-lg rounded-circle bg-success text-white mb-0"><i
@@ -45,28 +63,12 @@
 
           <!-- Counter item -->
           <div class="col-md-6 col-xxl-3">
-              <div class="card card-body bg-primary bg-opacity-10 border border-primary border-opacity-25 p-4 h-100">
-                  <div class="d-flex justify-content-between align-items-center">
-                      <!-- Digit -->
-                      <div>
-                          <h4 class="mb-0">245</h4>
-                          <span class="h6 fw-light mb-0">Total Rooms</span>
-                      </div>
-                      <!-- Icon -->
-                      <div class="icon-lg rounded-circle bg-primary text-white mb-0"><i
-                              class="fa-solid fa-bed fa-fw"></i></div>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Counter item -->
-          <div class="col-md-6 col-xxl-3">
               <div class="card card-body bg-info bg-opacity-10 border border-info border-opacity-25 p-4 h-100">
                   <div class="d-flex justify-content-between align-items-center">
                       <!-- Digit -->
                       <div>
-                          <h4 class="mb-0">147</h4>
-                          <span class="h6 fw-light mb-0">Booked Room</span>
+                          <h4 class="mb-0">{{ $totalStudent }}</h4>
+                          <span class="h6 fw-light mb-0">total Students</span>
                       </div>
                       <!-- Icon -->
                       <div class="icon-lg rounded-circle bg-info text-white mb-0"><i
@@ -87,62 +89,59 @@
                       All</a>
               </div>
           </div>
+          @forelse ($latestDorm as $dorm)
+                <!-- dorm item -->
+				<div class="col-lg-6">
+					<div class="card shadow p-3">
+						<div class="row g-4">
+							<!-- Card img -->
+							<div class="col-md-3">
+								<img src="{{ asset('storage/dorm-images/'. $dorm->main_image) }}" class="rounded-2" alt="Card image">
+							</div>
 
-          <!-- Dorm item -->
-          <div class="col-lg-6">
-              <div class="card shadow p-3">
-                  <div class="row g-4">
-                      <!-- Card img -->
-                      <div class="col-md-3">
-                          <img src="assets/images/category/hotel/4by3/10.jpg" class="rounded-2" alt="Card image">
-                      </div>
+							<!-- Card body -->
+							<div class="col-md-9">
+								<div class="card-body position-relative d-flex flex-column p-0 h-100">
 
-                      <!-- Card body -->
-                      <div class="col-md-9">
-                          <div class="card-body position-relative d-flex flex-column p-0 h-100">
+									<!-- Buttons -->
+									<div class="list-inline-item dropdown position-absolute top-0 end-0">
+										<!-- Share button -->
+										<a href="#" class="btn btn-sm btn-round btn-light" role="button" id="dropdownAction1" data-bs-toggle="dropdown" aria-expanded="false">
+											<i class="bi bi-three-dots-vertical"></i>
+										</a>
+										<!-- dropdown button -->
+										<ul class="dropdown-menu dropdown-menu-end min-w-auto shadow" aria-labelledby="dropdownAction1">
+											<li><a class="dropdown-item small" href="#"><i class="bi bi-info-circle me-2"></i>Report</a></li>
+											<li><a class="dropdown-item small" href="#"><i class="bi bi-slash-circle me-2"></i>Disable</a></li>
+										</ul>
+									</div>
 
-                              <!-- Buttons -->
-                              <div class="list-inline-item dropdown position-absolute top-0 end-0">
-                                  <!-- Share button -->
-                                  <a href="#" class="btn btn-sm btn-round btn-light" role="button"
-                                      id="dropdownAction1" data-bs-toggle="dropdown" aria-expanded="false">
-                                      <i class="bi bi-three-dots-vertical"></i>
-                                  </a>
-                                  <!-- dropdown button -->
-                                  <ul class="dropdown-menu dropdown-menu-end min-w-auto shadow"
-                                      aria-labelledby="dropdownAction1">
-                                      <li><a class="dropdown-item small" href="#"><i
-                                                  class="bi bi-info-circle me-2"></i>Report</a></li>
-                                      <li><a class="dropdown-item small" href="#"><i
-                                                  class="bi bi-slash-circle me-2"></i>Disable</a></li>
-                                  </ul>
-                              </div>
+									<!-- Title -->
+									<h5 class="card-title mb-0 me-5"><a href="{{ route('admin.single-dorm',  $dorm->slug) }}" target="_blank">{{ Str::of( $dorm->dorm_name)->limit(32) }}</a></h5>
+									<small><i class="bi bi-geo-alt me-2"></i>{{ Str::of( $dorm->street_address)->limit(20) }} | {{  $dorm->regin }}, {{  $dorm->city }}</small>
 
-                              <!-- Title -->
-                              <h5 class="card-title mb-0 me-5"><a href="hotel-detail.html">Pride moon Village Resort &
-                                      Spa</a></h5>
-                              <small><i class="bi bi-geo-alt me-2"></i>31J W Spark Street, California - 24578</small>
+									<!-- Price and Button -->
+									<div class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
+										<!-- Price -->
+										<div class="d-flex align-items-center">
+                                            <h6 class="fw-bold mb-0 me-1">{{  $dorm->dorm_type }} | </h6>
+                                            <span class="mb-0 me-2 badge text-bg-secondary">Status: {{  $dorm->status }}</span>
+                                        </div>
+										<!-- Button -->
+										<div class="hstack gap-2 mt-3 mt-sm-0">
+											<a href="#" class="btn btn-sm btn-primary-soft px-2 mb-0"><i class="bi bi-pencil-square fa-fw"></i></a>
+											<a href="#" class="btn btn-sm btn-danger-soft px-2 mb-0"><i class="bi bi-slash-circle fa-fw"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+          @empty
 
-                              <!-- Price and Button -->
-                              <div class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
-                                  <!-- Price -->
-                                  <div class="d-flex align-items-center">
-                                      <h5 class="fw-bold mb-0 me-1">$1586</h5>
-                                      <span class="mb-0 me-2">/day</span>
-                                  </div>
-                                  <!-- Button -->
-                                  <div class="hstack gap-2 mt-3 mt-sm-0">
-                                      <a href="#" class="btn btn-sm btn-primary-soft px-2 mb-0"><i
-                                              class="bi bi-pencil-square fa-fw"></i></a>
-                                      <a href="#" class="btn btn-sm btn-danger-soft px-2 mb-0"><i
-                                              class="bi bi-slash-circle fa-fw"></i></a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+          @endforelse
+
       </div>
       <!-- Hotel grid END -->
 
@@ -160,19 +159,19 @@
 
                   <!-- Card body START -->
                   <div class="card-body p-3">
-
-                      <!-- Arrival item -->
+                    @foreach ($recentStudent as $student)
+                                              <!-- Arrival item -->
                       <div class="d-flex justify-content-between align-items-center">
                           <!-- Avatar and info -->
                           <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
                               <!-- Avatar -->
                               <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg"
+                                  <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/09.jpg') }}"
                                       alt="avatar">
                               </div>
                               <!-- Info -->
                               <div class="ms-sm-2 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Lori Stevens</h6>
+                                  <h6 class="mb-1">{{ $student->first_name }} {{ $student->last_name }}</h6>
                                   <ul class="nav nav-divider small">
                                       <li class="nav-item">Room 25A</li>
                                       <li class="nav-item">24Nov - 28Nov</li>
@@ -185,8 +184,10 @@
                       </div>
 
                       <hr><!-- Divider -->
+                    @endforeach
 
-                      <!-- Arrival item -->
+
+                      {{-- <!-- Arrival item -->
                       <div class="d-flex justify-content-between align-items-center">
                           <!-- Avatar and info -->
                           <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
@@ -307,7 +308,7 @@
                           <!-- Button -->
                           <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
                                   class="fa-solid fa-chevron-right fa-fw"></i></a>
-                      </div>
+                      </div> --}}
                   </div>
                   <!-- Card body END -->
               </div>
@@ -320,24 +321,23 @@
                   <!-- Card header -->
                   <div class="card-header border-bottom d-flex justify-content-between align-items-center p-3">
                       <h5 class="card-header-title">New Dormitory Owners</h5>
-                      <a href="{{ route('admin.students') }}" wire:navigate class="btn btn-link p-0 mb-0">View all</a>
+                      <a href="{{ route('admin.dorm-owners') }}" wire:navigate class="btn btn-link p-0 mb-0">View all</a>
                   </div>
 
                   <!-- Card body START -->
                   <div class="card-body p-3">
-
-                      <!-- Arrival item -->
+                        @foreach ($recentDormOwner as $dormOwner)
+                        <!-- Arrival item -->
                       <div class="d-flex justify-content-between align-items-center">
                           <!-- Avatar and info -->
                           <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
                               <!-- Avatar -->
                               <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg"
-                                      alt="avatar">
+                                  <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/09.jpg') }}" alt="avatar">
                               </div>
                               <!-- Info -->
                               <div class="ms-sm-2 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Lori Stevens</h6>
+                                  <h6 class="mb-1">{{ $dormOwner->first_name }} {{ $dormOwner->last_name }}</h6>
                                   <ul class="nav nav-divider small">
                                       <li class="nav-item">Room 25A</li>
                                       <li class="nav-item">24Nov - 28Nov</li>
@@ -350,129 +350,9 @@
                       </div>
 
                       <hr><!-- Divider -->
+                        @endforeach
 
-                      <!-- Arrival item -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Avatar and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg"
-                                      alt="avatar">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-2 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Dennis Barrett</h6>
-                                  <ul class="nav nav-divider small">
-                                      <li class="nav-item">Room 12B</li>
-                                      <li class="nav-item">21Nov - 23Nov</li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
-                                  class="fa-solid fa-chevron-right fa-fw"></i></a>
-                      </div>
 
-                      <hr><!-- Divider -->
-
-                      <!-- Arrival item -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Avatar and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg"
-                                      alt="avatar">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-2 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Jacqueline Miller</h6>
-                                  <ul class="nav nav-divider small">
-                                      <li class="nav-item">Room 11A</li>
-                                      <li class="nav-item">19Nov - 21Nov</li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
-                                  class="fa-solid fa-chevron-right fa-fw"></i></a>
-                      </div>
-
-                      <hr><!-- Divider -->
-
-                      <!-- Arrival item -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Avatar and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg"
-                                      alt="avatar">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-2 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Billy Vasquez</h6>
-                                  <ul class="nav nav-divider small">
-                                      <li class="nav-item">Room 05A</li>
-                                      <li class="nav-item">14Nov - 18Nov</li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
-                                  class="fa-solid fa-chevron-right fa-fw"></i></a>
-                      </div>
-
-                      <hr><!-- Divider -->
-
-                      <!-- Arrival item -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Avatar and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg"
-                                      alt="avatar">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-2 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Amanda Reed</h6>
-                                  <ul class="nav nav-divider small">
-                                      <li class="nav-item">Room 9</li>
-                                      <li class="nav-item">11Nov - 12Nov</li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
-                                  class="fa-solid fa-chevron-right fa-fw"></i></a>
-                      </div>
-
-                      <hr><!-- Divider -->
-
-                      <!-- Arrival item -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Avatar and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="assets/images/avatar/08.jpg"
-                                      alt="avatar">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-2 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Dennis Barrett</h6>
-                                  <ul class="nav nav-divider small">
-                                      <li class="nav-item">Room 10</li>
-                                      <li class="nav-item">11Nov - 12Nov</li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
-                                  class="fa-solid fa-chevron-right fa-fw"></i></a>
-                      </div>
                   </div>
                   <!-- Card body END -->
               </div>

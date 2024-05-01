@@ -16,7 +16,7 @@ class Explore extends Controller
         ]);
     }
 
-    public function SingleDorm($slug)
+    public function singleDorm($slug)
     {
         return view('pages.single-dorm',[
             'dorm_details' => Dormitory::whereSlug($slug)->first(),

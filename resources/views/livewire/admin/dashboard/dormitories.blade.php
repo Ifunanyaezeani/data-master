@@ -39,7 +39,7 @@
 									</div>
 
 									<!-- Title -->
-									<h5 class="card-title mb-0 me-5"><a href="{{ route('explore.single-dorm', $dormitory->slug) }}">{{ Str::of($dormitory->dorm_name)->limit(32) }}</a></h5>
+									<h5 class="card-title mb-0 me-5"><a href="{{ route('admin.single-dorm', $dormitory->slug) }}" target="_blank">{{ Str::of($dormitory->dorm_name)->limit(32) }}</a></h5>
 									<small><i class="bi bi-geo-alt me-2"></i>{{ Str::of($dormitory->street_address)->limit(20) }} | {{ $dormitory->regin }}, {{ $dormitory->city }}</small>
 
 									<!-- Price and Button -->

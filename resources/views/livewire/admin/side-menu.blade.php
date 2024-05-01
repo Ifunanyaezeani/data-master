@@ -41,7 +41,7 @@
 
                   <!-- Menu item -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.dormitories') }}" role="button">
+                    <a class="nav-link" href="{{ route('admin.dormitories') }}" wire:navigate role="button">
                          Dormitories
                     </a>
                 </li>

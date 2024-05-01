@@ -23,16 +23,22 @@
             <!-- Top bar right START -->
             <ul class="nav flex-row align-items-center list-unstyled ms-xl-auto">
                 <!-- Profile dropdown START -->
-                <li class="nav-item ms-3 dropdown">
+                <li class="nav-item ms-3">
                     <!-- Avatar -->
-                    <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button"
-                        data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <img class="avatar-img rounded-2" src="{{ asset('assets/images/avatar/avater.png') }}"
-                            alt="avatar">
-                    </a>
+                   <a href=""
+                         wire:navigate>
+                         <div class="bg-primary bg-opacity-25 rounded-pill " id="profileDropdown" role="button"
+                             data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
+                             aria-expanded="false">
+                             <span class="avatar avatar-sm" href="#">
+                                 <img class="avatar-img rounded-circle border border-3 border-primary"
+                                     src="{{ asset('assets/images/avatar/p1.svg') }}" alt="avatar">
+                             </span>
+                             <span class="text-primary">Admin Profile</span>&nbsp;&nbsp;&nbsp;
+                         </div>
+                     </a>
 
-                    <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3"
+                    {{-- <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3"
                         aria-labelledby="profileDropdown">
                         <!-- Profile info -->
                         <li class="px-3 mb-3">
@@ -62,7 +68,7 @@
                             <a class="dropdown-item bg-danger-soft-hover" href="#"><i
                                     class="bi bi-power fa-fw me-2"></i>Sign Out</a>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </li>
                 <!-- Profile dropdown END -->
             </ul>

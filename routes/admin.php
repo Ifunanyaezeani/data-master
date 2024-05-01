@@ -1,11 +1,12 @@
 <?php
 
-use App\Livewire\Admin\Dashboard\Dormitories;
-use App\Livewire\Admin\Dashboard\DormOwners;
+use App\Http\Controllers\Explore;
+use Illuminate\Support\Facades\Route;
 use App\Livewire\Admin\Dashboard\Index;
 use App\Livewire\Admin\Dashboard\Students;
-use Illuminate\Support\Facades\Route;
 use App\Livewire\Admin\Login as AdminLogin;
+use App\Livewire\Admin\Dashboard\DormOwners;
+use App\Livewire\Admin\Dashboard\Dormitories;
 
 
 Route::middleware(['guest:admin'])->group(function () {
@@ -22,4 +23,5 @@ Route::middleware(['auth:admin'])->prefix('/admin')->group(function () {
     Route::get('/students', Students::class)->name('admin.students');
 
     Route::get('/dormitories', Dormitories::class)->name('admin.dormitories');
+    Route::get('/dorm/{slug}', [Explore::class, 'singleDorm'])->name('admin.single-dorm');
 });
