@@ -160,13 +160,13 @@
                   <!-- Card body START -->
                   <div class="card-body p-3">
                     @foreach ($recentStudent as $student)
-                                              <!-- Arrival item -->
+
                       <div class="d-flex justify-content-between align-items-center">
                           <!-- Avatar and info -->
                           <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
                               <!-- Avatar -->
                               <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/09.jpg') }}"
+                                  <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/p1.svg') }}"
                                       alt="avatar">
                               </div>
                               <!-- Info -->
@@ -185,130 +185,6 @@
 
                       <hr><!-- Divider -->
                     @endforeach
-
-
-                      {{-- <!-- Arrival item -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Avatar and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg"
-                                      alt="avatar">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-2 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Dennis Barrett</h6>
-                                  <ul class="nav nav-divider small">
-                                      <li class="nav-item">Room 12B</li>
-                                      <li class="nav-item">21Nov - 23Nov</li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
-                                  class="fa-solid fa-chevron-right fa-fw"></i></a>
-                      </div>
-
-                      <hr><!-- Divider -->
-
-                      <!-- Arrival item -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Avatar and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg"
-                                      alt="avatar">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-2 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Jacqueline Miller</h6>
-                                  <ul class="nav nav-divider small">
-                                      <li class="nav-item">Room 11A</li>
-                                      <li class="nav-item">19Nov - 21Nov</li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
-                                  class="fa-solid fa-chevron-right fa-fw"></i></a>
-                      </div>
-
-                      <hr><!-- Divider -->
-
-                      <!-- Arrival item -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Avatar and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg"
-                                      alt="avatar">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-2 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Billy Vasquez</h6>
-                                  <ul class="nav nav-divider small">
-                                      <li class="nav-item">Room 05A</li>
-                                      <li class="nav-item">14Nov - 18Nov</li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
-                                  class="fa-solid fa-chevron-right fa-fw"></i></a>
-                      </div>
-
-                      <hr><!-- Divider -->
-
-                      <!-- Arrival item -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Avatar and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg"
-                                      alt="avatar">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-2 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Amanda Reed</h6>
-                                  <ul class="nav nav-divider small">
-                                      <li class="nav-item">Room 9</li>
-                                      <li class="nav-item">11Nov - 12Nov</li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
-                                  class="fa-solid fa-chevron-right fa-fw"></i></a>
-                      </div>
-
-                      <hr><!-- Divider -->
-
-                      <!-- Arrival item -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Avatar and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="assets/images/avatar/08.jpg"
-                                      alt="avatar">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-2 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Dennis Barrett</h6>
-                                  <ul class="nav nav-divider small">
-                                      <li class="nav-item">Room 10</li>
-                                      <li class="nav-item">11Nov - 12Nov</li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
-                                  class="fa-solid fa-chevron-right fa-fw"></i></a>
-                      </div> --}}
                   </div>
                   <!-- Card body END -->
               </div>
@@ -333,7 +209,7 @@
                           <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
                               <!-- Avatar -->
                               <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/09.jpg') }}" alt="avatar">
+                                  <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/p1.svg') }}" alt="avatar">
                               </div>
                               <!-- Info -->
                               <div class="ms-sm-2 mt-2 mt-sm-0">

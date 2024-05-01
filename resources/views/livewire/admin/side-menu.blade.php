@@ -64,19 +64,6 @@
                     </a>
                 </li>
 
-                <!-- Menu item -->
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#collapsecollections" role="button"
-                        aria-expanded="false" aria-controls="collapsecollections">
-                        <i class="bi bi-collection-fill fa-fw me-2"></i> Collections
-                    </a>
-                    <!-- Submenu -->
-                    <ul class="nav collapse flex-column" id="collapsecollections" data-bs-parent="#navbar-sidebar">
-                        <li class="nav-item"> <a class="nav-link" href="#">Categories</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="#">Brands</a></li>
-                    </ul>
-                </li>
-
                 <!-- Title -->
                 <li class="nav-item ms-2 my-2">Extra Section</li>
                 <!-- Menu item -->

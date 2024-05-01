@@ -6,8 +6,11 @@
 					<div class="d-sm-flex justify-content-between align-items-center">
 						<h1 class="h3 mb-2 mb-sm-0">All listed Dormitories</h1>
 					</div>
+                     <hr>
 				</div>
 			</div>
+
+
 
 			<!-- Dorm grid START -->
 			<div class="row g-4 mb-5">

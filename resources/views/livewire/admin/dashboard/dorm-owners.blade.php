@@ -42,7 +42,7 @@
 						<div class="card-body text-center pb-0">
 							<!-- Avatar Image -->
 							<div class="avatar avatar-xl flex-shrink-0 mb-3">
-								<img class="avatar-img rounded-circle" src="{{ asset("assets/images/avatar/09.jpg") }}" alt="avatar">
+								<img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/p1.svg') }}" alt="avatar">
 							</div>
 							<!-- Title -->
 							<h5 class="mb-1">{{ $dormOwner->first_name }} {{ $dormOwner->last_name }}</h5>
@@ -55,7 +55,7 @@
 						</div>
 						<!-- card footer -->
 						<div class="card-footer d-flex gap-3 align-items-center">
-							<a href="#" class="btn btn-sm btn-primary-soft mb-0 w-100">View detail</a>
+							<a href="{{ route('admin.dorm-owner.details', $dormOwner->id) }}" wire:navigate class="btn btn-sm btn-primary-soft mb-0 w-100">View detail</a>
 						</div>
 					</div>
 				</div>
