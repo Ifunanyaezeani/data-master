@@ -15,4 +15,11 @@ class Explore extends Controller
             "ActiveDormitories" => $ActiveDormitories
         ]);
     }
+
+    public function SingleDorm($slug)
+    {
+        return view('pages.single-dorm',[
+            'dorm_details' => Dormitory::whereSlug($slug)->first(),
+        ]);
+    }
 }

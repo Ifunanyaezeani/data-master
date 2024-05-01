@@ -18,50 +18,16 @@
                     <div class="d-lg-flex justify-content-lg-between mb-1">
                         <!-- Title -->
                         <div class="mb-2 mb-lg-0">
-                            <h1 class="fs-2">Courtyard by Marriott New York </h1>
+                            <h1 class="fs-2">{{ $dorm_details->dorm_name }} </h1>
                             <!-- Location -->
-                            <p class="fw-bold mb-0"><i class="bi bi-geo-alt me-2"></i>5855 W Century Blvd, Los Angeles - 90045
-                                <a href="#" class="ms-2 text-decoration-underline" data-bs-toggle="modal" data-bs-target="#mapmodal">
-                                    <i class="bi bi-eye-fill me-1"></i>View On Map
-                                </a>
+                            <p class="fw-bold mb-0">
+                                <i class="bi bi-geo-alt me-2"></i>{{ Str::of( $dorm_details->street_address) }} | {{  $dorm_details->regin }}, {{  $dorm_details->city }}
                             </p>
                         </div>
-
-                        <!-- Buttons -->
-                        <ul class="list-inline text-end">
-                            <!-- Heart icon -->
-                            <li class="list-inline-item">
-                                <a href="#" class="btn btn-sm btn-light px-2"><i class="fa-solid fa-fw fa-heart"></i></a>
-                            </li>
-                            <!-- Share icon -->
-                            <li class="list-inline-item dropdown">
-                                <!-- Share button -->
-                                <a href="#" class="btn btn-sm btn-light px-2" role="button" id="dropdownShare" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-fw fa-share-alt"></i>
-                                </a>
-                                <!-- dropdown button -->
-                                <ul class="dropdown-menu dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare">
-                                    <li><a class="dropdown-item" href="#"><i class="fab fa-twitter-square me-2"></i>Twitter</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-copy me-2"></i>Copy link</a></li>
-                                </ul>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
             <!-- Title and button END -->
-
-            <!-- Alert box START -->
-            <div class="alert alert-danger alert-dismissible d-flex justify-content-between align-items-center fade show mb-4 rounded-3 pe-2" role="alert">
-                <div class="d-flex">
-                    <span class="alert-heading h5 mb-0 me-2"><i class="bi bi-exclamation-octagon-fill"></i></span>
-                    <span><strong class="alert-heading me-2">Covid Policy:</strong>You may require to present an RT-PCR negative test report at the hotel</span>
-                </div>
-                    <button type="button" class="btn btn-link text-primary-hover pb-0 text-end" data-bs-dismiss="alert" aria-label="Close"><i class="bi bi-x-lg"></i></button>
-            </div>
-            <!-- Alert box END -->
         </div>
     </section>
 
@@ -69,8 +35,8 @@
         <div class="container">
             <div class="row g-2">
                 <div class="col-md-12">
-                    <a data-glightbox data-gallery="gallery" href="{{ asset('assets/images/gallery/14.jpg') }}">
-                        <div class="card card-grid-lg card-element-hover card-overlay-hover overflow-hidden" style="background-image:url({{ asset('assets/images/gallery/14.jpg') }}); background-position: center left; background-size: cover;">
+                    <a data-glightbox data-gallery="gallery" href="{{ asset('storage/dorm-images/'. $dorm_details->main_image) }}">
+                        <div class="card card-grid-lg card-element-hover card-overlay-hover overflow-hidden" style="background-image:url({{ asset('storage/dorm-images/'. $dorm_details->main_image) }}); background-position: center left; background-size: cover;">
                             <div class="hover-element position-absolute w-100 h-100">
                                 <i class="bi bi-fullscreen fs-6 text-white position-absolute top-50 start-50 translate-middle bg-dark rounded-1 p-2 lh-1"></i>
                             </div>
@@ -116,25 +82,9 @@
                                     </div>
                                 </div>
 
-                                <p class="mb-3">Demesne far-hearted suppose venture excited see had has. Dependent on so extremely delivered by. Yet no jokes worse her why. <b>Bed one supposing breakfast day fulfilled off depending questions.</b></p>
-                                <p class="mb-0">Delivered dejection necessary objection do Mr prevailed. Mr feeling does chiefly cordial in do. Water timed folly right aware if oh truth. Large above be to means. Dashwood does provide stronger is.</p>
-
-                                <div class="collapse" id="collapseContent">
-                                    <p class="my-3">We focus a great deal on the understanding of behavioral psychology and influence triggers which are crucial for becoming a well rounded Digital Marketer. We understand that theory is important to build a solid foundation, we understand that theory alone isn't going to get the job done so that's why this rickets is packed with practical hands-on examples that you can follow step by step.</p>
-                                    <p class="mb-0">Behavioral psychology and influence triggers which are crucial for becoming a well rounded Digital Marketer. We understand that theory is important to build a solid foundation, we understand that theory alone isn't going to get the job done so that's why this tickets is packed with practical hands-on examples that you can follow step by step.</p>
-                                </div>
-                                <a class="p-0 mb-4 mt-2 btn-more d-flex align-items-center collapsed" data-bs-toggle="collapse" href="#collapseContent" role="button" aria-expanded="false" aria-controls="collapseContent">
-                                    See <span class="see-more ms-1">more</span><span class="see-less ms-1">less</span><i class="fa-solid fa-angle-down ms-2"></i>
-                                </a>
-
-                                <!-- List -->
-                                <h5 class="fw-light mb-2">Advantages</h5>
-                                <ul class="list-group list-group-borderless mb-0">
-                                    <li class="list-group-item h6 fw-light d-flex mb-0"><i class="bi bi-patch-check-fill text-success me-2"></i>Every hotel staff to have Proper PPT kit for COVID-19</li>
-                                    <li class="list-group-item h6 fw-light d-flex mb-0"><i class="bi bi-patch-check-fill text-success me-2"></i>Every staff member wears face masks and gloves at all service times.</li>
-                                    <li class="list-group-item h6 fw-light d-flex mb-0"><i class="bi bi-patch-check-fill text-success me-2"></i>Hotel staff ensures to maintain social distancing at all times.</li>
-                                    <li class="list-group-item h6 fw-light d-flex mb-0"><i class="bi bi-patch-check-fill text-success me-2"></i>The hotel has In-Room Dining options available </li>
-                                </ul>
+                                <p class="mb-3">
+                                    {{ $dorm_details->description }}
+                                </p>
                             </div>
                             <!-- Card body END -->
                         </div>
@@ -647,56 +597,12 @@
                         <div class="card bg-transparent">
                             <!-- Card header -->
                             <div class="card-header border-bottom bg-transparent px-0 pt-0">
-                                <h3 class="mb-0">Hotel Policies</h3>
+                                <h3 class="mb-0">Dormitory Policies</h3>
                             </div>
 
                             <!-- Card body START -->
                             <div class="card-body pt-4 p-0">
-                                <!-- List -->
-                                <ul class="list-group list-group-borderless mb-2">
-                                    <li class="list-group-item d-flex">
-                                        <i class="bi bi-check-circle-fill me-2"></i>This is a family farmhouse, hence we request you to not indulge.
-                                    </li>
-                                    <li class="list-group-item d-flex">
-                                        <i class="bi bi-check-circle-fill me-2"></i>Drinking and smoking within controlled limits are permitted at the farmhouse but please do not create a mess or ruckus at the house.
-                                    </li>
-                                    <li class="list-group-item d-flex">
-                                        <i class="bi bi-check-circle-fill me-2"></i>Drugs and intoxicating illegal products are banned and not to be brought to the house or consumed.
-                                    </li>
-                                    <li class="list-group-item d-flex">
-                                        <i class="bi bi-x-circle-fill me-2"></i>For any update, the customer shall pay applicable cancellation/modification charges.
-                                    </li>
-                                </ul>
-
-                                <!-- List -->
-                                <ul class="list-group list-group-borderless mb-2">
-                                    <li class="list-group-item h6 fw-light d-flex mb-0">
-                                        <i class="bi bi-arrow-right me-2"></i>Check-in: 1:00 pm - 9:00 pm
-                                    </li>
-                                    <li class="list-group-item h6 fw-light d-flex mb-0">
-                                        <i class="bi bi-arrow-right me-2"></i>Check out: 11:00 am
-                                    </li>
-                                    <li class="list-group-item h6 fw-light d-flex mb-0">
-                                        <i class="bi bi-arrow-right me-2"></i>Self-check-in with building staff
-                                    </li>
-                                    <li class="list-group-item h6 fw-light d-flex mb-0">
-                                        <i class="bi bi-arrow-right me-2"></i>No pets
-                                    </li>
-                                    <li class="list-group-item h6 fw-light d-flex mb-0">
-                                        <i class="bi bi-arrow-right me-2"></i>No parties or events
-                                    </li>
-                                    <li class="list-group-item h6 fw-light d-flex mb-0">
-                                        <i class="bi bi-arrow-right me-2"></i>Smoking is allowed
-                                    </li>
-                                </ul>
-
-                                <!-- Important note -->
-                                <div class="bg-danger bg-opacity-10 rounded-2 p-3 mb-3">
-                                    <p class="mb-0 text-danger">During the COVID-19 pandemic, all hosts and guests must review and follow Booking social distancing and other COVID-19-related guidelines.</p>
-                                </div>
-                                <div class="bg-danger bg-opacity-10 rounded-2 p-3">
-                                    <p class="mb-0 text-danger">Smoke alarm not reported — The host hasn't reported a smoke alarm on the property. We suggest bringing a portable detector for your trip.</p>
-                                </div>
+                                <p>{{ $dorm_details->policy }}</p>
                             </div>
                             <!-- Card body END -->
                         </div>

@@ -116,10 +116,10 @@
                                         <!-- Price -->
                                         <div class="hstack gap-2 mt-3 mt-sm-0">
                                             <a href="#" class="btn btn-sm btn-success mb-0">
-                                                <i class="bi bi-pencil-square fa-fw me-1"></i>Add Rooms
+                                                <i class="bi bi-building-add fa-fw me-1"></i>Add Rooms
                                             </a>
                                             <a href="#" target="_blank" class="btn btn-sm btn-info mb-0">
-                                                <i class="bi bi-eye fa-fw me-1"></i>View
+                                                <i class="bi bi-node-plus fa-fw me-1"></i>Add Ameniries
                                             </a>
                                         </div>
                                     </div>
