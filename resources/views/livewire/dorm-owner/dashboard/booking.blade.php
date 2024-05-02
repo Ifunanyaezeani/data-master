@@ -48,7 +48,7 @@
                     </div>
                     <!-- Search and select END -->
 
-                    <!-- Hotel room list START -->
+                    <!-- dorm room list START -->
                     <div class="table-responsive border-0">
                         <table class="table align-middle p-4 mb-0 table-hover table-shrink">
                             <!-- Table head -->
@@ -72,9 +72,9 @@
                                         <h6 class="mb-0">01</h6>
                                     </td>
                                     <td>
-                                        <h6 class="mb-0"><a href="#">Deluxe Pool View</a></h6>
+                                        <h6 class="mb-0"><a href="#">Inndorm</a></h6>
                                     </td>
-                                    <td> With Breakfast </td>
+                                    <td> single room </td>
                                     <td>
                                         <h6 class="mb-0 fw-light">Nov 22 - 25</h6>
                                     </td>
@@ -93,9 +93,9 @@
                                         <h6 class="mb-0">02</h6>
                                     </td>
                                     <td>
-                                        <h6 class="mb-0"><a href="#">Deluxe Pool View with Breakfast</a></h6>
+                                        <h6 class="mb-0"><a href="#">Ramen</a></h6>
                                     </td>
-                                    <td> Free Cancellation | Breakfast only </td>
+                                    <td> double room </td>
                                     <td>
                                         <h6 class="mb-0 fw-light">Nov 24 - 28</h6>
                                     </td>
@@ -103,7 +103,7 @@
                                         <div class="badge text-bg-success">Booked</div>
                                     </td>
                                     <td>
-                                        <div class="badge bg-orange bg-opacity-10 text-orange">On Property</div>
+                                        <div class="badge bg-orange bg-opacity-10 text-orange">Full Payment</div>
                                     </td>
                                     <td> <a href="#" class="btn btn-sm btn-light mb-0">View</a> </td>
                                 </tr>
