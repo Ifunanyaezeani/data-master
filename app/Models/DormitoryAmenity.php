@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class DormitoryAmenity extends Model
 {
     use HasFactory;
+
+    public function dormitories()
+    {
+        return $this->belongsToMany(Dormitory::class, 'dormitory_amenity');
+    }
 }

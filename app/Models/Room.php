@@ -12,4 +12,19 @@ class Room extends Model
     protected $casts = [
         'room_pictures' => 'array',
     ];
+
+    public function dormitory()
+    {
+        return $this->belongsTo(Dormitory::class);
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    public function priceHistory()
+    {
+        return $this->hasMany(PriceHistory::class);
+    }
 }

@@ -17,42 +17,6 @@
         </div>
     @endif
 
-    <!-- Counter START -->
-    <div class="row g-4">
-
-        <!-- Earning item -->
-        <div class="col-md-6 col-xl-4">
-            <div class="card card-body border p-4">
-                <h6>Total Dormitories
-                    <a tabindex="0" class="h6 mb-0" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
-                        data-bs-placement="top" data-bs-content="After US royalty withholding tax"
-                        data-bs-original-title="" title="">
-                        <i class="bi bi-info-circle-fill small"></i>
-                    </a>
-                </h6>
-                <h2 class="text-success">{{ $totalDorm }}</h2>
-            </div>
-        </div>
-
-        <!-- Booked Rooms item -->
-        <div class="col-md-6 col-xl-4">
-            <div class="card card-body border p-4 h-100">
-                <h6>Total Rooms</h6>
-                <h2 class="text-info">8</h2>
-            </div>
-        </div>
-
-        <!-- Available Rooms item -->
-        <div class="col-md-6 col-xl-4">
-            <div class="card card-body border p-4 h-100">
-                <h6>Available Rooms</h6>
-                <h2 class="text-warning">4</h2>
-            </div>
-        </div>
-
-    </div>
-    <!-- Counter END -->
-
     <!-- Listing table START -->
     <div class="row">
         <div class="col-12">
