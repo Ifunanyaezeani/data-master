@@ -13,12 +13,12 @@
         <div class="col-12">
             <div class="bg-light pb-0 px-2 px-lg-0 rounded-top">
                 <ul class="nav nav-tabs nav-bottom-line nav-responsive border-0 nav-justified" role="tablist">
-                    <li class="nav-item"> <a class="nav-link mb-0 active" data-bs-toggle="tab" href="#tab-1"><i
-                                class="fas fa-cog fa-fw me-2"></i>Edit Profile</a> </li>
-                    <li class="nav-item"> <a class="nav-link mb-0" data-bs-toggle="tab" href="#tab-2"><i
+                    {{-- <li class="nav-item"> <a class="nav-link mb-0 active" data-bs-toggle="tab" href="#tab-1"><i
+                                class="fas fa-cog fa-fw me-2"></i>Edit Profile</a> </li> --}}
+                    {{-- <li class="nav-item"> <a class="nav-link mb-0" data-bs-toggle="tab" href="#tab-2"><i
                                 class="fas fa-bell fa-fw me-2"></i>Notification Settings</a> </li>
                     <li class="nav-item"> <a class="nav-link mb-0" data-bs-toggle="tab" href="#tab-3"><i
-                                class="fas fa-user-circle fa-fw me-2"></i>Account Settings</a> </li>
+                                class="fas fa-user-circle fa-fw me-2"></i>Account Settings</a> </li> --}}
                 </ul>
             </div>
         </div>
@@ -42,7 +42,7 @@
                                     <!-- Full name -->
                                     <div class="mb-3">
                                         <label class="form-label">Name</label>
-                                        <input type="text" class="form-control" value="Jacqueline Miller"
+                                        <input type="text" class="form-control" value="{{ Auth::user->first_name }} {{ Auth::user->first_name }}"
                                             placeholder="Name">
                                     </div>
                                     <!-- Profile picture -->
