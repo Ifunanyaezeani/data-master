@@ -63,32 +63,26 @@
                                         <!-- Title -->
                                         <h5 class="card-title mb-1"><a href="hotel-detail.html">Royal Beach Resort</a>
                                         </h5>
-                                        <small><i class="bi bi-geo-alt me-2"></i>Manhattan street, London - 24578</small>
+                                        <small><i class="bi bi-geo-alt me-2"></i>south campus, famagusta</small>
                                         <!-- Amenities -->
                                         <ul class="nav nav-divider mt-3">
                                             <li class="nav-item">Air Conditioning</li>
                                             <li class="nav-item">Wifi</li>
                                             <li class="nav-item">Kitchen</li>
-                                            <li class="nav-item">Pool</li>
+                                           
                                             <li class="nav-item"><a href="#" class="mb-0 text-primary">More+</a>
                                             </li>
                                         </ul>
 
-                                        <!-- List -->
-                                        <ul class="list-group list-group-borderless small mb-0 mt-2">
-                                            <li class="list-group-item d-flex text-success p-0">
-                                                <i class="bi bi-patch-check-fill me-2"></i>Free Cancellation till 7 Jan
-                                                2022
-                                            </li>
-                                        </ul>
+                                       
 
                                         <!-- Price and Button -->
                                         <div
                                             class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
                                             <!-- Button -->
                                             <div class="d-flex align-items-center">
-                                                <h5 class="fw-bold mb-0 me-1">$540</h5>
-                                                <span class="mb-0 me-2">/day</span>
+                                                <h5 class="fw-bold mb-0 me-1">$3500</h5>
+                                              
                                             </div>
                                             <!-- Price -->
                                             <div class="mt-3 mt-sm-0">
@@ -162,16 +156,14 @@
                                         </div>
 
                                         <!-- Title -->
-                                        <h5 class="card-title mb-1"><a href="hotel-detail.html">Pride moon Village Resort
-                                                & Spa</a></h5>
-                                        <small><i class="bi bi-geo-alt me-2"></i>31J W Spark Street, California -
-                                            24578</small>
+                                        <h5 class="card-title mb-1"><a href="hotel-detail.html">Ramen</a></h5>
+                                        <small><i class="bi bi-geo-alt me-2"></i>on campus,famagusta</small>
                                         <!-- Amenities -->
                                         <ul class="nav nav-divider mt-3">
                                             <li class="nav-item">Air Conditioning</li>
                                             <li class="nav-item">Wifi</li>
                                             <li class="nav-item">Kitchen</li>
-                                            <li class="nav-item">Pool</li>
+                                       
                                         </ul>
 
                                         <!-- List -->
@@ -186,8 +178,8 @@
                                             class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
                                             <!-- Button -->
                                             <div class="d-flex align-items-center">
-                                                <h5 class="fw-bold mb-0 me-1">$980</h5>
-                                                <span class="mb-0 me-2">/day</span>
+                                                <h5 class="fw-bold mb-0 me-1">$3000</h5>
+                                             
                                             </div>
                                             <!-- Price -->
                                             <div class="mt-3 mt-sm-0">
@@ -265,16 +257,15 @@
                                         </div>
 
                                         <!-- Title -->
-                                        <h5 class="card-title mb-1"><a href="hotel-detail.html">Beverly Hills Marriott</a>
+                                        <h5 class="card-title mb-1"><a href="hotel-detail.html">Prime Living</a>
                                         </h5>
-                                        <small><i class="bi bi-geo-alt me-2"></i>31J W Spark Street, California -
-                                            24578</small>
+                                        <small><i class="bi bi-geo-alt me-2"></i>On campus</small>
                                         <!-- Amenities -->
                                         <ul class="nav nav-divider mt-3">
                                             <li class="nav-item">Air Conditioning</li>
                                             <li class="nav-item">Wifi</li>
                                             <li class="nav-item">Kitchen</li>
-                                            <li class="nav-item">Pool</li>
+                                          
                                         </ul>
 
                                         <!-- List -->
@@ -289,8 +280,8 @@
                                             class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
                                             <!-- Button -->
                                             <div class="d-flex align-items-center">
-                                                <h5 class="fw-bold mb-0 me-1">$645</h5>
-                                                <span class="mb-0 me-2">/day</span>
+                                                <h5 class="fw-bold mb-0 me-1">$4000</h5>
+                                            
                                             </div>
                                             <!-- Price -->
                                             <div class="mt-3 mt-sm-0">
