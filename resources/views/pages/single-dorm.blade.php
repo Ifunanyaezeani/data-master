@@ -59,7 +59,7 @@
                         <div class="card bg-transparent">
                             <!-- Card header -->
                             <div class="card-header border-bottom bg-transparent px-0 pt-0">
-                                <h3 class="mb-0">About This Hotel</h3>
+                                <h3 class="mb-0">About This Dormitory</h3>
                             </div>
 
                             <!-- Card body START -->
@@ -208,23 +208,12 @@
                             <!-- Card header -->
                             <div class="card-header border-bottom bg-transparent px-0 pt-0">
                                 <div class="d-sm-flex justify-content-sm-between align-items-center">
-                                    <h3 class="mb-2 mb-sm-0">Room Options</h3>
-
-                                    <div class="col-sm-4">
-                                        <form class="form-control-bg-light">
-                                            <select class="form-select form-select-sm js-choice border-0">
-                                                <option value="">Select Option</option>
-                                                <option>Recently search</option>
-                                                <option>Most popular</option>
-                                                <option>Top rated</option>
-                                            </select>
-                                        </form>
-                                    </div>
+                                    <h3 class="mb-2 mb-sm-0">Rooms</h3>
                                 </div>
                             </div>
 
                             <!-- Card body START -->
-                            <div class="card-body pt-4 p-0">
+                            {{-- <div class="card-body pt-4 p-0">
                                 <div class="vstack gap-4">
 
                                     <!-- Room item START -->
@@ -369,7 +358,7 @@
                                     </div>
                                     <!-- Room item END -->
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- Card body END -->
                         </div>
                         <!-- Room END -->
@@ -378,7 +367,7 @@
                         <div class="card bg-transparent">
                             <!-- Card header -->
                             <div class="card-header border-bottom bg-transparent px-0 pt-0">
-                                <h3 class="card-title mb-0">Customer Review</h3>
+                                <h3 class="card-title mb-0">Student Review</h3>
                             </div>
 
                             <!-- Card body START -->
@@ -620,12 +609,11 @@
                             <!-- Title -->
                             <div class="d-sm-flex justify-content-sm-between align-items-center mb-3">
                                 <div>
-                                    <span>Price Start at</span>
-                                    <h4 class="card-title mb-0">$3,500</h4>
+                                    <span>Room Price</span>
+                                    <h4 class="card-title mb-0">$500</h4>
                                 </div>
                                 <div>
-                                    <h6 class="fw-normal mb-0">1 room per night</h6>
-                                    <small>+ $285 taxes & fees</small>
+                                    <h6 class="fw-normal mb-0">per room </h6>
                                 </div>
                             </div>
 
@@ -638,9 +626,6 @@
                                 <li class="list-inline-item me-0 small"><i class="fa-solid fa-star text-warning"></i></li>
                                 <li class="list-inline-item me-0 small"><i class="fa-solid fa-star-half-alt text-warning"></i></li>
                             </ul>
-
-                            <p class="h6 fw-light mb-4"><i class="bi bi-arrow-right me-2"></i>Free breakfast available</p>
-
                             <!-- Button -->
                             <div class="d-grid">
                                 <a href="#room-options" class="btn btn-lg btn-primary-soft mb-0">View 10 Rooms Options</a>
@@ -649,7 +634,7 @@
                         <!-- Book now END -->
 
                         <!-- Best deal START -->
-                        <div class="mt-4 d-none d-xl-block">
+                        {{-- <div class="mt-4 d-none d-xl-block">
                             <h4>Today's Best Deal</h4>
 
                             <div class="card shadow rounded-3 overflow-hidden">
@@ -668,7 +653,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- Best deal END -->
                     </div>
                 </aside>
