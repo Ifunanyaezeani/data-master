@@ -491,7 +491,7 @@
                                 <!-- Leave review END -->
 
                                 <!-- Review item START -->
-                                <div class="d-md-flex my-4">
+                                {{-- <div class="d-md-flex my-4">
                                     <!-- Avatar -->
                                     <div class="avatar avatar-lg me-3 flex-shrink-0">
                                         <img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
@@ -526,10 +526,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <!-- Child review START -->
-                                <div class="my-4 ps-2 ps-md-3">
+                                {{-- <div class="my-4 ps-2 ps-md-3">
                                     <div class="d-md-flex p-3 bg-light rounded-3">
                                         <img class="avatar avatar-sm rounded-circle me-3" src="assets/images/avatar/02.jpg" alt="avatar">
                                         <div class="mt-2 mt-md-0">
@@ -537,15 +537,15 @@
                                             <p class="mb-0">But discretion frequently sir she instruments unaffected admiration everything. </p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <!-- Child review END -->
 
                                 <!-- Divider -->
-                                <hr>
+                                {{-- <hr> --}}
                                 <!-- Review item END -->
 
                                 <!-- Review item START -->
-                                <div class="d-md-flex my-4">
+                                {{-- <div class="d-md-flex my-4">
                                     <!-- Avatar -->
                                     <div class="avatar avatar-lg me-3 flex-shrink-0">
                                         <img class="avatar-img rounded-circle" src="assets/images/avatar/08.jpg" alt="avatar">
@@ -567,16 +567,16 @@
 
                                         <p class="mb-0">Delivered dejection necessary objection do Mr prevailed. Mr feeling does chiefly cordial in do. Water timed folly right aware if oh truth. Large above be to means. Dashwood does provide stronger is.</p>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <!-- Divider -->
-                                <hr>
+                                {{-- <hr> --}}
                                 <!-- Review item END -->
 
                                 <!-- Button -->
-                                <div class="text-center">
+                                {{-- <div class="text-center">
                                     <a href="#" class="btn btn-primary-soft mb-0">Load more</a>
-                                </div>
+                                </div> --}}
                             </div>
                             <!-- Card body END -->
                         </div>
