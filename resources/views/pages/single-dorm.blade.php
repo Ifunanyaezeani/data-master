@@ -35,8 +35,8 @@
         <div class="container">
             <div class="row g-2">
                 <div class="col-md-12">
-                    <a data-glightbox data-gallery="gallery" href="{{ asset('storage/dorm-images/'. $dorm_details->main_image) }}">
-                        <div class="card card-grid-lg card-element-hover card-overlay-hover overflow-hidden" style="background-image:url({{ asset('storage/dorm-images/'. $dorm_details->main_image) }}); background-position: center left; background-size: cover;">
+                    <a data-glightbox data-gallery="gallery" href="{{ $dorm_details->main_image }}">
+                        <div class="card card-grid-lg card-element-hover card-overlay-hover overflow-hidden" style="background-image:url({{ $dorm_details->main_image }}); background-position: center left; background-size: cover;">
                             <div class="hover-element position-absolute w-100 h-100">
                                 <i class="bi bi-fullscreen fs-6 text-white position-absolute top-50 start-50 translate-middle bg-dark rounded-1 p-2 lh-1"></i>
                             </div>

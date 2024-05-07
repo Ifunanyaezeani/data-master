@@ -36,7 +36,7 @@
                         <div class="row g-4">
                             <!-- Card img -->
                             <div class="col-md-3 col-lg-2">
-                                <img src="{{ asset('/storage/dorm-images/'.$dormitory->main_image) }}" class="card-img rounded-2"
+                                <img src="{{ $dormitory->main_image }}" class="card-img rounded-2"
                                     alt="Card image">
                             </div>
 
@@ -63,7 +63,7 @@
                                     </div>
 
                                     <!-- Title -->
-                                    <h5 class="card-title mb-0 me-5"><a href="hotel-detail.html">{{ $dormitory->dorm_name }}</a></h5>
+                                    <h5 class="card-title mb-0 me-5"><a href="#">{{ $dormitory->dorm_name }}</a></h5>
                                     <small>
                                         <i class="bi bi-geo-alt me-2"></i>
                                         {{ Str::of($dormitory->street_address)->limit(20) }} | {{ $dormitory->regin }}, {{ $dormitory->city }}

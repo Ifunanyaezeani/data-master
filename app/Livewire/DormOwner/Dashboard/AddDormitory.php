@@ -6,6 +6,7 @@ use App\Enums\DormStatus;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use App\Models\Dormitory;
+use App\Traits\SaveToCloud;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Rule;
 use Livewire\WithFileUploads;
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Session;
 #[Layout('layouts.dorm-owner')]
 class AddDormitory extends Component
 {
+    use SaveToCloud;
+
     use WithFileUploads;
     #[Validate('required')]
     public $dormName;
@@ -46,8 +49,8 @@ class AddDormitory extends Component
         $this->validate();
 
         // perform dorm image upload
-        $imageName = uniqid() . '.' . $this->dormPicture->getClientOriginalExtension();
-        $this->dormPicture->storeAs('public/dorm-images', $imageName);
+        // $imageName = uniqid() . '.' . $this->dormPicture->getClientOriginalExtension();
+        // $this->dormPicture->storeAs('public/dorm-images', $imageName);
 
         // create the dorm once the validation pass
         $newDorm = new Dormitory();
@@ -61,9 +64,8 @@ class AddDormitory extends Component
         $newDorm->status = DormStatus::DRAFT->name;
         $newDorm->description = $this->description;
         $newDorm->policy = $this->policy;
-        $newDorm->main_image = $imageName;
+        $newDorm->main_image = $this->cloudinary($this->dormPicture);
         $newDorm->save();
-        // dd($newDorm);
         // Flash message
         Session::flash('message', 'New dormitory was successfully create, proceed to add rooms');
 

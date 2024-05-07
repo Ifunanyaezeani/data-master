@@ -338,7 +338,7 @@
                             <div class="row g-0">
                                 <!-- Card img -->
                                 <div class="col-md-5">
-                                    <img src="{{ asset("/storage/dorm-images/".$activeDorm->main_image) }}" class="card-img rounded-2"
+                                    <img src="{{ $activeDorm->main_image }}" class="card-img rounded-2"
                                         alt="Card image">
                                 </div>
 
