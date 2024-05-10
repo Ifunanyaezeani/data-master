@@ -12,7 +12,7 @@
                 <div class="card-body mb-4">
                     <h6 class="card-header-title">Post Something <small><i>(like your search for room mate)</i></small></h6>
                     <div class="d-flex mt-3">
-                        <textarea class="form-control mb-0" placeholder="Hello {{ Auth()->user()->first_name }}," rows="2"
+                        <textarea class="form-control mb-0" placeholder="e.g Hi, I'm {{ Auth()->user()->first_name }}" rows="2"
                             spellcheck="false"></textarea>
                         <button class="btn btn-sm btn-primary-soft ms-2 px-4 mb-0 flex-shrink-0"><i
                                 class="fas fa-paper-plane fs-5"></i></button>
