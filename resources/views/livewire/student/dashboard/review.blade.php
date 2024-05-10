@@ -12,7 +12,7 @@
 				<div class="rounded-3">
 
 					<!-- Card body START -->
-					<div class="card-body">
+					{{-- <div class="card-body">
 
 						<div class="bg-light border rounded p-3">
 							<!-- Review item START -->
@@ -52,33 +52,21 @@
 							</div>
 							<!-- Review item END -->
 						</div>
-
-						{{-- <hr>  --}}
-					</div>
+					</div> --}}
 					<!-- Card body END -->
+                    <div class="bg-mode shadow p-4 rounded overflow-hidden">
+                        <div class="row g-4 align-items-center">
+                            <!-- Content -->
+                            <div class="col-md-12">
+                                <h6>You've got no reviews yet 😏</h6>
+                                <p class="lead mb-2">You're going to see all your reviews and feedback here, once you've reviewed a dorm</p>
+                            </div>
+                        </div>
+                    </div>
 
 					<!-- Card footer START -->
 					<div class="card-footer pt-0">
-						<!-- Pagination and content -->
-						{{-- <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
-							<!-- Content -->
-							<p class="mb-sm-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
-							<!-- Pagination -->
-							<nav class="mb-sm-0 d-flex justify-content-center" aria-label="navigation">
-								<ul class="pagination pagination-sm pagination-primary-soft mb-0">
-									<li class="page-item disabled">
-										<a class="page-link" href="#" tabindex="-1">Prev</a>
-									</li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item active"><a class="page-link" href="#">2</a></li>
-									<li class="page-item disabled"><a class="page-link" href="#">..</a></li>
-									<li class="page-item"><a class="page-link" href="#">15</a></li>
-									<li class="page-item">
-										<a class="page-link" href="#">Next</a>
-									</li>
-								</ul>
-							</nav>
-						</div> --}}
+
 					</div>
 					<!-- Card footer END -->
 				</div>

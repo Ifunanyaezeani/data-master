@@ -55,7 +55,7 @@
 				<div class="card card-body border p-4 h-100">
 					<h6 class="text-info">Student Forum</h6>
 					<small class="mb-2">Quickly get a room mate on forum</small>
-					<div class="mt-auto text-primary-hover"><a href="#" class="text-decoration-underline p-0 mb-0">Click here to procced</a></div>
+					<div class="mt-auto text-primary-hover"><a href="{{ route('student.forum') }}" class="text-decoration-underline p-0 mb-0">Click here to procced</a></div>
 				</div>
 			</div>
 

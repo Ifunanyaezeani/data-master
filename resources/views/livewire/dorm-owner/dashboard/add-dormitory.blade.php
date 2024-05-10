@@ -60,27 +60,21 @@
                         <div class="mb-3 mt-4">
                             <label class="form-label">Dormitory description</label>
                             <textarea wire:model="description" class="form-control @error('description') is-invalid @enderror"></textarea>
-                            {{-- <div class="bg-body border rounded-bottom h-200px overflow-hidden @error('description') is-invalid @enderror" id="description"
-                                wire:key="description">{!! $description !!}</div> --}}
                             @error('description') <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span> @enderror
                         </div>
 
                         <div class="mb-3 mt-4">
                             <label class="form-label">Dormitory policy</label>
                             <textarea wire:model="policy" class="form-control @error('policy') is-invalid @enderror"></textarea>
-                            {{-- <div class="bg-body border rounded-bottom h-200px overflow-hidden @error('policy') is-invalid @enderror" id="policy"
-                                wire:key="policy">{!! $policy !!}</div> --}}
                                 @error('policy') <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span> @enderror
                         </div>
 
                         <!-- Dorm picture -->
                         <div class="mb-3 mt-4">
                             <label class="form-label">Dorm Picture</label>
-                            <!-- Avatar upload START -->
                             <div class="d-flex align-items-center">
                                 @if ($dormPicture)
                                     <label class="position-relative me-4" for="uploadfile-1" title="dorm image">
-                                        <!-- Avatar place holder -->
                                         <span class="avatar avatar-xxxl">
                                             <img id="uploadfile-1-preview"
                                                 class="avatar-img rounded border border-white border-3 shadow"
@@ -95,12 +89,10 @@
                                     type="file">
                                     @error('dormPicture') <br><span class="invalid-feedback"><small><i>{{ $message }}</i></small></span> @enderror
                             </div>
-                            <!-- Avatar upload END -->
                         </div>
 
                         <!-- Save button -->
                         <div class="d-flex justify-content-end mt-4">
-                            {{-- <a href="#" class="btn text-secondary border-0 me-2">Discard</a> --}}
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-primary mb-0 mt-2" wire:loading.attr="disabled">
                                     <span wire:loading.remove>Save</span>
@@ -110,7 +102,6 @@
                                     </span>
                                 </button>
                             </div>
-                            {{-- <button type="submit" class="btn btn-primary"> change</button> --}}
                         </div>
                     </form>
                 </div>
