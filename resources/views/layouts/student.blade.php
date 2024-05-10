@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="">
     <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/font-awesome/css/all.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 </head>
@@ -16,7 +17,7 @@
     <header class="navbar-light header-sticky">
         <nav class="navbar navbar-expand-xl">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('index') }}" wire:navigate>
+                <a class="navbar-brand" href="{{ route('index') }}">
                     <span class="navbar-brand-item"><Strong>Data Master</Strong></span>
                 </a>
 
@@ -38,26 +39,22 @@
 
     <main>
 
-        <section class="pt-4">
+        <section class="pt-3">
             <div class="container">
-                <div class="card rounded-3 border p-3 pb-2">
-                    <div class="d-sm-flex align-items-center">
-                        <div class="avatar avatar-xl mb-2 mb-sm-0">
-                            <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/p1.svg') }}"
-                                alt="">
-                        </div>
-                        <h4 class="mb-2 mb-sm-0 ms-sm-3"><span class="fw-light">Hi</span> {{ Auth::user()->first_name }}
-                            {{ Auth::user()->last_name }}</h4>
-                    </div>
+                <div class="row">
 
+                    <!-- Sidebar START -->
                     <livewire:pages.student-menu>
+                    <!-- Sidebar END -->
+
+                    <div class="col-lg-8 col-xl-9">
+
+                        {{ $slot }}
+
+                    </div>
 
                 </div>
             </div>
-        </section>
-
-        <section class="pt-0">
-            {{ $slot }}
         </section>
 
     </main>

@@ -52,8 +52,13 @@
                              data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
                              aria-expanded="false">
                              <span class="avatar avatar-sm" href="#">
-                                 <img class="avatar-img rounded-circle border border-3 border-primary"
-                                     src="{{ asset('assets/images/avatar/p1.svg') }}" alt="avatar">
+                                @if (Auth::user()->profile_picture == null)
+                                    <img id="uploadfile-1-preview" class="avatar-img rounded-circle border border-3 border-primary"
+                                        src="{{ asset('assets/images/avatar/p1.svg') }}" alt="" />
+                                @else
+                                    <img id="uploadfile-1-preview" class="avatar-img rounded-circle border border-3 border-primary"
+                                        src="{{ Auth::user()->profile_picture }}" alt="" />
+                                @endif
                              </span>
                              <span class="text-primary">Account</span>&nbsp;&nbsp;&nbsp;
                          </div>
