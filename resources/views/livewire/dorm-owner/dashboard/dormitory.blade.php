@@ -63,7 +63,7 @@
                                     </div>
 
                                     <!-- Title -->
-                                    <h5 class="card-title mb-0 me-5"><a href="#">{{ $dormitory->dorm_name }}</a></h5>
+                                    <h5 class="card-title mb-0 me-5"><a href="{{ route('dorm-owner.single-dorm', $dormitory->slug) }}" target="_blank">{{ $dormitory->dorm_name }}</a></h5>
                                     <small>
                                         <i class="bi bi-geo-alt me-2"></i>
                                         {{ Str::of($dormitory->street_address)->limit(20) }} | {{ $dormitory->regin }}, {{ $dormitory->city }}
@@ -79,11 +79,11 @@
                                         </div>
                                         <!-- Price -->
                                         <div class="hstack gap-2 mt-3 mt-sm-0">
-                                            <a href="#" class="btn btn-sm btn-success mb-0">
+                                            <a href={{ route('dorm-owner.add-room', $dormitory->id) }}" class="btn btn-sm btn-success mb-0" wire:navigate>
                                                 <i class="bi bi-building-add fa-fw me-1"></i>Add Rooms
                                             </a>
-                                            <a href="#" target="_blank" class="btn btn-sm btn-info mb-0">
-                                                <i class="bi bi-node-plus fa-fw me-1"></i>Add Ameniries
+                                            <a href="{{ route('dorm-owner.add-amenity', $dormitory->id) }}" class="btn btn-sm btn-info mb-0">
+                                                <i class="bi bi-node-plus fa-fw me-1"></i>Add Amenity
                                             </a>
                                         </div>
                                     </div>
