@@ -1,3 +1,4 @@
+
 <div class="container vstack gap-4">
     <!-- Title START -->
     <div class="row">
@@ -25,7 +26,7 @@
         </div>
     @endif
 
-        <div class="row g-4">
+    <div class="row g-4">
         <div class="col-md-6">
             <div class="card border">
                 <div class="card-header border-bottom">
@@ -37,27 +38,26 @@
                             <!-- Full name -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Room Name/Number</label>
-                                <input
-                                    type="text"
-                                    class="form-control @error('roomName') is-invalid @enderror"
-                                    placeholder="e.g room 23"
-                                    wire:model='roomName'
-                                />
-                                 @error('roomName')
-                                    <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span>
-                                 @enderror
+                                <input type="text" class="form-control @error('roomName') is-invalid @enderror"
+                                    placeholder="e.g room 23" wire:model='roomName' />
+                                @error('roomName')
+                                    <span
+                                        class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span>
+                                @enderror
                             </div>
                             <!-- Dorm type -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">type</label>
-                                <select wire:model='roomType' class="form-control @error('roomType') is-invalid @enderror">
+                                <select wire:model='roomType'
+                                    class="form-control @error('roomType') is-invalid @enderror">
                                     <option value="">-- select room type --</option>
                                     @foreach (App\Enums\RoomType::cases() as $case)
                                         <option value="{{ $case->name }}">{{ Str::ucfirst($case->value) }}</option>
                                     @endforeach
                                 </select>
                                 @error('roomType')
-                                    <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span>
+                                    <span
+                                        class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span>
                                 @enderror
                             </div>
                         </div>
@@ -66,27 +66,21 @@
                             <!-- room capacity -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Capacity</label>
-                                <input
-                                    type="number"
-                                    class="form-control @error('capacity') is-invalid @enderror"
-                                    placeholder="e.g 2"
-                                    wire:model='capacity'
-                                />
+                                <input type="number" class="form-control @error('capacity') is-invalid @enderror"
+                                    placeholder="e.g 2" wire:model='capacity' />
                                 @error('capacity')
-                                    <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span>
+                                    <span
+                                        class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span>
                                 @enderror
                             </div>
                             <!-- room price -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">price</label>
-                                <input
-                                    type="number"
-                                    class="form-control @error('price') is-invalid @enderror"
-                                    placeholder="e.g 5000"
-                                    wire:model='price'
-                                />
+                                <input type="number" class="form-control @error('price') is-invalid @enderror"
+                                    placeholder="e.g 5000" wire:model='price' />
                                 @error('price')
-                                    <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span>
+                                    <span
+                                        class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span>
                                 @enderror
                             </div>
                         </div>
@@ -98,23 +92,17 @@
                                 @if ($roomPictures)
                                     <label class="position-relative me-4 d-flex" for="uploadfile-1" title="dorm image">
                                         @foreach ($roomPictures as $roomPicture)
-                                        <span class="avatar avatar-xxxl">
-                                            <img id="uploadfile-1-preview"
-                                                class="avatar-img rounded border border-white border-3 shadow"
-                                                src="{{ $roomPicture->temporaryUrl() }}" alt=""
-                                            />
-                                        </span>
+                                            <span class="avatar avatar-xxxl">
+                                                <img id="uploadfile-1-preview"
+                                                    class="avatar-img rounded border border-white border-3 shadow"
+                                                    src="{{ $roomPicture->temporaryUrl() }}" alt="" />
+                                            </span>
                                         @endforeach
                                     </label>
                                 @endif
 
-                                <input
-                                    id="uploadfile-1"
-                                    class="form-control @error('dormPicture') is-invalid @enderror"
-                                    wire:model='roomPictures'
-                                    type="file"
-                                    multiple
-                                />
+                                <input id="uploadfile-1" class="form-control @error('dormPicture') is-invalid @enderror"
+                                    wire:model='roomPictures' type="file" multiple />
                                 @error('roomPictures.*')
                                     <br><span class="invalid-feedback"><small><i>{{ $message }}</i></small></span>
                                 @enderror
@@ -130,7 +118,8 @@
                                 <button type="submit" class="btn btn-primary mb-0 mt-2" wire:loading.attr="disabled">
                                     <span wire:loading.remove>Save</span>
                                     <span wire:loading wire:target="save" class="text-center">
-                                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                        <span class="spinner-border spinner-border-sm" role="status"
+                                            aria-hidden="true"></span>
                                     </span>
                                 </button>
                             </div>
@@ -141,73 +130,66 @@
         </div>
         <div class="col-md-6">
 
-				<div class="card bg-transparent p-0">
-					<!-- Card header -->
-					<div class="card-header bg-transparent border-bottom d-sm-flex justify-content-sm-between align-items-center p-0 pb-3">
-						<h4 class="mb-2 mb-sm-0">Rooms</h4>
-					</div>
-                    @forelse ($dorm->rooms as $room)
-					<!-- Card body START -->
-					<div class="card-body p-0 pt-3">
-						<div class="vstack gap-5">
-							<!-- Room item START -->
-							<div class="card border bg-transparent p-3">
-								<div class="row g-3 g-md-4">
-									<!-- Image and content -->
-									<div class="col-md-4">
-										<!-- Image -->
-										<div class="position-relative">
-											<img src="{{ $room->room_pictures[0] }}" class="card-img" alt="">
-											<!-- Badge -->
-											<div class="card-img-overlay">
-												<a href="assets/images/gallery/12.jpg" class="badge bg-dark stretched-link" data-glightbox="" data-gallery="gallery">
-													5 Photos <i class="bi bi-arrow-right"></i>
-												</a>
-											</div>
-											<!-- Popup Images -->
-											<a data-glightbox="" data-gallery="gallery" href="assets/images/gallery/11.jpg" class="stretched-link z-index-9"></a>
-											<a data-glightbox="" data-gallery="gallery" href="assets/images/gallery/15.jpg"></a>
-											<a data-glightbox="" data-gallery="gallery" href="assets/images/gallery/16.jpg"></a>
-										</div>
-									</div>
+            <div class="card bg-transparent p-0">
+                <!-- Card header -->
+                <div
+                    class="card-header bg-transparent border-bottom d-sm-flex justify-content-sm-between align-items-center p-0 pb-3">
+                    <h4 class="mb-2 mb-sm-0">Rooms</h4>
+                </div>
+                @forelse ($dorm->rooms as $room)
+                    <div class="card-body pt-4 p-0">
+                        <div class="vstack gap-4">
 
-									<!-- Room detail START -->
-									<div class="col-md-8">
-										<div class="card-body d-flex flex-column p-0 h-100">
-											<!-- Title -->
-											<h5 class="card-title">Deluxe Pool View with Breakfast</h5>
+                            <!-- Room item START -->
+                            <div class="card shadow p-3">
+                                <div class="row g-4">
+                                    <!-- Card img -->
+                                    <div class="col-md-4 position-relative">
+                                        <div class="tiny-slider arrow-round arrow-xs arrow-dark overflow-hidden rounded-2">
+                                            <div class="tiny-slider-inner" data-autoplay="true" data-arrow="true"
+                                                data-dots="false" data-items="1">
+                                                @foreach ($room->room_pictures as $roomPicture)
+                                                    <div><img src="{{ $roomPicture }}" alt="" class="img-fluid" style="height: 150px; width: auto; object-fit: contain;"></div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
 
-											<!-- List -->
-											<ul class="nav small nav-divider mb-0">
-												<li class="nav-item mb-0">
-													<i class="fa-regular fa-square me-1"></i>{{ $room->availability }}
-												</li>
-												<li class="nav-item mb-0">
-													<i class="fa-solid fa-bed me-1"></i>{{ $room->room_type  }} room
-												</li>
-											</ul>
+                                    <div class="col-md-7">
+                                        <div class="card-body d-flex flex-column h-100 p-0">
 
-											<!-- Price and button -->
-											<div class="d-flex justify-content-between align-items-center mt-2 mt-md-auto">
-												<div class="d-flex text-success">
-													<h6 class="h5 mb-0 text-success">${{ $room->price }}</h6>
-													<span class="fw-light"> /per year</span>
-												</div>
-												<a href="#" class="btn btn-sm btn-dark mb-0">delete</a>
-											</div>
-										</div>
-									</div>
-									<!-- Room detail START -->
-								</div>
-							</div>
-							<!-- Room item END -->
-						</div>
-					</div>
-                    @empty
+                                            <h5 class="card-title text-primary">{{ $room->room_name }}</h5>
 
-                    @endforelse
-					<!-- Card body END -->
-				</div>
+                                            <!-- Amenities -->
+                                            <ul class="nav nav-divider mb-2">
+                                                <li class="nav-item"><i class="fa-regular fa-square me-1"></i>capacity: {{ $room->capacity }}</li>
+                                                <li class="nav-item"><i class="fa-solid fa-bed me-1"></i>{{ $room->room_type  }} room</li>
+                                            </ul>
+
+                                            <p class="text-success mb-0">{{ $room->availability }}</p>
+
+                                            <!-- Price and Button -->
+                                            <div class="d-sm-flex justify-content-sm-between align-items-center mt-auto">
+                                                <div class="d-flex align-items-center">
+                                                    <h5 class="fw-bold mb-0 me-1">${{ $room->price }}</h5>
+                                                    <span class="mb-0 me-2">/per year</span>
+                                                </div>
+                                                <div class="mt-3 mt-sm-0">
+                                                    <a href="#" class="btn btn-sm btn-primary mb-0">Edit Room</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Room item END -->
+
+                        </div>
+                    </div>
+                @empty
+                @endforelse
+                <!-- Card body END -->
+            </div>
 
         </div>
     </div>

@@ -80,10 +80,10 @@
                                         <!-- Price -->
                                         <div class="hstack gap-2 mt-3 mt-sm-0">
                                             <a href="{{ route('dorm-owner.add-room', $dormitory->id) }}" class="btn btn-sm btn-success mb-0" wire:navigate>
-                                                <i class="bi bi-building-add fa-fw me-1"></i>Add Rooms
+                                                <i class="bi bi-building-add fa-fw me-1"></i>Manage Rooms
                                             </a>
                                             <a href="{{ route('dorm-owner.add-amenity', $dormitory->id) }}" class="btn btn-sm btn-info mb-0">
-                                                <i class="bi bi-node-plus fa-fw me-1"></i>Add Amenity
+                                                <i class="bi bi-node-plus fa-fw me-1"></i>Amenity
                                             </a>
                                         </div>
                                     </div>

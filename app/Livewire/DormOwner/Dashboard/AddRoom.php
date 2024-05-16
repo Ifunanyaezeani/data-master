@@ -47,6 +47,7 @@ class AddRoom extends Component
         }
         Room::create([
             'dormitory_id' => $this->id,
+            'room_name' => $this->roomName,
             'room_type' => $this->roomType,
             'capacity' => $this->capacity,
             'price' => $this->price,
@@ -54,6 +55,7 @@ class AddRoom extends Component
             'room_pictures' => $roomImages
         ]);
         Session::flash('message', 'You have successfully added a room to this dormitory');
+        $this->roomName = '';
         $this->roomType = '';
         $this->capacity = '';
         $this->price = '';
