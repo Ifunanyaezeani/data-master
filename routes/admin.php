@@ -8,6 +8,7 @@ use App\Livewire\Admin\Login as AdminLogin;
 use App\Livewire\Admin\Dashboard\DormOwners;
 use App\Livewire\Admin\Dashboard\Dormitories;
 use App\Livewire\Admin\Dashboard\DormOwnerDetails;
+use App\Livewire\Admin\Dashboard\Setting;
 use App\Livewire\Admin\Dashboard\StudentDetails;
 
 Route::middleware(['guest:admin'])->group(function () {
@@ -27,4 +28,6 @@ Route::middleware(['auth:admin'])->prefix('/admin')->group(function () {
 
     Route::get('/dormitories', Dormitories::class)->name('admin.dormitories');
     Route::get('/dorm/{slug}', [Explore::class, 'singleDorm'])->name('admin.single-dorm');
+
+    Route::get('/setting', Setting::class)->name('admin.setting');
 });

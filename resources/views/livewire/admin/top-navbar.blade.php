@@ -5,7 +5,7 @@
             <!-- Logo START -->
             <div class="d-flex align-items-center d-xl-none">
                 <a class="navbar-brand" href="" wire:navigate>
-                     <span class="navbar-brand-item"><Strong>Data Master</Strong></span>
+                    <span class="navbar-brand-item"><Strong>Data Master</Strong></span>
                 </a>
             </div>
             <!-- Logo END -->
@@ -25,18 +25,22 @@
                 <!-- Profile dropdown START -->
                 <li class="nav-item ms-3">
                     <!-- Avatar -->
-                   <a href=""
-                         wire:navigate>
-                         <div class="bg-primary bg-opacity-25 rounded-pill " id="profileDropdown" role="button"
-                             data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
-                             aria-expanded="false">
-                             <span class="avatar avatar-sm" href="#">
-                                 <img class="avatar-img rounded-circle border border-3 border-primary"
-                                     src="{{ asset('assets/images/avatar/p1.svg') }}" alt="avatar">
-                             </span>
-                             <span class="text-primary">Admin Profile</span>&nbsp;&nbsp;&nbsp;
-                         </div>
-                     </a>
+                    <a href="{{ route('admin.setting') }}" wire:navigate>
+                        <div class="bg-primary bg-opacity-25 rounded-pill " id="profileDropdown" role="button"
+                            data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <span class="avatar avatar-sm" href="#">
+                                @if (Auth::user()->profile_picture == null)
+                                    <img class="avatar-img rounded-circle border border-3 border-primary"
+                                        src="{{ asset('assets/images/avatar/p1.svg') }}" alt="" />
+                                @else
+                                    <img class="avatar-img rounded-circle border border-3 border-primary"
+                                        src="{{ Auth::user()->profile_picture }}" alt="" />
+                                @endif
+                            </span>
+                            <span class="text-primary">Admin Profile</span>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </a>
 
                     {{-- <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3"
                         aria-labelledby="profileDropdown">
@@ -76,4 +80,3 @@
         </div>
     </div>
 </nav>
-

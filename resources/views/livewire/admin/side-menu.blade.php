@@ -15,7 +15,6 @@
             <ul class="navbar-nav flex-column" id="navbar-sidebar">
                 <!-- Menu item -->
                 <li class="nav-item"><a href="{{ route('admin') }}" class="nav-link  {{ Request::is('/') ? 'active' : '' }}" wire:navigate>
-                        <i class="bi bi-house-door-fill fa-fw me-2"></i>
                         Dashboard
                     </a></li>
 
@@ -68,8 +67,7 @@
                 <li class="nav-item ms-2 my-2">Extra Section</li>
                 <!-- Menu item -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="bi bi-gear-fill fa-fw me-2"></i>
+                    <a class="nav-link" href="{{ route('admin.setting') }}" wire:navigate>
                         System setting
                     </a>
                 </li>
@@ -80,10 +78,6 @@
             <div class="d-flex align-items-center justify-content-between text-primary-hover mt-auto p-3 navbar-nav nav-item">
                 <a class="h6 fw-light mb-0 nav-link cursor-pointer" wire:click="logout" aria-label="Sign out">
                     <i class="bi bi-door-open-fill fa-fw me-2 cursor-pointer"></i> Log out
-                </a>
-                <a class="h6 mb-0 text-body" href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                    aria-label="Settings">
-                    <i class="bi bi-gear-fill"></i>
                 </a>
             </div>
             <!-- Sidebar footer END -->
