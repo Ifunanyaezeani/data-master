@@ -2,10 +2,29 @@
     <!-- Title START -->
     <div class="row">
         <div class="col-12">
-            <h3 class="fs-4 mb-0"><i class="bi bi-house fa-fw me-1"></i>Add amenities to <i>({{ $dorm->dorm_name }})</i>
+            <h3 class="fs-4 mb-0"><i class="bi bi-house fa-fw me-1"></i>Add amenities to <i
+                    class="text-primary">({{ $dorm->dorm_name }})</i>
             </h3>
         </div>
     </div>
+
+    @if (session()->has('message'))
+        <div class="alert alert-success d-flex align-items-center rounded-3 mb-0" role="alert">
+            <h4 class="mb-0 alert-heading"><i class="bi bi-check2-circle me-2"></i> </h4>
+            <div class="ms-3">
+                <h6 class="mb-0 alert-heading">{{ session('message') }}</h6>
+            </div>
+        </div>
+    @endif
+
+    @if (session()->has('error_message'))
+        <div class="alert alert-danger d-flex align-items-center rounded-3 mb-0" role="alert">
+            <h4 class="mb-0 alert-heading"><i class="bi bi-x-circle me-2"></i> </h4>
+            <div class="ms-3">
+                <h6 class="mb-0 alert-heading">{{ session('error_message') }}</h6>
+            </div>
+        </div>
+    @endif
 
     <div class="row g-4">
         <div class="col-md-6">
@@ -14,14 +33,21 @@
                     <h5 class="card-header-title">Already added amenities</h5>
                 </div>
                 <div class="card-body">
-                    <form wire:submit.prevent='save'>
-                        <div class="row">
-                            <!-- Full name -->
-                            <div class="col-md-6 mb-3">
-                                <p>No amenities added</p>
-                            </div>
+                    <div class="row">
+                        <!-- Full name -->
+                        <div class="col-md-12 mb-3">
+                            @forelse ($dorm->amenities as $amenity)
+                                <a href="#" class="badge bg-success bg-opacity-10 text-success mb-2"
+                                    wire:click='deleteAmenity({{ $amenity->id }})'
+                                    wire:confirm="Are you sure you want to delete this amenity?">
+                                    <i class="fa-solid fa-check-circle text-an me-2"></i>
+                                    {{ $amenity->amenity_name }}
+                                </a>&nbsp;
+                            @empty
+                                <p>No amenities has been added</p>
+                            @endforelse
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -39,9 +65,9 @@
                                 <label class="form-label">Amenities</label>
                                 <select wire:model='amenityId'
                                     class="form-control @error('amenityId') is-invalid @enderror">
-                                    <option value="">-- select amenities --</option>
-                                    @foreach (App\Enums\RoomType::cases() as $case)
-                                        <option value="{{ $case->name }}">{{ Str::ucfirst($case->value) }}</option>
+                                    <option>-- select amenities --</option>
+                                    @foreach ($amenities as $amenity)
+                                        <option value="{{ $amenity->id }}">{{ $amenity->amenity_name }}</option>
                                     @endforeach
                                 </select>
                                 @error('amenityId')
@@ -59,7 +85,6 @@
                                     <span wire:loading wire:target="save" class="text-center">
                                         <span class="spinner-border spinner-border-sm" role="status"
                                             aria-hidden="true"></span>
-                                        <span class="visually-hidden">Loading...</span>
                                     </span>
                                 </button>
                             </div>

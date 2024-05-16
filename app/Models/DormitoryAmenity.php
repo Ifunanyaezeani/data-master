@@ -9,6 +9,8 @@ class DormitoryAmenity extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function dormitories()
     {
         return $this->belongsToMany(Dormitory::class, 'dormitory_amenity');

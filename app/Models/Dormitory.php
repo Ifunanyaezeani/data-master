@@ -19,9 +19,14 @@ class Dormitory extends Model
         return $this->hasMany(Room::class);
     }
 
+    // public function amenities()
+    // {
+    //     return $this->belongsToMany(DormitoryAmenity::class, 'dormitory_amenity');
+    // }
+
     public function amenities()
     {
-        return $this->belongsToMany(DormitoryAmenity::class, 'dormitory_amenity');
+        return $this->belongsToMany(Amenity::class, 'dormitory_amenities', 'dormitory_id', 'amenity_id');
     }
 
     public function reviews()
