@@ -1,4 +1,4 @@
-		<div class="page-content-wrapper p-xxl-4">
+		<div class="page-content-wrapper p-xxl-4 bg-transparent">
 
 			<!-- Counter START -->
 			<div class="row g-4 mb-4">

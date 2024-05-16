@@ -1,4 +1,4 @@
-		<div class="page-content-wrapper p-xxl-4">
+		<div class="page-content-wrapper p-xxl-4 bg-transparent">
 
 			<!-- Title -->
 			<div class="row">
