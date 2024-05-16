@@ -40,7 +40,7 @@
                             <!-- Button -->
                             <div class="col-md-6 col-lg-2 mt-md-auto">
                                 <a class="btn btn-lg btn-primary w-100 mb-0" href="#">
-                                   Search <i class="bi bi-search fa-fw"></i></a>
+                                    Search <i class="bi bi-search fa-fw"></i></a>
                             </div>
 
                         </form>
@@ -152,87 +152,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Price range END -->
 
-                                <hr class="my-0"> <!-- Divider -->
-
-                                <hr class="my-0"> <!-- Divider -->
-
-                                <!-- Customer Rating START -->
-                                <div class="card card-body rounded-0 p-4">
-                                    <!-- Title -->
-                                    <h6 class="mb-2">Student Rating</h6>
-                                    <!-- Customer Rating group -->
-                                    <ul class="list-inline mb-0 g-3">
-                                        <!-- Item -->
-                                        <li class="list-inline-item mb-0">
-                                            <input type="checkbox" class="btn-check" id="btn-check-c1">
-                                            <label class="btn btn-sm btn-light btn-primary-soft-check"
-                                                for="btn-check-c1">3+</label>
-                                        </li>
-                                        <!-- Item -->
-                                        <li class="list-inline-item mb-0">
-                                            <input type="checkbox" class="btn-check" id="btn-check-c2">
-                                            <label class="btn btn-sm btn-light btn-primary-soft-check"
-                                                for="btn-check-c2">3.5+</label>
-                                        </li>
-                                        <!-- Item -->
-                                        <li class="list-inline-item mb-0">
-                                            <input type="checkbox" class="btn-check" id="btn-check-c3">
-                                            <label class="btn btn-sm btn-light btn-primary-soft-check"
-                                                for="btn-check-c3">4+</label>
-                                        </li>
-                                        <!-- Item -->
-                                        <li class="list-inline-item mb-0">
-                                            <input type="checkbox" class="btn-check" id="btn-check-c4">
-                                            <label class="btn btn-sm btn-light btn-primary-soft-check"
-                                                for="btn-check-c4">4.5+</label>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- Customer Rating END -->
-
-                                <hr class="my-0"> <!-- Divider -->
-
-                                <!-- Rating Star START -->
-                                <div class="card card-body rounded-0 p-4">
-                                    <!-- Title -->
-                                    <h6 class="mb-2">Rating Star</h6>
-                                    <!-- Rating Star group -->
-                                    <ul class="list-inline mb-0 g-3">
-                                        <!-- Item -->
-                                        <li class="list-inline-item mb-0">
-                                            <input type="checkbox" class="btn-check" id="btn-check-6">
-                                            <label class="btn btn-sm btn-light btn-primary-soft-check"
-                                                for="btn-check-6">1<i class="bi bi-star-fill"></i></label>
-                                        </li>
-                                        <!-- Item -->
-                                        <li class="list-inline-item mb-0">
-                                            <input type="checkbox" class="btn-check" id="btn-check-7">
-                                            <label class="btn btn-sm btn-light btn-primary-soft-check"
-                                                for="btn-check-7">2<i class="bi bi-star-fill"></i></label>
-                                        </li>
-                                        <!-- Item -->
-                                        <li class="list-inline-item mb-0">
-                                            <input type="checkbox" class="btn-check" id="btn-check-8">
-                                            <label class="btn btn-sm btn-light btn-primary-soft-check"
-                                                for="btn-check-8">3<i class="bi bi-star-fill"></i></label>
-                                        </li>
-                                        <!-- Item -->
-                                        <li class="list-inline-item mb-0">
-                                            <input type="checkbox" class="btn-check" id="btn-check-15">
-                                            <label class="btn btn-sm btn-light btn-primary-soft-check"
-                                                for="btn-check-15">4<i class="bi bi-star-fill"></i></label>
-                                        </li>
-                                        <!-- Item -->
-                                        <li class="list-inline-item mb-0">
-                                            <input type="checkbox" class="btn-check" id="btn-check-16">
-                                            <label class="btn btn-sm btn-light btn-primary-soft-check"
-                                                for="btn-check-16">5<i class="bi bi-star-fill"></i></label>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- Rating Star END -->
 
                                 <hr class="my-0"> <!-- Divider -->
 
@@ -243,77 +163,13 @@
                                     <!-- Amenities group -->
                                     <div class="col-12">
                                         <!-- Checkbox -->
+                                        @foreach ($amenities as $amenity)
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value=""
                                                 id="amenitiesType1">
-                                            <label class="form-check-label" for="amenitiesType1">All</label>
+                                            <label class="form-check-label" for="amenitiesType1">{{ $amenity->amenity_name }}</label>
                                         </div>
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="amenitiesType2">
-                                            <label class="form-check-label" for="amenitiesType2">Air Conditioning</label>
-                                        </div>
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="amenitiesType3">
-                                            <label class="form-check-label" for="amenitiesType3">Bar</label>
-                                        </div>
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="amenitiesType4">
-                                            <label class="form-check-label" for="amenitiesType4">Bonfire</label>
-                                        </div>
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="amenitiesType5">
-                                            <label class="form-check-label" for="amenitiesType5">Business Services</label>
-                                        </div>
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="amenitiesType6">
-                                            <label class="form-check-label" for="amenitiesType6">Caretaker</label>
-                                        </div>
-
-                                        <!-- Collapse body -->
-                                        <div class="multi-collapse collapse" id="amenitiesCollapes">
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="amenitiesType7">
-                                                <label class="form-check-label" for="amenitiesType7">Dining</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="amenitiesType8">
-                                                <label class="form-check-label" for="amenitiesType8">Free Internet</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="amenitiesType9">
-                                                <label class="form-check-label" for="amenitiesType9">Hair nets</label>
-                                            </div>
-                                            <!-- Checkbox -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="amenitiesType10">
-                                                <label class="form-check-label" for="amenitiesType10">Masks</label>
-                                            </div>
-                                        </div>
-                                        <!-- Collapse button -->
-                                        <a class="p-0 mb-0 mt-2 btn-more d-flex align-items-center collapsed"
-                                            data-bs-toggle="collapse" href="#amenitiesCollapes" role="button"
-                                            aria-expanded="false" aria-controls="amenitiesCollapes">
-                                            See <span class="see-more ms-1">more</span><span
-                                                class="see-less ms-1">less</span><i
-                                                class="fa-solid fa-angle-down ms-2"></i>
-                                        </a>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <!-- Amenities END -->
@@ -333,71 +189,38 @@
                 <div class="col-xl-8 col-xxl-9">
                     <div class="vstack gap-4">
                         @foreach ($ActiveDormitories as $activeDorm)
-                            <!-- Card item START -->
-                        <div class="card shadow p-2">
-                            <div class="row g-0">
-                                <!-- Card img -->
-                                <div class="col-md-5">
-                                    <img src="{{ $activeDorm->main_image }}" class="card-img rounded-2"
-                                        alt="Card image">
-                                </div>
+                            <div class="col-md-4">
+                                <div class="card shadow p-2 pb-0 h-100">
 
-                                <!-- Card body -->
-                                <div class="col-md-7">
-                                    <div class="card-body py-md-2 d-flex flex-column h-100 position-relative">
+                                    <img src="{{ $activeDorm->main_image }}" class="img-fluid rounded-2"
+                                        alt="Card image" style="width: auto;">
 
-                                        <!-- Rating and buttons -->
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <ul class="list-inline mb-0">
-                                                <li class="list-inline-item me-0 small"><i
-                                                        class="fa-solid fa-star text-warning"></i></li>
-                                                <li class="list-inline-item me-0 small"><i
-                                                        class="fa-solid fa-star text-warning"></i></li>
-                                                <li class="list-inline-item me-0 small"><i
-                                                        class="fa-solid fa-star text-warning"></i></li>
-                                                <li class="list-inline-item me-0 small"><i
-                                                        class="fa-solid fa-star text-warning"></i></li>
-                                                <li class="list-inline-item me-0 small"><i
-                                                        class="fa-solid fa-star-half-alt text-warning"></i></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Title -->
-                                        <h5 class="card-title mb-1"><a href="{{ route('explore.single-dorm', $activeDorm->slug) }}">{{ $activeDorm->dorm_name }}</a>
+                                    <!-- Card body START -->
+                                    <div class="card-body px-3 pb-0">
+                                        <h5 class="card-title"><a
+                                                href="{{ route('explore.single-dorm', $activeDorm->slug) }}">{{ $activeDorm->dorm_name }}</a>
                                         </h5>
-                                        <small><i class="bi bi-geo-alt me-2"></i>{{ Str::of($activeDorm->street_address)->limit(20) }} | {{ $activeDorm->regin }}, {{ $activeDorm->city }}</small>
-                                        <!-- Amenities -->
-                                        <ul class="nav nav-divider mt-3">
-                                            <li class="nav-item">Air Conditioning</li>
-                                            <li class="nav-item">Wifi</li>
-                                            <li class="nav-item">Kitchen</li>
-                                            </li>
-                                        </ul>
 
-                                        <!-- List -->
-                                        <ul class="list-group list-group-borderless small mb-0 mt-2">
-                                            <li class="list-group-item d-flex text-success p-0">
-                                                <i class="bi bi-patch-check-fill me-2"></i>Approved dorm
-                                            </li>
-                                        </ul>
+                                        <ul class="nav nav-divider mb-2 mb-sm-3">
+                                            @if ($activeDorm->amenities->count() >= 1)
+                                            <li class="nav-item"><small><b>With: </b> {{ $activeDorm->amenities[0]->amenity_name }}</small></li>
+                                            <li class="nav-item"><small>{{ $activeDorm->amenities[1]->amenity_name }}</small></li>
+                                            @endif
 
-                                        <!-- Price and Button -->
-                                        <div
-                                            class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
-                                            <!-- Button -->
-                                            <div class="d-flex align-items-center">
-                                                <span class="mb-0 me-2 badge text-bg-info">{{ $activeDorm->dorm_type }}</span>
-                                            </div>
-                                            <!-- Price -->
-                                            <div class="mt-3 mt-sm-0">
-                                                <a href="{{ route('explore.single-dorm', $activeDorm->slug) }}" class="btn btn-sm btn-dark mb-0 w-100">See Details</a>
+                                        </ul>
+                                    </div>
+                                    <!-- Card body END -->
+                                    <div class="card-footer pt-0">
+                                        <div class="d-sm-flex justify-content-sm-between align-items-center">
+                                            <div class="mt-2 mt-sm-0">
+                                                <a href="{{ route('explore.single-dorm', $activeDorm->slug) }}"
+                                                    class="btn btn-sm btn-primary-soft mb-0 w-100">View Detail<i
+                                                        class="bi bi-arrow-right ms-2"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Card item END -->
                         @endforeach
 
                         <!-- Pagination -->
