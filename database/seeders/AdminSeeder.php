@@ -18,7 +18,7 @@ class AdminSeeder extends Seeder
             'first_name' => "Godswill",
             'last_name' => "Azubike",
             'email' => "test1234@gmail.com",
-            'password' => Hash::make('password')
+            'password' => Hash::make('test1234')
         ]);
     }
 }

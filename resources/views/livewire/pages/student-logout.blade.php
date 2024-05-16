@@ -9,8 +9,6 @@
                     <img id="uploadfile-1-preview" class="avatar-img rounded-circle border border-3 border-primary"
                         src="{{ Auth::user()->profile_picture }}" alt="" />
                 @endif
-                {{-- <img class="avatar-img rounded-circle border border-3 border-primary"
-                        src="{{ asset('assets/images/avatar/p1.svg') }}" alt="avatar"> --}}
             </span>
             <span class="text-primary">Log out</span>&nbsp;&nbsp;&nbsp;
         </div>

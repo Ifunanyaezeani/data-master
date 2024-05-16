@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/apexcharts/css/apexcharts.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/choices/css/choices.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/choices/css/choices.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.snow.css" rel="stylesheet">
@@ -48,19 +48,25 @@
                     <!-- Avatar and info START -->
                     <div class="d-sm-flex align-items-center">
                         <div class="avatar avatar-xl mb-2 mb-sm-0">
-                            <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/p1.svg') }}"
-                                alt="">
+                            @if (Auth::user()->profile_picture == null)
+                                <img class="avatar-img rounded-circle border border-3 border-primary"
+                                    src="{{ asset('assets/images/avatar/p1.svg') }}" alt="" />
+                            @else
+                                <img class="avatar-img rounded-circle border border-3 border-primary"
+                                    src="{{ Auth::user()->profile_picture }}" alt="" />
+                            @endif
                         </div>
                         <h4 class="mb-2 mb-sm-0 ms-sm-3"><span class="fw-light">Hi</span>
                             {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
                         </h4>
-                        <a href="{{ route('dorm-owner.add-dorm') }}" class="btn btn-sm btn-primary-soft mb-0 ms-auto flex-shrink-0">
+                        <a href="{{ route('dorm-owner.add-dorm') }}"
+                            class="btn btn-sm btn-primary-soft mb-0 ms-auto flex-shrink-0">
                             <i class="bi bi-plus-lg fa-fw me-2"></i>Add New Dormitroy
                         </a>
                     </div>
 
                     <livewire:pages.dorm-owner-menu>
-                    <!-- Nav links END -->
+                        <!-- Nav links END -->
                 </div>
             </div>
         </section>
@@ -75,7 +81,7 @@
     <script src="{{ asset('assets/vendor/apexcharts/js/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/choices/js/choices.min.js') }}"></script>
     <script src="{{ asset('assets/js/functions.js') }}"></script>
-</script>
+    </script>
 
 </body>
 

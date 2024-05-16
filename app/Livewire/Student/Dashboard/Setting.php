@@ -44,7 +44,7 @@ class Setting extends Component
     #[Validate('required')]
     public $gender;
 
-    #[Rule(['profilePicture' => 'required|image|max:1024'])]
+    #[Rule(['profilePicture' => 'nullable|image|max:1024'])]
     public $profilePicture;
 
     public function mount()
