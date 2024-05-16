@@ -9,6 +9,8 @@ class Room extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     protected $casts = [
         'room_pictures' => 'array',
     ];

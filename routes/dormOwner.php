@@ -29,6 +29,6 @@ Route::middleware(['auth:dorm_owner'])->prefix('/dashboard')->group(function () 
 
     Route::get('/add-dormitory', AddDormitory::class)->name('dorm-owner.add-dorm');
     Route::get('/dorm/{slug}', [Explore::class, 'singleDorm'])->name('dorm-owner.single-dorm');
-    Route::get('/dormitory/add-room/{id}', AddRoom::class)->name('dorm-owner.add-room');
+    Route::get('/dormitory/{id}/add-room', AddRoom::class)->name('dorm-owner.add-room');
     Route::get('/dormitory/{id}/add-amenities', AddAmenity::class)->name('dorm-owner.add-amenity');
 });

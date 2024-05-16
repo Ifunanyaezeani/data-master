@@ -6,27 +6,24 @@
         </div>
     </div>
 
-    {{-- <div class="card border p-2">
-        <div class="row g-4">
-            <!-- Card img -->
-            <div class="col-md-3 col-lg-2">
-                <img src="{{ $dorm->main_image }}" class="card-img rounded-2" alt="Card image">
-            </div>
 
-            <!-- Card body -->
-            <div class="col-md-9 col-lg-10">
-                <div class="card-body position-relative d-flex flex-column p-0 h-100">
-
-                    <!-- Title -->
-                    <h5 class="card-title mb-0 me-5"><a href="#">{{ $dorm->dorm_name }}</a></h5>
-                    <small>
-                        <i class="bi bi-geo-alt me-2"></i>
-                        {{ Str::of($dorm->street_address)->limit(20) }} | {{ $dorm->regin }}, {{ $dorm->price }}
-                    </small>
-                </div>
+    @if (session()->has('message'))
+        <div class="alert alert-success d-flex align-items-center rounded-3 mb-0" role="alert">
+            <h4 class="mb-0 alert-heading"><i class="bi bi-check2-circle me-2"></i> </h4>
+            <div class="ms-3">
+                <h6 class="mb-0 alert-heading">{{ session('message') }}</h6>
             </div>
         </div>
-    </div> --}}
+    @endif
+
+    @if (session()->has('error_message'))
+        <div class="alert alert-danger d-flex align-items-center rounded-3 mb-0" role="alert">
+            <h4 class="mb-0 alert-heading"><i class="bi bi-x-circle me-2"></i> </h4>
+            <div class="ms-3">
+                <h6 class="mb-0 alert-heading">{{ session('error_message') }}</h6>
+            </div>
+        </div>
+    @endif
 
         <div class="row g-4">
         <div class="col-md-6">
@@ -40,8 +37,15 @@
                             <!-- Full name -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Room Name/Number</label>
-                                <input type="text" class="form-control @error('roomName') is-invalid @enderror" placeholder="e.g room 23" wire:model='roomName'>
-                                 @error('roomName') <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span> @enderror
+                                <input
+                                    type="text"
+                                    class="form-control @error('roomName') is-invalid @enderror"
+                                    placeholder="e.g room 23"
+                                    wire:model='roomName'
+                                />
+                                 @error('roomName')
+                                    <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span>
+                                 @enderror
                             </div>
                             <!-- Dorm type -->
                             <div class="col-md-6 mb-3">
@@ -52,7 +56,9 @@
                                         <option value="{{ $case->name }}">{{ Str::ucfirst($case->value) }}</option>
                                     @endforeach
                                 </select>
-                                 @error('roomType') <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span> @enderror
+                                @error('roomType')
+                                    <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span>
+                                @enderror
                             </div>
                         </div>
 
@@ -60,36 +66,61 @@
                             <!-- room capacity -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Capacity</label>
-                                <input type="number" wire:model='capacity' class="form-control @error('capacity') is-invalid @enderror" placeholder="e.g 2">
-                                @error('capacity') <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span> @enderror
+                                <input
+                                    type="number"
+                                    class="form-control @error('capacity') is-invalid @enderror"
+                                    placeholder="e.g 2"
+                                    wire:model='capacity'
+                                />
+                                @error('capacity')
+                                    <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span>
+                                @enderror
                             </div>
                             <!-- room price -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">price</label>
-                                <input type="number" wire:model='price' class="form-control @error('price') is-invalid @enderror" placeholder="e.g 5000" required>
-                                @error('price') <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span> @enderror
+                                <input
+                                    type="number"
+                                    class="form-control @error('price') is-invalid @enderror"
+                                    placeholder="e.g 5000"
+                                    wire:model='price'
+                                />
+                                @error('price')
+                                    <span class="invalid-feedback position-absolute"><small><i>{{ $message }}</i></small></span>
+                                @enderror
                             </div>
                         </div>
 
                         <!-- room picture -->
                         <div class="mb-3 mt-4">
                             <label class="form-label">Room Pictures</label>
-                            <div class="d-flex align-items-center">
-                                {{-- @if ($dormPicture)
-                                    <label class="position-relative me-4" for="uploadfile-1" title="dorm image">
+                            <div class="align-items-center">
+                                @if ($roomPictures)
+                                    <label class="position-relative me-4 d-flex" for="uploadfile-1" title="dorm image">
+                                        @foreach ($roomPictures as $roomPicture)
                                         <span class="avatar avatar-xxxl">
                                             <img id="uploadfile-1-preview"
                                                 class="avatar-img rounded border border-white border-3 shadow"
-                                                src="{{ $dormPicture->temporaryUrl() }}" alt="">
+                                                src="{{ $roomPicture->temporaryUrl() }}" alt=""
+                                            />
                                         </span>
+                                        @endforeach
                                     </label>
-                                @endif --}}
+                                @endif
 
-                                <!-- Upload button -->
-                                <label class="btn btn-sm btn-primary-soft mb-0" for="uploadfile-1">Upload Picture</label>
-                                <input id="uploadfile-1" class="form-control d-none @error('dormPicture') is-invalid @enderror" wire:model='dormPicture'
-                                    type="file">
-                                    @error('dormPicture') <br><span class="invalid-feedback"><small><i>{{ $message }}</i></small></span> @enderror
+                                <input
+                                    id="uploadfile-1"
+                                    class="form-control @error('dormPicture') is-invalid @enderror"
+                                    wire:model='roomPictures'
+                                    type="file"
+                                    multiple
+                                />
+                                @error('roomPictures.*')
+                                    <br><span class="invalid-feedback"><small><i>{{ $message }}</i></small></span>
+                                @enderror
+                                @error('roomPictures')
+                                    <br><span class="invalid-feedback"><small><i>{{ $message }}</i></small></span>
+                                @enderror
                             </div>
                         </div>
 
@@ -100,7 +131,6 @@
                                     <span wire:loading.remove>Save</span>
                                     <span wire:loading wire:target="save" class="text-center">
                                         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Loading...</span>
                                     </span>
                                 </button>
                             </div>
@@ -109,7 +139,77 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-6">
 
+				<div class="card bg-transparent p-0">
+					<!-- Card header -->
+					<div class="card-header bg-transparent border-bottom d-sm-flex justify-content-sm-between align-items-center p-0 pb-3">
+						<h4 class="mb-2 mb-sm-0">Rooms</h4>
+					</div>
+                    @forelse ($dorm->rooms as $room)
+					<!-- Card body START -->
+					<div class="card-body p-0 pt-3">
+						<div class="vstack gap-5">
+							<!-- Room item START -->
+							<div class="card border bg-transparent p-3">
+								<div class="row g-3 g-md-4">
+									<!-- Image and content -->
+									<div class="col-md-4">
+										<!-- Image -->
+										<div class="position-relative">
+											<img src="{{ $room->room_pictures[0] }}" class="card-img" alt="">
+											<!-- Badge -->
+											<div class="card-img-overlay">
+												<a href="assets/images/gallery/12.jpg" class="badge bg-dark stretched-link" data-glightbox="" data-gallery="gallery">
+													5 Photos <i class="bi bi-arrow-right"></i>
+												</a>
+											</div>
+											<!-- Popup Images -->
+											<a data-glightbox="" data-gallery="gallery" href="assets/images/gallery/11.jpg" class="stretched-link z-index-9"></a>
+											<a data-glightbox="" data-gallery="gallery" href="assets/images/gallery/15.jpg"></a>
+											<a data-glightbox="" data-gallery="gallery" href="assets/images/gallery/16.jpg"></a>
+										</div>
+									</div>
+
+									<!-- Room detail START -->
+									<div class="col-md-8">
+										<div class="card-body d-flex flex-column p-0 h-100">
+											<!-- Title -->
+											<h5 class="card-title">Deluxe Pool View with Breakfast</h5>
+
+											<!-- List -->
+											<ul class="nav small nav-divider mb-0">
+												<li class="nav-item mb-0">
+													<i class="fa-regular fa-square me-1"></i>{{ $room->availability }}
+												</li>
+												<li class="nav-item mb-0">
+													<i class="fa-solid fa-bed me-1"></i>{{ $room->room_type  }} room
+												</li>
+											</ul>
+
+											<!-- Price and button -->
+											<div class="d-flex justify-content-between align-items-center mt-2 mt-md-auto">
+												<div class="d-flex text-success">
+													<h6 class="h5 mb-0 text-success">${{ $room->price }}</h6>
+													<span class="fw-light"> /per year</span>
+												</div>
+												<a href="#" class="btn btn-sm btn-dark mb-0">delete</a>
+											</div>
+										</div>
+									</div>
+									<!-- Room detail START -->
+								</div>
+							</div>
+							<!-- Room item END -->
+						</div>
+					</div>
+                    @empty
+
+                    @endforelse
+					<!-- Card body END -->
+				</div>
+
+        </div>
     </div>
 
 </div>
