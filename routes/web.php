@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Explore;
 use Illuminate\Support\Facades\Route;
 
@@ -11,6 +12,8 @@ Route::middleware(['auth:web'])->group(function(){
     Route::get('/explore', [Explore::class, 'index'])->name('explore');
     Route::get('explore/dorm/{slug}', [Explore::class, 'singleDorm'])->name('explore.single-dorm');
     Route::get('/explore/compare-dorm', fn()=>view('pages.compare'))->name('explore.compare');
+
+    Route::get('/book-now/{dormId}/{roomId}/{slug}', [BookingController::class, 'bookingPage'])->name('booking.now');
 });
 
 
