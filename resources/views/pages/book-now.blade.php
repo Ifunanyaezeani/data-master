@@ -253,7 +253,7 @@
 
 												<!-- Button -->
 												<div class="d-grid">
-													<button class="btn btn-success mb-0">Confirm Booking</button>
+													<a href="{{ route('booking.confirm', [Auth::user()->id, $room->id, $dorm->id]) }}" class="btn btn-success mb-0">Confirm Booking</a>
 												</div>
 
 											</div>

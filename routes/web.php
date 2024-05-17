@@ -14,6 +14,8 @@ Route::middleware(['auth:web'])->group(function(){
     Route::get('/explore/compare-dorm', fn()=>view('pages.compare'))->name('explore.compare');
 
     Route::get('/book-now/{dormId}/{roomId}/{slug}', [BookingController::class, 'bookingPage'])->name('booking.now');
+    Route::get('/booking-confirmed/{userId}/{roomId}/{dormId}', [BookingController::class, 'confirmBooking'])->name('booking.confirm');
+    Route::get('/{dormId}/{bookingId}/booking-success', [BookingController::class, 'bookingSuccess'])->name('booking-success');
 });
 
 

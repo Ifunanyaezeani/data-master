@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Dormitory extends Model
 {
     use HasFactory;
-
+    protected $dates = ['created_at', 'updated_at'];
     public function owner()
     {
         return $this->belongsTo(User::class, 'dorm_owner_id');
