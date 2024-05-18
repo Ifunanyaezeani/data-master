@@ -8,6 +8,25 @@
     <!-- Title END -->
 
 
+        @if (session()->has('message'))
+        <div class="alert alert-success d-flex align-items-center rounded-3 mb-0" role="alert">
+            <h4 class="mb-0 alert-heading"><i class="bi bi-check2-circle me-2"></i> </h4>
+            <div class="ms-3">
+                <h6 class="mb-0 alert-heading">{{ session('message') }}</h6>
+            </div>
+        </div>
+    @endif
+
+    @if (session()->has('error_message'))
+        <div class="alert alert-danger d-flex align-items-center rounded-3 mb-0" role="alert">
+            <h4 class="mb-0 alert-heading"><i class="bi bi-x-circle me-2"></i> </h4>
+            <div class="ms-3">
+                <h6 class="mb-0 alert-heading">{{ session('error_message') }}</h6>
+            </div>
+        </div>
+    @endif
+
+
     <!-- Booking table START -->
     <div class="row">
         <div class="col-12">
@@ -58,7 +77,19 @@
                                     <td>
                                         <div class="badge bg-success bg-opacity-10 text-success">{{ strtolower($room->booking->booking_status) }}</div>
                                     </td>
-                                    <td> <a href="#" class="btn btn-sm btn-light mb-0">View details</a> </td>
+                                    <td>
+                                        @if ($room->booking->booking_status == App\Enums\BookingStatus::CANCELED->name)
+                                        <button
+                                            class="btn btn-sm btn-light mb-0"
+                                            wire:confirm="This booking has been canceled"
+                                        >
+                                            View details
+                                        </button>
+                                        @else
+                                        <a href="{{ route('dorm-owner.booking.details', $room->booking->id) }}" class="btn btn-sm btn-light mb-0" wire:navigate>View details</a>
+                                        @endif
+
+                                    </td>
                                 </tr>
                                 @endforeach
                                 <!-- Table item -->

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\DormStatus;
 use App\Models\Amenity;
+use App\Enums\DormStatus;
 use App\Models\Dormitory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Explore extends Controller
 {
