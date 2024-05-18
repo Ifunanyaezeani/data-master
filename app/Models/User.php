@@ -55,4 +55,33 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class);
     }
+
+    public function profileCompletion()
+    {
+        // List of fields to check for completion
+        $fields = [
+            'first_name',
+            'last_name',
+            'email',
+            'phone_number',
+            'nationality',
+            'birth_day',
+            'gender',
+            'profile_picture'
+        ];
+
+        // Count the number of filled fields
+        $filledFields = 0;
+        foreach ($fields as $field) {
+            if (!empty($this->$field)) {
+                $filledFields++;
+            }
+        }
+
+        // Calculate the completion percentage
+        $totalFields = count($fields);
+        $completionPercentage = ($filledFields / $totalFields) * 100;
+
+        return $completionPercentage;
+    }
 }
