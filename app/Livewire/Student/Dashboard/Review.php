@@ -10,6 +10,9 @@ class Review extends Component
 {
     public function render()
     {
-        return view('livewire.student.dashboard.review');
+        // dd(auth()->user()->reviews);
+        return view('livewire.student.dashboard.review',[
+            'reviews' => auth()->user()->reviews
+        ]);
     }
 }

@@ -250,25 +250,30 @@
             <!-- Card body START -->
             <div class="card-body pt-4 p-0">
                 <!-- Leave review START -->
-                <form class="mb-5">
+                <form class="mb-5" wire:submit.prevent='postReview({{ $booking->room->dormitory->id }})'>
                     <!-- Rating -->
                     <div class="form-control-bg-light mb-3">
-                        <select class="form-select js-choice">
-                            <option selected="">★★★★★ (5/5)</option>
-                            <option>★★★★☆ (4/5)</option>
-                            <option>★★★☆☆ (3/5)</option>
-                            <option>★★☆☆☆ (2/5)</option>
-                            <option>★☆☆☆☆ (1/5)</option>
+                        <select class="form-select" wire:model='rating'>
+                            <option value="5">★★★★★ (5/5)</option>
+                            <option value="4">★★★★☆ (4/5)</option>
+                            <option value="3">★★★☆☆ (3/5)</option>
+                            <option value="2">★★☆☆☆ (2/5)</option>
+                            <option value="1" selected>★☆☆☆☆ (1/5)</option>
                         </select>
                     </div>
                     <!-- Message -->
                     <div class="form-control-bg-white mb-3">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Write your review" rows="3"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Write your review" rows="3" wire:model='comment'></textarea>
                     </div>
                     <!-- Button -->
-                    <button type="submit" class="btn btn-lg btn-primary mb-0">
-                        Post review
-                        <i class="bi fa-fw bi-arrow-right ms-2"></i>
+                    <button type="submit" class="btn btn-lg btn-primary mb-0" wire:loading.attr="disabled">
+                        <span wire:loading.remove>
+                            Post review
+                            <i class="bi fa-fw bi-arrow-right ms-2"></i>
+                        </span>
+                        <span wire:loading wire:target="postReview({{ $booking->room->dormitory->id }})" class="text-center">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        </span>
                     </button>
                 </form>
 
