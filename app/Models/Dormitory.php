@@ -11,7 +11,7 @@ class Dormitory extends Model
     protected $dates = ['created_at', 'updated_at'];
     public function owner()
     {
-        return $this->belongsTo(User::class, 'dorm_owner_id');
+        return $this->belongsTo(DormOwner::class, 'dorm_owner_id');
     }
 
     public function rooms()
