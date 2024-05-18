@@ -20,9 +20,9 @@ class Room extends Model
         return $this->belongsTo(Dormitory::class);
     }
 
-    public function bookings()
+    public function booking()
     {
-        return $this->hasMany(Booking::class);
+        return $this->hasOne(Booking::class);
     }
 
     public function priceHistory()

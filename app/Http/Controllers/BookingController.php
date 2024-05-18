@@ -27,8 +27,8 @@ class BookingController extends Controller
             'start_date' => date('Y-m-d'),
             'end_date' => (new DateTime())->modify('+1 year')->format('Y-m-d'),
         ]);
-        // set room availability to be unavailable
-        $roomId->update(['availability' => "Unavailable"]);
+        // set room availability to be Booked
+        $roomId->update(['availability' => "Booked"]);
         return redirect(route('booking-success', [$dormId->id, $booking->id]));
     }
 

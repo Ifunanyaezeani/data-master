@@ -21,11 +21,6 @@
                 <li class="nav-item"> <a class="nav-link {{ $this->active_link(route('dorm-owner.booking')) }}" href="{{ route('dorm-owner.booking') }}" wire:navigate>
                     <i class="bi bi-bookmark-heart fa-fw me-1"></i>Bookings</a>
                 </li>
-
-                <li class="nav-item"> <a class="nav-link {{ $this->active_link(route('dorm-owner.review')) }}" href="{{ route('dorm-owner.review') }}" wire:navigate>
-                    <i class="bi bi-star fa-fw me-1"></i>Reviews</a>
-                </li>
-
                 <li> <a class="nav-link {{ $this->active_link(route('dorm-owner.setting')) }}" href="{{ route('dorm-owner.setting') }}" wire:navigate>
                     <i class="bi bi-gear fa-fw me-1"></i>Settings</a>
                 </li>

@@ -18,7 +18,18 @@ class Index extends Component
             'totalDorm' => Dormitory::whereDormOwnerId(Auth::user()->id)->count(),
             'totalRooms' => Room::whereHas('dormitory', function ($query) {
                             $query->where('dorm_owner_id', Auth::user()->id);
-                        })->count()
+                        })->count(),
+            'availableRooms' => Room::whereAvailability('Available')->whereHas('dormitory', function ($query) {
+                $query->where('dorm_owner_id', Auth::user()->id);
+            })->count(),
+            'bookedDormitories' => Dormitory::where('dorm_owner_id', Auth::user()->id)
+                                ->whereHas('rooms', function ($query) {
+                                    $query->whereHas('booking');
+                                })
+                                ->with(['rooms' => function ($query) {
+                                    $query->whereHas('booking');
+                                }, 'rooms.booking'])
+                                ->paginate(),
         ]);
     }
 }

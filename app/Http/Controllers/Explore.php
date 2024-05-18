@@ -11,7 +11,7 @@ class Explore extends Controller
 {
     public function index()
     {
-        $ActiveDormitories = Dormitory::latest()->whereStatus(DormStatus::DRAFT->name)->with('amenities')->paginate(10);
+        $ActiveDormitories = Dormitory::latest()->whereStatus(DormStatus::PENDING->name)->with('amenities')->paginate(10);
         return view('pages.explore', [
             "ActiveDormitories" => $ActiveDormitories,
             "amenities" => Amenity::all()

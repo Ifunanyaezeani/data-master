@@ -35,7 +35,7 @@
                     <div class="card border p-2">
                         <div class="row g-4">
                             <!-- Card img -->
-                            <div class="col-md-3 col-lg-2">
+                            <div class="col-md-3 col-lg-1">
                                 <img src="{{ $dormitory->main_image }}" class="card-img rounded-2"
                                     alt="Card image">
                             </div>
@@ -43,25 +43,6 @@
                             <!-- Card body -->
                             <div class="col-md-9 col-lg-10">
                                 <div class="card-body position-relative d-flex flex-column p-0 h-100">
-
-                                    <!-- Buttons -->
-                                    <div class="list-inline-item dropdown position-absolute top-0 end-0">
-                                        <!-- Share button -->
-                                        <a href="#" class="btn btn-sm btn-round btn-light" role="button"
-                                            id="dropdownAction2" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="bi bi-three-dots-vertical"></i>
-                                        </a>
-                                        <!-- dropdown button -->
-                                        <ul class="dropdown-menu dropdown-menu-end min-w-auto shadow rounded"
-                                            aria-labelledby="dropdownAction2">
-                                            <li>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="bi bi-slash-circle me-1"></i>Disable Dorm
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-
                                     <!-- Title -->
                                     <h5 class="card-title mb-0 me-5"><a href="{{ route('dorm-owner.single-dorm', $dormitory->slug) }}" target="_blank">{{ $dormitory->dorm_name }}</a></h5>
                                     <small>
@@ -74,8 +55,8 @@
                                         class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
                                         <!-- Button -->
                                         <div class="d-flex align-items-center">
-                                            <h5 class="fw-bold mb-0 me-1">{{ $dormitory->dorm_type }} | </h5>
-                                            <span class="mb-0 me-2 badge text-bg-secondary">Status: {{ $dormitory->status }}</span>
+                                            <h5 class="fw-bold mb-0 me-1">{{ strtolower(str_replace('_', ' ', $dormitory->dorm_type)) }} | </h5>
+                                            <span class="mb-0 me-2 badge text-bg-secondary">Status: {{ strtolower($dormitory->status) }}</span>
                                         </div>
                                         <!-- Price -->
                                         <div class="hstack gap-2 mt-3 mt-sm-0">

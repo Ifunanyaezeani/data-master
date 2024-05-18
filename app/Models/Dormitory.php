@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Dormitory extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+
     protected $dates = ['created_at', 'updated_at'];
     public function owner()
     {

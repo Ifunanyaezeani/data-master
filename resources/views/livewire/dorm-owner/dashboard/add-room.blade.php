@@ -163,7 +163,7 @@
                                             <!-- Amenities -->
                                             <ul class="nav nav-divider mb-2">
                                                 <li class="nav-item"><i class="fa-regular fa-square me-1"></i>capacity: {{ $room->capacity }}</li>
-                                                <li class="nav-item"><i class="fa-solid fa-bed me-1"></i>{{ $room->room_type  }} room</li>
+                                                <li class="nav-item"><i class="fa-solid fa-bed me-1"></i>{{ strtolower($room->room_type)  }} room</li>
                                             </ul>
 
                                             <p class="text-success mb-0">{{ $room->availability }}</p>
@@ -175,7 +175,10 @@
                                                     <span class="mb-0 me-2">/per year</span>
                                                 </div>
                                                 <div class="mt-3 mt-sm-0">
-                                                    <a href="#" class="btn btn-sm btn-primary mb-0">Edit Room</a>
+                                                    <a href="#" class="btn btn-sm btn-primary mb-0"
+                                                    wire:click='deleteRoom({{ $room->id }})'
+                                                    wire:confirm="Are you sure you want to delete this room? any booking rolated to this room will be deleted also."
+                                                    >Delete room</a>
                                                 </div>
                                             </div>
                                         </div>

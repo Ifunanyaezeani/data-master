@@ -15,25 +15,12 @@
                 <!-- Card header START -->
                 <div class="card-header border-bottom">
                     <h5 class="card-header-title">Booked rooms<span
-                            class="badge bg-primary bg-opacity-10 text-primary ms-2">0</span></h5>
+                            class="badge bg-primary bg-opacity-10 text-primary ms-2">{{ count($bookings) }}</span></h5>
                 </div>
                 <!-- Card header END -->
 
                 <!-- Card body START -->
                 <div class="card-body">
-                    <!-- Search and select START -->
-                    <div class="row g-3 align-items-center justify-content-between mb-3">
-                        <!-- Search -->
-                        <div class="col-md-8">
-                            <form class="rounded position-relative">
-                                <input class="form-control pe-5" type="search" placeholder="Search"
-                                    aria-label="Search">
-                                <button class="btn border-0 px-3 py-0 position-absolute top-50 end-0 translate-middle-y"
-                                    type="submit"><i class="fas fa-search fs-6"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Search and select END -->
 
                     <!-- dorm room list START -->
                     <div class="table-responsive border-0">
@@ -53,26 +40,29 @@
 
                             <!-- Table body START -->
                             <tbody class="border-top-0">
+                                @foreach ($bookings as $room)
+                                                                    <tr>
+                                    <td>
+                                        <h6 class="mb-0">DM-{{ $room->booking->id }}</h6>
+                                    </td>
+                                    <td>
+                                        <h6 class="mb-0"><a href="#">{{ $room->room_name }}</a></h6>
+                                    </td>
+                                    <td> {{ $room->room_type }} room</td>
+                                    <td>
+                                        <h6 class="mb-0 fw-light">{{ $room->booking->created_at->format('d F Y') }}</h6>
+                                    </td>
+                                    <td>
+                                        <div class="badge text-bg-success">{{ $room->booking->booking_status }}</div>
+                                    </td>
+                                    <td>
+                                        <div class="badge bg-success bg-opacity-10 text-success">{{ strtolower($room->booking->booking_status) }}</div>
+                                    </td>
+                                    <td> <a href="#" class="btn btn-sm btn-light mb-0">View details</a> </td>
+                                </tr>
+                                @endforeach
                                 <!-- Table item -->
-                                {{-- <tr>
-                                    <td>
-                                        <h6 class="mb-0">01</h6>
-                                    </td>
-                                    <td>
-                                        <h6 class="mb-0"><a href="#">Inndorm</a></h6>
-                                    </td>
-                                    <td> single room </td>
-                                    <td>
-                                        <h6 class="mb-0 fw-light">Nov 22 - 25</h6>
-                                    </td>
-                                    <td>
-                                        <div class="badge text-bg-success">Booked</div>
-                                    </td>
-                                    <td>
-                                        <div class="badge bg-success bg-opacity-10 text-success">Full payment</div>
-                                    </td>
-                                    <td> <a href="#" class="btn btn-sm btn-light mb-0">View</a> </td>
-                                </tr> --}}
+
                             </tbody>
                             <!-- Table body END -->
                         </table>

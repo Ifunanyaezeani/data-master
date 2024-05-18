@@ -67,7 +67,6 @@
 
                             <!-- Card body START -->
                             <div class="card-body pt-4 p-0">
-                                <h5 class="fw-light mb-4">Main Highlights</h5>
                                 <p class="mb-3">
                                     {{ $dorm_details->description }}
                                 </p>
@@ -159,9 +158,16 @@
                                                             </div>
                                                             <!-- Price -->
                                                             <div class="mt-3 mt-sm-0">
-                                                                <a href="{{ route('booking.now', [$dorm_details->id, $room->id, $dorm_details->slug]) }}" class="btn btn-sm btn-primary mb-0">
+                                                                @if ($room->availability == "Booked")
+                                                                    <button class="btn btn-sm btn-primary mb-0" disabled>
+                                                                     Booked Already
+                                                                    </button>
+                                                                @else
+                                                                    <a href="{{ route('booking.now', [$dorm_details->id, $room->id, $dorm_details->slug]) }}" class="btn btn-sm btn-primary mb-0">
                                                                     Book Now
                                                                 </a>
+                                                                @endif
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -179,6 +185,19 @@
                             <!-- Card body END -->
                         </div>
                         <!-- Room END -->
+
+
+                        <div class="card alert alert-success bg-transparent">
+                            <!-- Card header -->
+                            <div class="card-header border-bottom bg-transparent px-0 pt-0">
+                                <h3 class="mb-0 alert-heading">Dormitory Policies</h3>
+                            </div>
+
+                            <!-- Card body START -->
+                            <div class="card-body pt-4 p-0">
+                                <p>{{ $dorm_details->policy }}</p>
+                            </div>
+                        </div>
 
                         <!-- Review START -->
                         <div class="card bg-transparent">
@@ -301,28 +320,6 @@
                                 </div>
                                 <!-- Progress bar and rating END -->
 
-                                <!-- Leave review START -->
-                                <form class="mb-5">
-                                    <!-- Rating -->
-                                    <div class="form-control-bg-light mb-3">
-                                        <select class="form-select js-choice">
-                                            <option selected="">★★★★★ (5/5)</option>
-                                            <option>★★★★☆ (4/5)</option>
-                                            <option>★★★☆☆ (3/5)</option>
-                                            <option>★★☆☆☆ (2/5)</option>
-                                            <option>★☆☆☆☆ (1/5)</option>
-                                        </select>
-                                    </div>
-                                    <!-- Message -->
-                                    <div class="form-control-bg-light mb-3">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Your review" rows="3"></textarea>
-                                    </div>
-                                    <!-- Button -->
-                                    <button type="submit" class="btn btn-lg btn-primary mb-0">Post review <i
-                                            class="bi fa-fw bi-arrow-right ms-2"></i></button>
-                                </form>
-                                <!-- Leave review END -->
-
                                 <!-- Review item START -->
                                 {{-- <div class="d-md-flex my-4">
                                     <!-- Avatar -->
@@ -414,18 +411,6 @@
                             <!-- Card body END -->
                         </div>
                         <!-- Review END -->
-
-                        <div class="card alert alert-success bg-transparent">
-                            <!-- Card header -->
-                            <div class="card-header border-bottom bg-transparent px-0 pt-0">
-                                <h3 class="mb-0 alert-heading">Dormitory Policies</h3>
-                            </div>
-
-                            <!-- Card body START -->
-                            <div class="card-body pt-4 p-0">
-                                <p>{{ $dorm_details->policy }}</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!-- Content END -->

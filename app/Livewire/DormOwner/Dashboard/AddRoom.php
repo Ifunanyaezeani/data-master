@@ -2,6 +2,7 @@
 
 namespace App\Livewire\DormOwner\Dashboard;
 
+use App\Enums\DormStatus;
 use App\Models\Room;
 use Livewire\Component;
 use App\Models\Dormitory;
@@ -36,6 +37,13 @@ class AddRoom extends Component
 
     public $id;
 
+    public function deleteRoom(Room $roomId)
+    {
+        $roomId->delete();
+        Session::flash('message', 'You have successfully deleted a room to this dormitory');
+        $this->redirect(Route('dorm-owner.add-room', $this->id), navigate: false);
+    }
+
     public function save()
     {
         $this->validate();
@@ -54,13 +62,12 @@ class AddRoom extends Component
             'availability' => "Available",
             'room_pictures' => $roomImages
         ]);
+        $dormitory = Dormitory::whereId($this->id)->first();
+        if($dormitory->status == DormStatus::DRAFT->name){
+            $dormitory->update(['status' => DormStatus::PENDING->name]);
+        }
         Session::flash('message', 'You have successfully added a room to this dormitory');
-        $this->roomName = '';
-        $this->roomType = '';
-        $this->capacity = '';
-        $this->price = '';
-        $this->roomName = '';
-        $this->roomPictures = '';
+        $this->redirect(Route('dorm-owner.add-room', $this->id), navigate: false);
     }
 
     public function render()

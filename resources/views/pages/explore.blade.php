@@ -187,7 +187,7 @@
 
                 <!-- Main content START -->
                 <div class="col-xl-8 col-xxl-9">
-                    <div class="vstack gap-4">
+                    <div class="g-4 row">
                         @foreach ($ActiveDormitories as $activeDorm)
                             <div class="col-md-4">
                                 <div class="card shadow p-2 pb-0 h-100">

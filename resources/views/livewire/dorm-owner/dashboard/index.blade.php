@@ -32,7 +32,7 @@
         <div class="col-md-6 col-xl-4">
             <div class="card card-body border p-4 h-100">
                 <h6>Available Rooms</h6>
-                <h2 class="text-warning">{{ $totalRooms }}</h2>
+                <h2 class="text-warning">{{ $availableRooms }}</h2>
             </div>
         </div>
 
@@ -74,11 +74,7 @@
                             <thead class="table-light">
                                 <tr>
                                     <th scope="col" class="border-0 rounded-start">#</th>
-                                    <th scope="col" class="border-0">Name</th>
-                                    <th scope="col" class="border-0">Type</th>
-                                    <th scope="col" class="border-0">Date</th>
-                                    <th scope="col" class="border-0">status</th>
-                                    <th scope="col" class="border-0">Payment</th>
+                                    <th scope="col" class="border-0">Dorm name</th>
                                     <th scope="col" class="border-0 rounded-end">Action</th>
                                 </tr>
                             </thead>
@@ -86,23 +82,17 @@
                             <!-- Table body START -->
                             <tbody class="border-top-0">
                                 <!-- Table item -->
-                                {{-- <tr>
-                                    <td>
-                                        <h6 class="mb-0">01</h6>
-                                    </td>
-                                    <td>
-                                        <h6 class="mb-0"><a href="#">Deluxe Pool View</a></h6>
-                                    </td>
-                                    <td> With Breakfast </td>
-                                    <td> Nov 22 - 25 </td>
-                                    <td>
-                                        <div class="badge text-bg-success">Booked</div>
-                                    </td>
-                                    <td>
-                                        <div class="badge bg-success bg-opacity-10 text-success">Full payment</div>
-                                    </td>
-                                    <td> <a href="#" class="btn btn-sm btn-light mb-0">View</a> </td>
-                                </tr> --}}
+                                @foreach ($bookedDormitories as $dorm)
+                                    <tr>
+                                        <td>
+                                            <h6 class="mb-0">{{ $dorm->id }}</h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0"><a href="#">{{ $dorm->dorm_name }}</a></h6>
+                                        </td>
+                                        <td> <a href="{{ route('dorm-owner.single-dorm', $dorm->slug) }}" target="_blank" class="btn btn-sm btn-light mb-0">View</a> </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                             <!-- Table body END -->
                         </table>
