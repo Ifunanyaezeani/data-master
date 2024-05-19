@@ -27,7 +27,7 @@
                 </div>
                 <div class="offcanvas-body p-2">
                     <div class="bg-light p-4 rounded w-100">
-                        <form class="row g-4"  action="{{ route('explore.search') }}" method="GET">
+                        <form class="row g-4" action="{{ route('explore') }}" method="GET">
                             <!-- Check in -->
                             <div class="col">
                                 <div class="form-control-border form-control-transparent form-fs-md">
@@ -62,13 +62,6 @@
                             data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
                             <i class="bi bi-funnel me-1"></i>filters
                         </button>
-                        <ul class="nav nav-pills nav-pills-dark" id="tour-pills-tab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link rounded mb-0" href="{{ route('explore.compare') }}">
-                                    <i class="bi bi-tags"></i> Compare dormitory
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -84,103 +77,71 @@
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 data-bs-target="#offcanvasSidebar" aria-label="Close"></button>
                         </div>
-                        <div class="offcanvas-body flex-column p-3 p-xl-0">
-                            <form class="rounded-3 shadow">
-                                <!-- Hotel type START -->
-                                <div class="card card-body rounded-0 rounded-top p-4">
-                                    <!-- Title -->
-                                    <h6 class="mb-2">Dormitroy Type</h6>
-                                    <!-- Hotel Type group -->
-                                    <div class="col-12">
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="hotelType1">
-                                            <label class="form-check-label" for="hotelType1">All</label>
+                        <form action="{{ route('explore') }}" method="get">
+                            <div class="offcanvas-body flex-column p-3 p-xl-0">
+                                <div class="rounded-3 shadow">
+                                    <!--  type START -->
+                                    <div class="card card-body rounded-0 rounded-top p-4">
+                                        <!-- Title -->
+                                        <h6 class="mb-2">Dormitroy Type</h6>
+                                        <div class="col-12">
+                                            <!-- Checkbox -->
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="dorm_type[]"
+                                                    value="all" id="Type1"
+                                                    {{ in_array('all', request('dorm_type', [])) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="Type1">All</label>
+                                            </div>
+                                            <!-- Checkbox -->
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="dorm_type[]"
+                                                    value="{{ App\Enums\DormType::ON_CAMPUS->name }}" id="Type2"
+                                                    {{ in_array(App\Enums\DormType::ON_CAMPUS->name, request('dorm_type', [])) ? 'checked' : '' }}>
+                                                <label class="form-check-label"
+                                                    for="Type2">{{ App\Enums\DormType::ON_CAMPUS->value }}</label>
+                                            </div>
+                                            <!-- Checkbox -->
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="dorm_type[]"
+                                                    value="{{ App\Enums\DormType::OFF_CAMPUS->name }}" id="Type3"
+                                                    {{ in_array(App\Enums\DormType::OFF_CAMPUS->name, request('dorm_type', [])) ? 'checked' : '' }}>
+                                                <label class="form-check-label"
+                                                    for="Type3">{{ App\Enums\DormType::OFF_CAMPUS->value }}</label>
+                                            </div>
                                         </div>
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="hotelType2">
-                                            <label class="form-check-label"
-                                                for="hotelType2">{{ App\Enums\DormType::ON_CAMPUS->value }}</label>
-                                        </div>
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="hotelType3">
-                                            <label class="form-check-label"
-                                                for="hotelType3">{{ App\Enums\DormType::OFF_CAMPUS->value }}</label>
+
+                                    </div>
+                                    <!--  type END -->
+
+                                    <hr class="my-0"> <!-- Divider -->
+
+                                    <!-- Amenities START -->
+                                    <div class="card card-body rounded-0 rounded-bottom p-4">
+                                        <!-- Title -->
+                                        <h6 class="mb-2">Amenities</h6>
+                                        <!-- Amenities group -->
+                                        <div class="col-12">
+                                            <!-- Checkbox -->
+                                            @foreach ($amenities as $amenity)
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="amenitiesType1">
+                                                    <label class="form-check-label"
+                                                        for="amenitiesType1">{{ $amenity->amenity_name }}</label>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
+                                    <!-- Amenities END -->
                                 </div>
-                                <!-- Hotel type END -->
+                            </div>
+                            <!-- Buttons -->
+                            <div class="d-flex justify-content-between p-2 p-xl-0 mt-xl-4">
+                                <button class="btn btn-link p-0 mb-0">Clear all</button>
+                                <button type="submit" class="btn btn-primary mb-0">Filter Result</button>
+                            </div>
+                        </form>
 
-                                <hr class="my-0"> <!-- Divider -->
-
-                                <!-- Price range START -->
-                                <div class="card card-body rounded-0 p-4">
-                                    <!-- Title -->
-                                    <h6 class="mb-2">Price range</h6>
-                                    <!-- Price range group -->
-                                    <div class="col-12">
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="priceRange1">
-                                            <label class="form-check-label" for="priceRange1">Up to $500</label>
-                                        </div>
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="priceRange2">
-                                            <label class="form-check-label" for="priceRange2">$500 - $1000</label>
-                                        </div>
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="priceRange3">
-                                            <label class="form-check-label" for="priceRange3">$1000 - $1500</label>
-                                        </div>
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="priceRange4">
-                                            <label class="form-check-label" for="priceRange4">$1500 - $2000</label>
-                                        </div>
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="priceRange5">
-                                            <label class="form-check-label" for="priceRange5">$2000+</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <hr class="my-0"> <!-- Divider -->
-
-                                <!-- Amenities START -->
-                                <div class="card card-body rounded-0 rounded-bottom p-4">
-                                    <!-- Title -->
-                                    <h6 class="mb-2">Amenities</h6>
-                                    <!-- Amenities group -->
-                                    <div class="col-12">
-                                        <!-- Checkbox -->
-                                        @foreach ($amenities as $amenity)
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="amenitiesType1">
-                                            <label class="form-check-label" for="amenitiesType1">{{ $amenity->amenity_name }}</label>
-                                        </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                                <!-- Amenities END -->
-                            </form><!-- Form End -->
-                        </div>
-                        <!-- Buttons -->
-                        <div class="d-flex justify-content-between p-2 p-xl-0 mt-xl-4">
-                            <button class="btn btn-link p-0 mb-0">Clear all</button>
-                            <button class="btn btn-primary mb-0">Filter Result</button>
-                        </div>
                     </div>
                     <!-- Responsive offcanvas body END -->
                 </aside>
@@ -193,8 +154,8 @@
                             <div class="col-md-4">
                                 <div class="card shadow p-2 pb-0 h-100">
 
-                                    <img src="{{ $activeDorm->main_image }}" class="img-fluid rounded-2"
-                                        alt="Card image" style="width: auto;">
+                                    <img src="{{ $activeDorm->main_image }}" class="img-fluid rounded-2" alt="Card image"
+                                        style="width: auto;">
 
                                     <!-- Card body START -->
                                     <div class="card-body px-3 pb-0">
@@ -204,8 +165,10 @@
 
                                         <ul class="nav nav-divider mb-2 mb-sm-3">
                                             @if ($activeDorm->amenities->count() >= 1)
-                                            <li class="nav-item"><small><b>With: </b> {{ $activeDorm->amenities[0]->amenity_name }}</small></li>
-                                            <li class="nav-item"><small>{{ $activeDorm->amenities[1]->amenity_name }}</small></li>
+                                                <li class="nav-item"><small><b>With: </b>
+                                                        {{ $activeDorm->amenities[0]->amenity_name }}</small></li>
+                                                <li class="nav-item">
+                                                    <small>{{ $activeDorm->amenities[1]->amenity_name }}</small></li>
                                             @endif
 
                                         </ul>
