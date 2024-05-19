@@ -158,14 +158,15 @@
                                                             </div>
                                                             <!-- Price -->
                                                             <div class="mt-3 mt-sm-0">
-                                                                @if ($room->availability == "Booked")
+                                                                @if ($room->availability == 'Booked')
                                                                     <button class="btn btn-sm btn-primary mb-0" disabled>
-                                                                     Booked Already
+                                                                        Booked Already
                                                                     </button>
                                                                 @else
-                                                                    <a href="{{ route('booking.now', [$dorm_details->id, $room->id, $dorm_details->slug]) }}" class="btn btn-sm btn-primary mb-0">
-                                                                    Book Now
-                                                                </a>
+                                                                    <a href="{{ route('booking.now', [$dorm_details->id, $room->id, $dorm_details->slug]) }}"
+                                                                        class="btn btn-sm btn-primary mb-0">
+                                                                        Book Now
+                                                                    </a>
                                                                 @endif
 
                                                             </div>
@@ -209,7 +210,7 @@
                             <!-- Card body START -->
                             <div class="card-body pt-4 p-0">
                                 <!-- Progress bar and rating START -->
-                                <div class="card bg-light p-4 mb-4">
+                                {{-- <div class="card bg-light p-4 mb-4">
                                     <div class="row g-4 align-items-center">
                                         <!-- Rating info -->
                                         <div class="col-md-4">
@@ -218,7 +219,7 @@
                                                 <h2 class="mb-0">0.0</h2>
                                                 <p class="mb-2">Based on 0 Reviews</p>
                                                 <!-- Star -->
-                                                {{-- <ul class="list-inline mb-0">
+                                                <ul class="list-inline mb-0">
                                                     <li class="list-inline-item me-0"><i
                                                             class="fa-solid fa-star text-warning"></i></li>
                                                     <li class="list-inline-item me-0"><i
@@ -229,7 +230,7 @@
                                                             class="fa-solid fa-star text-warning"></i></li>
                                                     <li class="list-inline-item me-0"><i
                                                             class="fa-solid fa-star-half-alt text-warning"></i></li>
-                                                </ul> --}}
+                                                </ul>
                                             </div>
                                         </div>
 
@@ -317,96 +318,101 @@
                                         <!-- Progress-bar END -->
 
                                     </div>
+                                </div> --}}
+                                <div class="card bg-light p-4 mb-4">
+                                    <div class="row g-4 align-items-center">
+                                        <!-- Rating info -->
+                                        <div class="col-md-4">
+                                            <div class="text-center">
+                                                <!-- Info -->
+                                                <h2 class="mb-0">{{ number_format($averageRating, 1) }}</h2>
+                                                <p class="mb-2">Based on {{ $totalReviews }} Reviews</p>
+                                                <!-- Star -->
+                                                <ul class="list-inline mb-0">
+                                                    @for ($i = 1; $i <= 5; $i++)
+                                                        <li class="list-inline-item me-0">
+                                                            <i
+                                                                class="fa{{ $i <= $averageRating ? '-solid' : '-regular' }} fa-star text-warning"></i>
+                                                        </li>
+                                                    @endfor
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <!-- Progress-bar START -->
+                                        <div class="col-md-8">
+                                            <div class="card-body p-0">
+                                                @foreach (range(5, 1) as $rating)
+                                                    <div class="row gx-3 g-2 align-items-center mb-2">
+                                                        <!-- Progress bar and Rating -->
+                                                        <div class="col-9 col-sm-10">
+                                                            <!-- Progress item -->
+                                                            <div class="progress progress-sm bg-warning bg-opacity-15">
+                                                                <div class="progress-bar bg-warning" role="progressbar"
+                                                                    style="width: {{ $ratingDistribution->get($rating, 0) }}%"
+                                                                    aria-valuenow="{{ $ratingDistribution->get($rating, 0) }}"
+                                                                    aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Percentage -->
+                                                        <div class="col-3 col-sm-2 text-end">
+                                                            <span
+                                                                class=" fw-light mb-0"><small>{{ $ratingDistribution->get($rating, 0) }}%</small></span>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                        <!-- Progress-bar END -->
+                                    </div>
                                 </div>
                                 <!-- Progress bar and rating END -->
-
-                                <!-- Review item START -->
-                                {{-- <div class="d-md-flex my-4">
-                                    <!-- Avatar -->
-                                    <div class="avatar avatar-lg me-3 flex-shrink-0">
-                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
-                                    </div>
-                                    <!-- Text -->
-                                    <div>
-                                        <div class="d-flex justify-content-between mt-1 mt-md-0">
-                                            <div>
-                                                <h6 class="me-3 mb-0">Jacqueline Miller</h6>
-                                                <!-- Info -->
-                                                <ul class="nav nav-divider small mb-2">
-                                                    <li class="nav-item">Stayed 13 Nov 2022</li>
-                                                    <li class="nav-item">4 Reviews written</li>
-                                                </ul>
-                                            </div>
-                                            <!-- Review star -->
-                                            <div class="icon-md rounded text-bg-warning fs-6">4.5</div>
+                                @foreach ($dorm_details->reviews as $review)
+                                    <!-- Review item START -->
+                                    <div class="d-md-flex my-4">
+                                        <!-- Avatar -->
+                                        <div class="avatar avatar-lg me-3 flex-shrink-0">
+                                            @if ($review->user->profile_picture == null)
+                                                <img id="uploadfile-1-preview"
+                                                    class="avatar-img rounded-circle border border-3 border-primary"
+                                                    src="{{ asset('assets/images/avatar/p1.svg') }}" alt="" />
+                                            @else
+                                                <img id="uploadfile-1-preview"
+                                                    class="avatar-img rounded-circle border border-3 border-primary"
+                                                    src="{{ $review->user->profile_picture }}" alt="" />
+                                            @endif
                                         </div>
-
-                                        <p class="mb-2">Handsome met debating sir dwelling age material. As style lived he worse dried. Offered related so visitors we private removed. Moderate do subjects to distance. </p>
-
-                                        <!-- Images -->
-                                        <div class="row g-4">
-                                            <div class="col-4 col-sm-3 col-lg-2">
-                                                <img src="assets/images/category/hotel/4by3/07.jpg" class="rounded" alt="">
+                                        <!-- Text -->
+                                        <div>
+                                            <div class="d-flex mt-1 mt-md-0">
+                                                <div>
+                                                    <h6 class="me-3 mb-0">{{ $review->user->first_name }}
+                                                        {{ $review->user->last_name }}</h6>
+                                                    <!-- Info -->
+                                                    <ul class="nav nav-divider small mb-2">
+                                                        <li class="nav-item">{{ $review->created_at->diffForHumans() }}
+                                                        </li>
+                                                        <li class="nav-item">{{ $review->title }}</li>
+                                                        <li class="nav-item">
+                                                            @for ($i = 1; $i <= 5; $i++)
+                                                                <span>
+                                                                    <i
+                                                                        class="fa{{ $i <= $review->rating ? '-solid' : '-regular' }} fa-star text-warning"></i>
+                                                                </span>
+                                                            @endfor
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <div class="col-4 col-sm-3 col-lg-2">
-                                                <img src="assets/images/category/hotel/4by3/08.jpg" class="rounded" alt="">
-                                            </div>
-                                            <div class="col-4 col-sm-3 col-lg-2">
-                                                <img src="assets/images/category/hotel/4by3/05.jpg" class="rounded" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
 
-                                <!-- Child review START -->
-                                {{-- <div class="my-4 ps-2 ps-md-3">
-                                    <div class="d-md-flex p-3 bg-light rounded-3">
-                                        <img class="avatar avatar-sm rounded-circle me-3" src="assets/images/avatar/02.jpg" alt="avatar">
-                                        <div class="mt-2 mt-md-0">
-                                            <h6 class="mb-1">Manager</h6>
-                                            <p class="mb-0">But discretion frequently sir she instruments unaffected admiration everything. </p>
+                                            <p class="mb-2">
+                                                {{ $review->comment }}
+                                            </p>
                                         </div>
                                     </div>
-                                </div> --}}
-                                <!-- Child review END -->
-
-                                <!-- Divider -->
-                                {{-- <hr> --}}
-                                <!-- Review item END -->
-
-                                <!-- Review item START -->
-                                {{-- <div class="d-md-flex my-4">
-                                    <!-- Avatar -->
-                                    <div class="avatar avatar-lg me-3 flex-shrink-0">
-                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/08.jpg" alt="avatar">
-                                    </div>
-                                    <!-- Text -->
-                                    <div>
-                                        <div class="d-flex justify-content-between mt-1 mt-md-0">
-                                            <div>
-                                                <h6 class="me-3 mb-0">Dennis Barrett</h6>
-                                                <!-- Info -->
-                                                <ul class="nav nav-divider small mb-2">
-                                                    <li class="nav-item">Stayed 02 Nov 2022</li>
-                                                    <li class="nav-item">2 Reviews written</li>
-                                                </ul>
-                                            </div>
-                                            <!-- Review star -->
-                                            <div class="icon-md rounded text-bg-warning fs-6">4.0</div>
-                                        </div>
-
-                                        <p class="mb-0">Delivered dejection necessary objection do Mr prevailed. Mr feeling does chiefly cordial in do. Water timed folly right aware if oh truth. Large above be to means. Dashwood does provide stronger is.</p>
-                                    </div>
-                                </div> --}}
-
-                                <!-- Divider -->
-                                {{-- <hr> --}}
-                                <!-- Review item END -->
-
-                                <!-- Button -->
-                                {{-- <div class="text-center">
-                                    <a href="#" class="btn btn-primary-soft mb-0">Load more</a>
-                                </div> --}}
+                                    <hr>
+                                @endforeach
                             </div>
                             <!-- Card body END -->
                         </div>
@@ -426,7 +432,8 @@
                                 </div>
                             </div>
                             <div class="d-grid">
-                                <a href="#room-options" class="btn btn-lg btn-primary-soft mb-0">View {{ $dorm_details->rooms->count() }} Rooms Options</a>
+                                <a href="#room-options" class="btn btn-lg btn-primary-soft mb-0">View
+                                    {{ $dorm_details->rooms->count() }} Rooms Options</a>
                             </div>
                         </div>
                         <!-- Book now END -->

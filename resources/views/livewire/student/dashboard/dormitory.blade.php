@@ -36,7 +36,7 @@
                                 </div>
 
                                 <!-- Title -->
-                                <h5 class="card-title mb-1"><a href="hotel-detail.html">{{ $booking->room->dormitory->dorm_name }}</a>
+                                <h5 class="card-title mb-1"><a href="{{ route('explore.single-dorm', $booking->room->dormitory->slug) }}">{{ $booking->room->dormitory->dorm_name }}</a>
                                 </h5>
                                 <small><strong>Start date:</strong> {{ $booking->start_date->format('d F Y') }} | <strong>Expiry date:</strong> {{ $booking->end_date->format('d F Y') }}</small>
 
