@@ -20,6 +20,26 @@ class Explore extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $dormitories = Dormitory::where(function ($q) use ($query) {
+            $q->where('dorm_name', 'LIKE', "%{$query}%")
+                ->orWhere('regin', 'LIKE', "%{$query}%")
+                ->orWhere('city', 'LIKE', "%{$query}%")
+                ->orWhere('policy', 'LIKE', "%{$query}%")
+                ->orWhere('description', 'LIKE', "%{$query}%");
+        })
+        ->where('status', DormStatus::PENDING->name)
+        ->latest()
+        ->paginate(10);
+
+        return view('pages.explore', [
+            "ActiveDormitories" => $dormitories,
+            "amenities" => Amenity::all()
+        ]);
+    }
+
     public function singleDorm($slug)
     {
         $dormitory = Dormitory::whereSlug($slug)->with('amenities', 'rooms', )->first();

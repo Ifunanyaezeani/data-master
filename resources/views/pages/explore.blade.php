@@ -27,20 +27,21 @@
                 </div>
                 <div class="offcanvas-body p-2">
                     <div class="bg-light p-4 rounded w-100">
-                        <form class="row g-4">
+                        <form class="row g-4"  action="{{ route('explore.search') }}" method="GET">
                             <!-- Check in -->
                             <div class="col">
                                 <div class="form-control-border form-control-transparent form-fs-md">
                                     <label class="form-label">Search dormitories</label>
-                                    <input type="text" class="form-control flatpickr" data-mode="range"
+                                    <input type="text" class="form-control flatpickr" name="query" data-mode="range"
                                         placeholder="Search by name or location">
                                 </div>
                             </div>
 
                             <!-- Button -->
                             <div class="col-md-6 col-lg-2 mt-md-auto">
-                                <a class="btn btn-lg btn-primary w-100 mb-0" href="#">
-                                    Search <i class="bi bi-search fa-fw"></i></a>
+                                <button type="submit" class="btn btn-lg btn-primary w-100 mb-0" href="#">
+                                    Search <i class="bi bi-search fa-fw"></i>
+                                </button>
                             </div>
 
                         </form>
