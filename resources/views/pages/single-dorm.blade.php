@@ -368,7 +368,7 @@
                                     </div>
                                 </div>
                                 <!-- Progress bar and rating END -->
-                                @foreach ($dorm_details->reviews as $review)
+                                @foreach ($reviews as $review)
                                     <!-- Review item START -->
                                     <div class="d-md-flex my-4">
                                         <!-- Avatar -->

@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Dashboard;
 
 use App\Models\Dormitory;
 use App\Models\DormOwner;
+use App\Models\Review;
 use App\Models\Room;
 use App\Models\User;
 use Livewire\Component;
@@ -20,8 +21,9 @@ class Index extends Component
             'totalStudent' => User::count(),
             'totalDormOwner' => DormOwner::count(),
             'latestDorm' => Dormitory::latest()->take(4)->get(),
-            'recentStudent' => User::latest()->take(6)->get(),
-            'recentDormOwner' => DormOwner::latest()->take(6)->get()
+            'recentStudent' => User::latest()->take(4)->get(),
+            'recentDormOwner' => DormOwner::latest()->take(4)->get(),
+            'recentReviews' => Review::latest()->take(4)->get(),
         ]);
     }
 }

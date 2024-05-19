@@ -21,14 +21,14 @@
 						<div class="row g-4">
 							<!-- Card img -->
 							<div class="col-md-3">
-								<img src="{{ asset('storage/dorm-images/'.$dormitory->main_image) }}" class="rounded-2" alt="Card image">
+								<img src="{{ $dormitory->main_image }}" class="rounded-2" alt="Card image">
 							</div>
 
 							<!-- Card body -->
 							<div class="col-md-9">
 								<div class="card-body position-relative d-flex flex-column p-0 h-100">
 
-									<!-- Buttons -->
+									{{-- <!-- Buttons -->
 									<div class="list-inline-item dropdown position-absolute top-0 end-0">
 										<!-- Share button -->
 										<a href="#" class="btn btn-sm btn-round btn-light" role="button" id="dropdownAction1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -39,7 +39,7 @@
 											<li><a class="dropdown-item small" href="#"><i class="bi bi-info-circle me-2"></i>Report</a></li>
 											<li><a class="dropdown-item small" href="#"><i class="bi bi-slash-circle me-2"></i>Disable</a></li>
 										</ul>
-									</div>
+									</div> --}}
 
 									<!-- Title -->
 									<h5 class="card-title mb-0 me-5"><a href="{{ route('admin.single-dorm', $dormitory->slug) }}" target="_blank">{{ Str::of($dormitory->dorm_name)->limit(32) }}</a></h5>
@@ -49,8 +49,8 @@
 									<div class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
 										<!-- Price -->
 										<div class="d-flex align-items-center">
-                                            <h6 class="fw-bold mb-0 me-1">{{ $dormitory->dorm_type }} | </h6>
-                                            <span class="mb-0 me-2 badge text-bg-secondary">Status: {{ $dormitory->status }}</span>
+                                            <h6 class="fw-bold mb-0 me-1">{{ strtolower(str_replace('_', ' ', $dormitory->dorm_type)) }} | </h6>
+                                            <span class="mb-0 me-2 badge text-bg-secondary">Status: {{ strtolower($dormitory->status) }}</span>
                                         </div>
 										<!-- Button -->
 										<div class="hstack gap-2 mt-3 mt-sm-0">

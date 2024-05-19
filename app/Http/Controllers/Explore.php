@@ -54,7 +54,7 @@ class Explore extends Controller
     public function singleDorm($slug)
     {
         $dormitory = Dormitory::whereSlug($slug)->with('amenities', 'rooms', )->first();
-        $reviews = Review::where('dormitory_id', $dormitory->id)->get();
+        $reviews = Review::where('dormitory_id', $dormitory->id)->latest()->get();
         $totalReviews = $reviews->count();
         $averageRating = $reviews->avg('rating');
 

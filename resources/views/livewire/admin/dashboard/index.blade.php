@@ -27,7 +27,6 @@
               </div>
           </div>
 
-
           <!-- Counter item -->
           <div class="col-md-6 col-xxl-3">
               <div class="card card-body bg-primary bg-opacity-10 border border-primary border-opacity-25 p-4 h-100">
@@ -43,7 +42,6 @@
                   </div>
               </div>
           </div>
-
 
           <!-- Counter item -->
           <div class="col-md-6 col-xxl-3">
@@ -79,7 +77,7 @@
       </div>
       <!-- Counter boxes END -->
 
-      <!-- Hotel grid START -->
+
       <div class="row g-4 mb-5">
           <!-- Title -->
           <div class="col-12">
@@ -90,60 +88,53 @@
               </div>
           </div>
           @forelse ($latestDorm as $dorm)
-                <!-- dorm item -->
-				<div class="col-lg-6">
-					<div class="card shadow p-3">
-						<div class="row g-4">
-							<!-- Card img -->
-							<div class="col-md-3">
-								<img src="{{ asset('storage/dorm-images/'. $dorm->main_image) }}" class="rounded-2" alt="Card image">
-							</div>
+              <!-- dorm item -->
+              <div class="col-lg-6">
+                  <div class="card shadow p-3">
+                      <div class="row g-4">
+                          <!-- Card img -->
+                          <div class="col-md-3">
+                              <img src="{{ $dorm->main_image }}" class="rounded-2" alt="">
+                          </div>
 
-							<!-- Card body -->
-							<div class="col-md-9">
-								<div class="card-body position-relative d-flex flex-column p-0 h-100">
+                          <!-- Card body -->
+                          <div class="col-md-9">
+                              <div class="card-body position-relative d-flex flex-column p-0 h-100">
 
-									<!-- Buttons -->
-									<div class="list-inline-item dropdown position-absolute top-0 end-0">
-										<!-- Share button -->
-										<a href="#" class="btn btn-sm btn-round btn-light" role="button" id="dropdownAction1" data-bs-toggle="dropdown" aria-expanded="false">
-											<i class="bi bi-three-dots-vertical"></i>
-										</a>
-										<!-- dropdown button -->
-										<ul class="dropdown-menu dropdown-menu-end min-w-auto shadow" aria-labelledby="dropdownAction1">
-											<li><a class="dropdown-item small" href="#"><i class="bi bi-info-circle me-2"></i>Report</a></li>
-											<li><a class="dropdown-item small" href="#"><i class="bi bi-slash-circle me-2"></i>Disable</a></li>
-										</ul>
-									</div>
+                                  <!-- Title -->
+                                  <h5 class="card-title mb-0 me-5"><a
+                                          href="{{ route('admin.single-dorm', $dorm->slug) }}"
+                                          target="_blank">{{ Str::of($dorm->dorm_name)->limit(32) }}</a></h5>
+                                  <small><i
+                                          class="bi bi-geo-alt me-2"></i>{{ Str::of($dorm->street_address)->limit(20) }}
+                                      | {{ $dorm->regin }}, {{ $dorm->city }}</small>
 
-									<!-- Title -->
-									<h5 class="card-title mb-0 me-5"><a href="{{ route('admin.single-dorm',  $dorm->slug) }}" target="_blank">{{ Str::of( $dorm->dorm_name)->limit(32) }}</a></h5>
-									<small><i class="bi bi-geo-alt me-2"></i>{{ Str::of( $dorm->street_address)->limit(20) }} | {{  $dorm->regin }}, {{  $dorm->city }}</small>
 
-									<!-- Price and Button -->
-									<div class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
-										<!-- Price -->
-										<div class="d-flex align-items-center">
-                                            <h6 class="fw-bold mb-0 me-1">{{  $dorm->dorm_type }} | </h6>
-                                            <span class="mb-0 me-2 badge text-bg-secondary">Status: {{  $dorm->status }}</span>
-                                        </div>
-										<!-- Button -->
-										<div class="hstack gap-2 mt-3 mt-sm-0">
-											<a href="#" class="btn btn-sm btn-primary-soft px-2 mb-0"><i class="bi bi-pencil-square fa-fw"></i></a>
-											<a href="#" class="btn btn-sm btn-danger-soft px-2 mb-0"><i class="bi bi-slash-circle fa-fw"></i></a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                                  <div class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
+                                      <div class="d-flex align-items-center">
+                                          <h6 class="fw-bold mb-0 me-1">
+                                              {{ strtolower(str_replace('_', ' ', $dorm->dorm_type)) }} | </h6>
+                                          <span class="mb-0 me-2 badge text-bg-secondary">Status:
+                                              {{ strtolower($dorm->status) }}</span>
+                                      </div>
+                                      <div class="hstack gap-2 mt-3 mt-sm-0">
+                                          <a href="#" class="btn btn-sm btn-primary-soft px-2 mb-0">
+                                              <i class="bi bi-pencil-square fa-fw"></i>
+                                          </a>
+                                          <a href="#" class="btn btn-sm btn-danger-soft px-2 mb-0">
+                                              <i class="bi bi-slash-circle fa-fw"></i>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           @empty
-
           @endforelse
 
       </div>
-      <!-- Hotel grid END -->
 
       <!-- Widget START -->
       <div class="row g-4">
@@ -159,32 +150,35 @@
 
                   <!-- Card body START -->
                   <div class="card-body p-3">
-                    @foreach ($recentStudent as $student)
-
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Avatar and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/p1.svg') }}"
-                                      alt="avatar">
+                      @foreach ($recentStudent as $student)
+                          <div class="d-flex justify-content-between align-items-center">
+                              <!-- Avatar and info -->
+                              <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
+                                  <!-- Avatar -->
+                                  <div class="avatar avatar-md flex-shrink-0">
+                                     @if ($student->profile_picture == null)
+                                            <img class="avatar-img rounded-circle border border-3 border-primary"
+                                                src="{{ asset('assets/images/avatar/p1.svg') }}" alt="" />
+                                        @else
+                                            <img class="avatar-img rounded-circle border border-3 border-primary"
+                                                src="{{ $student->profile_picture }}" alt="" />
+                                        @endif
+                                  </div>
+                                  <!-- Info -->
+                                  <div class="ms-sm-2 mt-2 mt-sm-0">
+                                      <h6 class="mb-1">{{ $student->first_name }} {{ $student->last_name }}</h6>
+                                      <ul class="nav nav-divider small">
+                                          <li class="nav-item">{{ $student->email }}</li>
+                                      </ul>
+                                  </div>
                               </div>
-                              <!-- Info -->
-                              <div class="ms-sm-2 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">{{ $student->first_name }} {{ $student->last_name }}</h6>
-                                  <ul class="nav nav-divider small">
-                                      <li class="nav-item">Room 25A</li>
-                                      <li class="nav-item">24Nov - 28Nov</li>
-                                  </ul>
-                              </div>
+                              <!-- Button -->
+                              <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
+                                      class="fa-solid fa-chevron-right fa-fw"></i></a>
                           </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
-                                  class="fa-solid fa-chevron-right fa-fw"></i></a>
-                      </div>
 
-                      <hr><!-- Divider -->
-                    @endforeach
+                          <hr><!-- Divider -->
+                      @endforeach
                   </div>
                   <!-- Card body END -->
               </div>
@@ -197,36 +191,44 @@
                   <!-- Card header -->
                   <div class="card-header border-bottom d-flex justify-content-between align-items-center p-3">
                       <h5 class="card-header-title">New Dormitory Owners</h5>
-                      <a href="{{ route('admin.dorm-owners') }}" wire:navigate class="btn btn-link p-0 mb-0">View all</a>
+                      <a href="{{ route('admin.dorm-owners') }}" wire:navigate class="btn btn-link p-0 mb-0">View
+                          all</a>
                   </div>
 
                   <!-- Card body START -->
                   <div class="card-body p-3">
-                        @foreach ($recentDormOwner as $dormOwner)
-                        <!-- Arrival item -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Avatar and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="avatar avatar-md flex-shrink-0">
-                                  <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/p1.svg') }}" alt="avatar">
+                      @foreach ($recentDormOwner as $dormOwner)
+                          <!-- Arrival item -->
+                          <div class="d-flex justify-content-between align-items-center">
+                              <!-- Avatar and info -->
+                              <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
+                                  <!-- Avatar -->
+                                  <div class="avatar avatar-md flex-shrink-0">
+                                        @if ($dormOwner->profile_picture == null)
+                                            <img class="avatar-img rounded-circle border border-3 border-primary"
+                                                src="{{ asset('assets/images/avatar/p1.svg') }}" alt="" />
+                                        @else
+                                            <img class="avatar-img rounded-circle border border-3 border-primary"
+                                                src="{{ $dormOwner->profile_picture }}" alt="" />
+                                        @endif
+                                  </div>
+                                  <!-- Info -->
+                                  <div class="ms-sm-2 mt-2 mt-sm-0">
+                                      <h6 class="mb-1">{{ $dormOwner->first_name }} {{ $dormOwner->last_name }}
+                                      </h6>
+                                      <ul class="nav nav-divider small">
+                                          <li class="nav-item">{{ $dormOwner->email }}</li>
+                                      </ul>
+                                  </div>
                               </div>
-                              <!-- Info -->
-                              <div class="ms-sm-2 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">{{ $dormOwner->first_name }} {{ $dormOwner->last_name }}</h6>
-                                  <ul class="nav nav-divider small">
-                                      <li class="nav-item">Room 25A</li>
-                                      <li class="nav-item">24Nov - 28Nov</li>
-                                  </ul>
-                              </div>
+                              <!-- Button -->
+                              <a href="{{ route('admin.dorm-owner.details', $dormOwner->id) }}" class="btn btn-sm btn-light mb-0 ms-3 px-2">
+                                <i class="fa-solid fa-chevron-right fa-fw"></i>
+                            </a>
                           </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
-                                  class="fa-solid fa-chevron-right fa-fw"></i></a>
-                      </div>
 
-                      <hr><!-- Divider -->
-                        @endforeach
+                          <hr><!-- Divider -->
+                      @endforeach
 
 
                   </div>
@@ -246,152 +248,36 @@
 
                   <!-- Card body START -->
                   <div class="card-body p-3">
-
-                      <!-- Rooms item START -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Image and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="flex-shrink-0">
-                                  <img src="assets/images/category/hotel/4by3/08.jpg" class="rounded h-60px"
-                                      alt="">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-3 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Deluxe Pool View with Breakfast</h6>
-                                  <ul class="list-inline smaller mb-0">
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="far fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0">(35 reviews)</li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light flex-shrink-0 mb-0 ms-3">View</a>
-                      </div>
-                      <!-- Rooms item END -->
-
-                      <hr><!-- Divider -->
-
-                      <!-- Rooms item START -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Image and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="flex-shrink-0">
-                                  <img src="assets/images/category/hotel/4by3/09.jpg" class="rounded h-60px"
-                                      alt="">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-3 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Deluxe Pool View</h6>
-                                  <ul class="list-inline smaller mb-0">
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="far fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0">(25 reviews)</li>
-                                  </ul>
+                      @foreach ($recentReviews as $review)
+                          <!-- Rooms item START -->
+                          <div class="d-flex justify-content-between align-items-center">
+                              <!-- Image and info -->
+                              <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
+                                  <!-- Avatar -->
+                                  <div class="flex-shrink-0">
+                                      <img src="{{ $review->dormitory->main_image }}" class="rounded h-60px"
+                                          alt="">
+                                  </div>
+                                  <!-- Info -->
+                                  <div class="ms-sm-3 mt-2 mt-sm-0">
+                                      <p class="mb-1"><strong><small>{{ $review->user->first_name }} {{ $review->user->last_name }}</small></strong></p>
+                                      <ul class="list-inline smaller mb-0">
+                                          @for ($i = 1; $i <= 5; $i++)
+                                              <li class="list-inline-item me-0">
+                                                  <i
+                                                      class="fa{{ $i <= $review->rating ? '-solid' : '-regular' }} fa-star text-warning"></i>
+                                              </li>
+                                          @endfor
+                                          <br>
+                                          <li class="list-inline-item me-0"><strong>Dormitory:</strong> <small>{{ $review->dormitory->dorm_name }}</small></li>
+                                      </ul>
+                                  </div>
                               </div>
                           </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light flex-shrink-0 mb-0 ms-3">View</a>
-                      </div>
-                      <!-- Rooms item END -->
+                          <!-- Rooms item END -->
 
-                      <hr><!-- Divider -->
-
-                      <!-- Rooms item START -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Image and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="flex-shrink-0">
-                                  <img src="assets/images/category/hotel/4by3/01.jpg" class="rounded h-60px"
-                                      alt="">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-3 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Luxury Room with Balcony</h6>
-                                  <ul class="list-inline smaller mb-0">
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="far fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0">(18 reviews)</li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light flex-shrink-0 mb-0 ms-3">View</a>
-                      </div>
-                      <!-- Rooms item END -->
-
-                      <hr><!-- Divider -->
-
-                      <!-- Rooms item START -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Image and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="flex-shrink-0">
-                                  <img src="assets/images/category/hotel/4by3/05.jpg" class="rounded h-60px"
-                                      alt="">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-3 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Premium Room With Balcony</h6>
-                                  <ul class="list-inline smaller mb-0">
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i
-                                              class="far fa-star-half-stroke text-warning"></i></li>
-                                      <li class="list-inline-item me-0">(08 reviews)</li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light flex-shrink-0 mb-0 ms-3">View</a>
-                      </div>
-                      <!-- Rooms item END -->
-
-                      <hr><!-- Divider -->
-
-                      <!-- Rooms item START -->
-                      <div class="d-flex justify-content-between align-items-center">
-                          <!-- Image and info -->
-                          <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                              <!-- Avatar -->
-                              <div class="flex-shrink-0">
-                                  <img src="assets/images/category/hotel/4by3/02.jpg" class="rounded h-60px"
-                                      alt="">
-                              </div>
-                              <!-- Info -->
-                              <div class="ms-sm-3 mt-2 mt-sm-0">
-                                  <h6 class="mb-1">Rock Family Suite</h6>
-                                  <ul class="list-inline smaller mb-0">
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-                                      <li class="list-inline-item me-0"><i
-                                              class="far fa-star-half-stroke text-warning"></i></li>
-                                      <li class="list-inline-item me-0">(11 reviews)</li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <!-- Button -->
-                          <a href="#" class="btn btn-sm btn-light flex-shrink-0 mb-0 ms-3">View</a>
-                      </div>
-                      <!-- Rooms item END -->
-
+                          <hr><!-- Divider -->
+                      @endforeach
                   </div>
                   <!-- Card body END -->
               </div>
