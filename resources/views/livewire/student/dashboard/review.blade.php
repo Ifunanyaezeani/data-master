@@ -56,11 +56,15 @@
                             <div class="mt-3">
                                 <!-- Buttons -->
                                 <div class="d-flex align-items-center">
-                                    <a class="btn btn-sm btn-primary-soft mb-0" data-bs-toggle="collapse"
-                                        href="#collapseComment" role="button" aria-expanded="true"
-                                        aria-controls="collapseComment">
+                                    <button
+                                        class="btn btn-sm btn-primary-soft mb-0"
+                                        role="button"
+                                        wire:
+                                        wire:click="deleteReview({{ $review->id }})"
+                                        wire:confirm="Are you sure you want to delete this review?"
+                                    >
                                         <i class="bi bi-trash me-1"></i>Delete
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                             <!-- Review item END -->
