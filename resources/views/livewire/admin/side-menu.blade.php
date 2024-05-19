@@ -14,7 +14,7 @@
             <!-- Sidebar menu START -->
             <ul class="navbar-nav flex-column" id="navbar-sidebar">
                 <!-- Menu item -->
-                <li class="nav-item"><a href="{{ route('admin') }}" class="nav-link  {{ Request::is('/') ? 'active' : '' }}" wire:navigate>
+                <li class="nav-item"><a href="{{ route('admin') }}" class="nav-link {{ $this->active_link(route('admin')) }}" wire:navigate>
                         Dashboard
                     </a></li>
 
@@ -23,14 +23,14 @@
 
                 <!-- Menu item -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.students') }}" role="button"  wire:navigate>
+                    <a class="nav-link {{ $this->active_link(route('admin.students')) }}" href="{{ route('admin.students') }}" role="button"  wire:navigate>
                         Students
                     </a>
                 </li>
 
                  <!-- Menu item -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.dorm-owners') }}" role="button"  wire:navigate>
+                    <a class="nav-link {{ $this->active_link(route('admin.dorm-owners')) }}" href="{{ route('admin.dorm-owners') }}" role="button"  wire:navigate>
                          Dorm Owners
                     </a>
                 </li>
@@ -40,25 +40,25 @@
 
                   <!-- Menu item -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.dormitories') }}" wire:navigate role="button">
+                    <a class="nav-link {{ $this->active_link(route('admin.dormitories')) }}" href="{{ route('admin.dormitories') }}" wire:navigate role="button">
                          Dormitories
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.dormitories') }}" role="button">
+                    <a class="nav-link {{ $this->active_link(route('admin')) }}" href="#" role="button">
                          Bookings
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.dormitories') }}" role="button">
+                    <a class="nav-link {{ $this->active_link(route('admin')) }}" href="#" role="button">
                          Student Pair
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.dormitories') }}" role="button">
+                    <a class="nav-link {{ $this->active_link(route('admin')) }}" href="#" role="button">
                          Reviews
                     </a>
                 </li>
@@ -67,7 +67,7 @@
                 <li class="nav-item ms-2 my-2">Extra Section</li>
                 <!-- Menu item -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.setting') }}" wire:navigate>
+                    <a class="nav-link {{ $this->active_link(route('admin.setting')) }}" href="{{ route('admin.setting') }}" wire:navigate>
                         System setting
                     </a>
                 </li>

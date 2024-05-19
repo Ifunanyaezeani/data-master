@@ -20,6 +20,11 @@ class SideMenu extends Component
         $this->redirect(route('admin.login'), navigate: true);
     }
 
+    public function active_link($route_name)
+    {
+        return $route_name == request()->url() ? 'active' : '';
+    }
+
 
     public function render()
     {
