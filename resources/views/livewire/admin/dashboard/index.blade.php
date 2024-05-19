@@ -173,8 +173,9 @@
                                   </div>
                               </div>
                               <!-- Button -->
-                              <a href="#" class="btn btn-sm btn-light mb-0 ms-3 px-2"><i
-                                      class="fa-solid fa-chevron-right fa-fw"></i></a>
+                              <a href="{{ route('admin.student.details', $student->id) }}" class="btn btn-sm btn-light mb-0 ms-3 px-2">
+                                <i class="fa-solid fa-chevron-right fa-fw"></i>
+                            </a>
                           </div>
 
                           <hr><!-- Divider -->
