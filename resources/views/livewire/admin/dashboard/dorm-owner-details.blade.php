@@ -203,13 +203,9 @@
                                           <span class="mb-0 me-2 badge text-bg-secondary">Status:
                                               {{ strtolower($dormitory->status) }}</span>
                                       </div>
-                                      <!-- Button -->
                                       <div class="hstack gap-2 mt-3 mt-sm-0">
-                                          <a href="#" class="btn btn-sm btn-primary-soft px-2 mb-0"><i
-                                                  class="bi bi-pencil-square fa-fw"></i></a>
-                                          <a href="#" class="btn btn-sm btn-danger-soft px-2 mb-0"><i
-                                                  class="bi bi-slash-circle fa-fw"></i></a>
-                                      </div>
+											<a href="{{ route('admin.dormitory-details', $dormitory->id) }}" class="btn btn-sm btn-primary-soft px-2 mb-0"><i class="bi bi-eye fa-fw"></i> View details</a>
+										</div>
                                   </div>
                               </div>
                           </div>

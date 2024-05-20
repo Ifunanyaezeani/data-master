@@ -7,9 +7,11 @@ use App\Livewire\Admin\Dashboard\Students;
 use App\Livewire\Admin\Login as AdminLogin;
 use App\Livewire\Admin\Dashboard\DormOwners;
 use App\Livewire\Admin\Dashboard\Dormitories;
+use App\Livewire\Admin\Dashboard\DormitoryDetails;
 use App\Livewire\Admin\Dashboard\DormOwnerDetails;
 use App\Livewire\Admin\Dashboard\Setting;
 use App\Livewire\Admin\Dashboard\StudentDetails;
+use App\Livewire\Student\Dashboard\DormitoryDetail;
 
 Route::middleware(['guest:admin'])->group(function () {
     // basic admin guest route
@@ -27,6 +29,7 @@ Route::middleware(['auth:admin'])->prefix('/admin')->group(function () {
     Route::get('/student/{id}/details', StudentDetails::class)->name('admin.student.details');
 
     Route::get('/dormitories', Dormitories::class)->name('admin.dormitories');
+    Route::get('/dormitory/{dormId}/details', DormitoryDetails::class)->name('admin.dormitory-details');
     Route::get('/dorm/{slug}', [Explore::class, 'singleDorm'])->name('admin.single-dorm');
 
     Route::get('/setting', Setting::class)->name('admin.setting');

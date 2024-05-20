@@ -27,20 +27,6 @@
 							<!-- Card body -->
 							<div class="col-md-9">
 								<div class="card-body position-relative d-flex flex-column p-0 h-100">
-
-									{{-- <!-- Buttons -->
-									<div class="list-inline-item dropdown position-absolute top-0 end-0">
-										<!-- Share button -->
-										<a href="#" class="btn btn-sm btn-round btn-light" role="button" id="dropdownAction1" data-bs-toggle="dropdown" aria-expanded="false">
-											<i class="bi bi-three-dots-vertical"></i>
-										</a>
-										<!-- dropdown button -->
-										<ul class="dropdown-menu dropdown-menu-end min-w-auto shadow" aria-labelledby="dropdownAction1">
-											<li><a class="dropdown-item small" href="#"><i class="bi bi-info-circle me-2"></i>Report</a></li>
-											<li><a class="dropdown-item small" href="#"><i class="bi bi-slash-circle me-2"></i>Disable</a></li>
-										</ul>
-									</div> --}}
-
 									<!-- Title -->
 									<h5 class="card-title mb-0 me-5"><a href="{{ route('admin.single-dorm', $dormitory->slug) }}" target="_blank">{{ Str::of($dormitory->dorm_name)->limit(32) }}</a></h5>
 									<small><i class="bi bi-geo-alt me-2"></i>{{ Str::of($dormitory->street_address)->limit(20) }} | {{ $dormitory->regin }}, {{ $dormitory->city }}</small>
@@ -54,8 +40,7 @@
                                         </div>
 										<!-- Button -->
 										<div class="hstack gap-2 mt-3 mt-sm-0">
-											<a href="#" class="btn btn-sm btn-primary-soft px-2 mb-0"><i class="bi bi-pencil-square fa-fw"></i></a>
-											<a href="#" class="btn btn-sm btn-danger-soft px-2 mb-0"><i class="bi bi-slash-circle fa-fw"></i></a>
+											<a href="{{ route('admin.dormitory-details', $dormitory->id) }}" class="btn btn-sm btn-primary-soft px-2 mb-0"><i class="bi bi-eye fa-fw"></i> View details</a>
 										</div>
 									</div>
 								</div>
