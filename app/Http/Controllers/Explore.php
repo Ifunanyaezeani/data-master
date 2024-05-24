@@ -17,7 +17,7 @@ class Explore extends Controller
         $dormTypes = $request->input('dorm_type', []);
 
         // Base query for fetching dormitories
-        $dormitoriesQuery = Dormitory::where('status', DormStatus::PENDING->name);
+        $dormitoriesQuery = Dormitory::where('status', DormStatus::APPROVED->name);
 
         // If there's a search query, modify the query to include search conditions
         if ($query) {

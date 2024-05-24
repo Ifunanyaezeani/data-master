@@ -12,7 +12,7 @@ class Students extends Component
     public function render()
     {
         return view('livewire.admin.dashboard.students', [
-            'students' => User::paginate(10),
+            'students' => User::latest()->paginate(10),
         ]);
     }
 }
