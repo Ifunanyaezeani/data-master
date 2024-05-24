@@ -423,13 +423,12 @@
 
                 <aside class="col-xl-5 order-xl-2">
                     <div data-sticky data-margin-top="100" data-sticky-for="1199">
-                        <div class="card card-body border">
 
-                            <!-- Title -->
+                        <div class="card card-body border">
                             <div class="d-sm-flex justify-content-sm-between align-items-center mb-3">
-                                <div>
-                                    <span>Room Details</span>
-                                </div>
+                                <h6 class="text-primary">
+                                <Strong>{{ strtolower(str_replace('_', ' ', $dorm_details->dorm_type)) }} Dormitory</Strong>
+                            </h6>
                             </div>
                             <div class="d-grid">
                                 <a href="#room-options" class="btn btn-lg btn-primary-soft mb-0">View
