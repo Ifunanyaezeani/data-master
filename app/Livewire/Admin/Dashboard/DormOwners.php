@@ -12,7 +12,7 @@ class DormOwners extends Component
     public function render()
     {
         return view('livewire.admin.dashboard.dorm-owners',[
-            'dormOwners' => DormOwner::paginate(10),
+            'dormOwners' => DormOwner::latest()->paginate(10),
         ]);
     }
 }

@@ -15,4 +15,9 @@ class DormOwner extends Model
      * @var array<int, string>
      */
     protected $guarded = [];
+
+    public function dormitories()
+    {
+        return $this->hasMany(Dormitory::class, 'dorm_owner_id');
+    }
 }

@@ -1,7 +1,16 @@
   <div class="page-content-wrapper p-xxl-4 bg-transparent">
 
+      @if (session()->has('message'))
+          <div class="alert alert-success d-flex align-items-center rounded-3 mb-0" role="alert">
+              <h4 class="mb-0 alert-heading"><i class="bi bi-check2-circle me-2"></i> </h4>
+              <div class="ms-3">
+                  <h6 class="mb-0 alert-heading">{{ session('message') }}</h6>
+              </div>
+          </div>
+      @endif
+
       <!-- Counter START -->
-      <div class="row g-4 mb-4">
+      <div class="row g-4 mb-4 mt-3">
           <!-- Counter item -->
           <div class="col-lg-4">
               <div class="card card-body border border-primary bg-primary bg-opacity-10 border-opacity-25 p-4 h-100">
@@ -56,37 +65,36 @@
           <!-- Agent info START -->
           <div class="col-md-4 col-xxl-3">
               <div class="card bg-light">
-                  <!-- Dropdown button -->
-                  <div class="dropdown position-absolute top-0 end-0 m-3">
-                      <a href="#" class="btn btn-sm btn-white btn-round lh-lg mb-0" role="button"
-                          id="dropdownShare1" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="bi bi-three-dots fa-fw"></i>
-                      </a>
-                      <!-- dropdown button -->
-                      <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded"
-                          aria-labelledby="dropdownShare1">
-                          <li><a class="dropdown-item" href="#"><i
-                                      class="bi bi-pencil-square fa-fw me-2"></i>Edit</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash fa-fw me-2"></i>Remove</a>
-                          </li>
-                      </ul>
-                  </div>
                   <!-- Card body -->
                   <div class="card-body text-center">
                       <!-- Avatar Image -->
                       <div class="avatar avatar-xl flex-shrink-0 mb-3">
-                          <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/p1.svg') }}"
-                              alt="avatar">
+                          @if ($dormOwner->profile_picture == null)
+                              <img class="avatar-img rounded-circle border border-3 border-primary"
+                                  src="{{ asset('assets/images/avatar/p1.svg') }}" alt="" />
+                          @else
+                              <img class="avatar-img rounded-circle border border-3 border-primary"
+                                  src="{{ $dormOwner->profile_picture }}" alt="" />
+                          @endif
                       </div>
                       <!-- Title -->
-                      <h5 class="mb-2">{{ $dormOwner->first_name }}</h5>
-                      <ul class="list-inline small mb-0">
-                          <li class="list-inline-item me-0"><i class="fa-solid fa-star text-warning"></i></li>
-                          <li class="list-inline-item me-0"><i class="fa-solid fa-star text-warning"></i></li>
-                          <li class="list-inline-item me-0"><i class="fa-solid fa-star text-warning"></i></li>
-                          <li class="list-inline-item me-0"><i class="fa-solid fa-star text-warning"></i></li>
-                          <li class="list-inline-item"><i class="fa-solid fa-star-half-alt text-warning"></i></li>
-                      </ul>
+
+                      @if ($dormOwner->email_verified_at == null)
+                          <h5>
+                              <span class="btn btn-sm btn-primary mb-0 ms-3 px-2"
+                                  wire:click='approvedDormOwner({{ $dormOwner->id }})'
+                                  wire:confirm="Are you sure you want to verify this dormitory owner account?">
+                                  Verify Account
+                              </span>
+                          </h5>
+                      @else
+                          <h5 class="mb-2"><span
+                                  class="mb-0 small badge text-bg-success">{{ $dormOwner->email_verified_at == null ? 'Unverified' : 'Verified' }}<i
+                                      class="fa-solid fa-star text-warning ms-1"></i>
+                          </h5>
+                      @endif
+
+                      </span>
                   </div>
               </div>
           </div>
@@ -178,8 +186,7 @@
                       <div class="row g-4">
                           <!-- Card img -->
                           <div class="col-md-3">
-                              <img src="{{ $dormitory->main_image }}" class="rounded-2"
-                                  alt="Card image">
+                              <img src="{{ $dormitory->main_image }}" class="rounded-2" alt="Card image">
                           </div>
 
                           <!-- Card body -->
@@ -199,13 +206,15 @@
                                       <!-- Price -->
                                       <div class="d-flex align-items-center">
                                           <h6 class="fw-bold mb-0 me-1">
-                                              {{ strtolower(str_replace('_', ' ',$dormitory->dorm_type)) }} | </h6>
+                                              {{ strtolower(str_replace('_', ' ', $dormitory->dorm_type)) }} | </h6>
                                           <span class="mb-0 me-2 badge text-bg-secondary">Status:
                                               {{ strtolower($dormitory->status) }}</span>
                                       </div>
                                       <div class="hstack gap-2 mt-3 mt-sm-0">
-											<a href="{{ route('admin.dormitory-details', $dormitory->id) }}" class="btn btn-sm btn-primary-soft px-2 mb-0"><i class="bi bi-eye fa-fw"></i> View details</a>
-										</div>
+                                          <a href="{{ route('admin.dormitory-details', $dormitory->id) }}"
+                                              class="btn btn-sm btn-primary-soft px-2 mb-0"><i
+                                                  class="bi bi-eye fa-fw"></i> View details</a>
+                                      </div>
                                   </div>
                               </div>
                           </div>

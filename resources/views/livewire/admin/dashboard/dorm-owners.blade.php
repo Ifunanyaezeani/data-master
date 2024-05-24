@@ -27,29 +27,23 @@
                     <!-- Card item -->
 				<div class="col-md-6 col-lg-4 col-xxl-3">
 					<div class="card border h-100">
-						<!-- Dropdown button -->
-						<div class="dropdown position-absolute top-0 end-0 m-3">
-							<a href="#" class="btn btn-sm btn-light btn-round small mb-0" role="button" id="dropdownShare1" data-bs-toggle="dropdown" aria-expanded="false">
-								<i class="bi bi-three-dots fa-fw"></i>
-							</a>
-							<!-- dropdown button -->
-							<ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare1">
-								<li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit</a></li>
-								<li><a class="dropdown-item" href="#"><i class="bi bi-trash fa-fw me-2"></i>Remove</a></li>
-							</ul>
-						</div>
 						<!-- Card body -->
 						<div class="card-body text-center pb-0">
 							<!-- Avatar Image -->
 							<div class="avatar avatar-xl flex-shrink-0 mb-3">
-								<img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/p1.svg') }}" alt="avatar">
+                                @if ($dormOwner->profile_picture == null)
+                                    <img class="avatar-img rounded-circle border border-3 border-primary"
+                                        src="{{ asset('assets/images/avatar/p1.svg') }}" alt="" />
+                                @else
+                                    <img class="avatar-img rounded-circle border border-3 border-primary"
+                                        src="{{ $dormOwner->profile_picture }}" alt="" />
+                                @endif
 							</div>
 							<!-- Title -->
 							<h5 class="mb-1">{{ $dormOwner->first_name }} {{ $dormOwner->last_name }}</h5>
 							<small><i class="bi bi-envelope"></i> {{ $dormOwner->email }} </small>
-							<!-- Info and rating -->
-							<div class="d-flex justify-content-between mt-3">
-								<h6 class="mb-0 small"><span class="fw-light">Total dormitories:</span> 0</h6>
+							<div class="justify-content-between mt-3">
+								<h6 class="mb-0 small"><span class="fw-light">Total dormitories:</span> {{ $dormOwner->dormitories->count() }}</h6>
 								<span class="mb-0 small badge text-bg-secondary">{{ $dormOwner->email_verified_at == null ? "Unverified" :  "Verified"}}<i class="fa-solid fa-star text-warning ms-1"></i></span>
 							</div>
 						</div>

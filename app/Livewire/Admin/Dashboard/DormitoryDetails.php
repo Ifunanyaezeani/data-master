@@ -18,7 +18,7 @@ class DormitoryDetails extends Component
     {
         $dorm->update(['status' => DormStatus::APPROVED->name]);
         Session::flash('message', 'dormitory was successfully approved');
-        return redirect('admin.dormitory-details', $this->dormId->id);
+        $this->redirect(route('admin.dormitory-details', $this->dormId->id), navigate: true);
     }
 
     public function render()

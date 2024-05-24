@@ -16,7 +16,7 @@ class Dormitories extends Component
     public function render()
     {
         return view('livewire.admin.dashboard.dormitories', [
-            'dormitories' => Dormitory::paginate(20),
+            'dormitories' => Dormitory::latest()->paginate(20),
         ]);
     }
 }

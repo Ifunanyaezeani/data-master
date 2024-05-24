@@ -41,10 +41,6 @@ class User extends Authenticatable
         ];
     }
 
-    public function dormitories()
-    {
-        return $this->hasMany(Dormitory::class, 'dorm_owner_id');
-    }
 
     public function bookings()
     {
