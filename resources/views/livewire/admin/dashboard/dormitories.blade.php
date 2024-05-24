@@ -36,7 +36,7 @@
 										<!-- Price -->
 										<div class="d-flex align-items-center">
                                             <h6 class="fw-bold mb-0 me-1">{{ strtolower(str_replace('_', ' ', $dormitory->dorm_type)) }} | </h6>
-                                            <span class="mb-0 me-2 badge text-bg-secondary">Status: {{ strtolower($dormitory->status) }}</span>
+                                            <span class="mb-0 me-2 badge {{ $dormitory->status == \App\Enums\DormStatus::APPROVED->name ? 'text-bg-success': 'text-bg-secondary' }}">Status: {{ strtolower($dormitory->status) }}</span>
                                         </div>
 										<!-- Button -->
 										<div class="hstack gap-2 mt-3 mt-sm-0">
