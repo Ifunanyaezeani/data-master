@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Explore;
 use App\Livewire\Admin\Dashboard\Booking;
+use App\Livewire\Admin\Dashboard\BookingDetails;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Admin\Dashboard\Index;
 use App\Livewire\Admin\Dashboard\Students;
@@ -34,6 +35,7 @@ Route::middleware(['auth:admin'])->prefix('/admin')->group(function () {
     Route::get('/dorm/{slug}', [Explore::class, 'singleDorm'])->name('admin.single-dorm');
 
     Route::get('/bookings', Booking::class)->name('admin.bookings');
+    Route::get('/booking/{booking}/details', BookingDetails::class)->name('admin.booking-details');
 
     Route::get('/setting', Setting::class)->name('admin.setting');
 });

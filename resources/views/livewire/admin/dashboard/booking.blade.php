@@ -62,7 +62,7 @@
                         </div>
 
                         <!-- Data item -->
-                        <div class="col"><a href="#" class="btn btn-sm btn-light mb-0">View</a></div>
+                        <div class="col"><a href="{{ route('admin.booking-details', $booking->id) }}" class="btn btn-sm btn-light mb-0">View</a></div>
                     </div>
                     @empty
 
