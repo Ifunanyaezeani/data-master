@@ -47,18 +47,17 @@
 
                                   <li class="list-group-item mb-3">
                                       <span>Mobile Number:</span>
-                                      <span class="h6 fw-normal ms-1 mb-0">{{ $student->phone_number }}</span>
+                                      <span class="h6 fw-normal ms-1 mb-0">{{ $student->phone_number ?? 'Not provided' }}</span>
                                   </li>
 
                                   <li class="list-group-item mb-3">
                                       <span>Nationality: </span>
-                                      <span class="h6 fw-normal ms-1 mb-0">{{ $student->nationality }}</span>
+                                      <span class="h6 fw-normal ms-1 mb-0">{{ $student->nationality ?? 'Not provided' }}</span>
                                   </li>
 
                                   <li class="list-group-item mb-3">
                                       <span>Date of birth: </span>
-                                      <span
-                                          class="h6 fw-normal ms-1 mb-0">{{ $student->birth_day->format('d F Y') }}</span>
+                                      <span class="h6 fw-normal ms-1 mb-0">{{ $student->birth_day == null ? 'Not provided' : $student->birth_day->format('d F Y') }}</span>
                                   </li>
 
                               </ul>
@@ -74,7 +73,7 @@
 
                                   <li class="list-group-item mb-3">
                                       <span>Gender:</span>
-                                      <span class="h6 fw-normal ms-1 mb-0">{{ $student->gender }}</span>
+                                      <span class="h6 fw-normal ms-1 mb-0">{{ $student->gender ?? 'Not provided' }}</span>
                                   </li>
 
                                   <li class="list-group-item mb-3">
