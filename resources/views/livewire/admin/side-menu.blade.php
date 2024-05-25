@@ -46,7 +46,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ $this->active_link(route('admin')) }}" href="#" role="button">
+                    <a class="nav-link {{ $this->active_link(route('admin.bookings')) }}" href="{{ route('admin.bookings') }}" role="button">
                          Bookings
                     </a>
                 </li>
