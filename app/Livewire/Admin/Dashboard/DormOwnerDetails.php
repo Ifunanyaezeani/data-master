@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Dashboard;
 
+use App\Models\Room;
 use App\Models\Booking;
 use Livewire\Component;
 use App\Models\Dormitory;
@@ -33,7 +34,17 @@ class DormOwnerDetails extends Component
             'dormOwner' => DormOwner::whereId($this->id)->first(),
             'dorm' => Dormitory::whereDormOwnerId($this->id)->latest()->paginate(6),
             'totalDorm' => Dormitory::whereDormOwnerId($this->id)->count(),
-            'totalBookedDorm' => Booking::count(),
+            'totalRooms' => Room::whereHas('dormitory', function ($query) {
+                                $query->where('dorm_owner_id', $this->id);
+                            })->count(),
+            'totalBookedDorm' => Dormitory::where('dorm_owner_id', $this->id)
+                                ->whereHas('rooms', function ($query) {
+                                    $query->whereHas('booking');
+                                })
+                                ->with(['rooms' => function ($query) {
+                                    $query->whereHas('booking');
+                                }, 'rooms.booking'])
+                                ->count(),
         ]);
     }
 }

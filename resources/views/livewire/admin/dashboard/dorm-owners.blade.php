@@ -62,7 +62,7 @@
 			<!-- Pagination START -->
 			<div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4">
 				<!-- Content -->
-				<p class="mb-sm-0 text-center text-sm-start">Showing {{ $dormOwners->count() }} of 10 entries</p>
+				<p class="mb-sm-0 text-center text-sm-start">Showing {{ $dormOwners->count() }} entries</p>
 				<!-- Pagination -->
                 {{ $dormOwners->links() }}
 			</div>

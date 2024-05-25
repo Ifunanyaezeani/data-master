@@ -27,22 +27,16 @@
                     <!-- Card item -->
 				<div class="col-md-6 col-lg-4 col-xxl-3">
 					<div class="card border h-100">
-						<!-- Dropdown button -->
-						<div class="dropdown position-absolute top-0 end-0 m-3">
-							<a href="#" class="btn btn-sm btn-light btn-round small mb-0" role="button" id="dropdownShare1" data-bs-toggle="dropdown" aria-expanded="false">
-								<i class="bi bi-three-dots fa-fw"></i>
-							</a>
-							<!-- dropdown button -->
-							<ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare1">
-								<li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit</a></li>
-								<li><a class="dropdown-item" href="#"><i class="bi bi-trash fa-fw me-2"></i>Remove</a></li>
-							</ul>
-						</div>
-						<!-- Card body -->
 						<div class="card-body text-center pb-0">
 							<!-- Avatar Image -->
 							<div class="avatar avatar-xl flex-shrink-0 mb-3">
-								<img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/p1.svg') }}" alt="avatar">
+                                @if ($student->profile_picture == null)
+                                    <img class="avatar-img rounded-circle border border-3 border-primary"
+                                        src="{{ asset('assets/images/avatar/p1.svg') }}" alt="" />
+                                @else
+                                    <img class="avatar-img rounded-circle border border-3 border-primary"
+                                        src="{{ $student->profile_picture }}" alt="" />
+                                @endif
 							</div>
 							<!-- Title -->
 							<h5 class="mb-1">{{ $student->first_name }} {{ $student->last_name }}</h5>
@@ -67,7 +61,7 @@
 			<!-- Pagination START -->
 			<div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4">
 				<!-- Content -->
-				<p class="mb-sm-0 text-center text-sm-start">Showing {{ $students->count() }} of 10 entries</p>
+				<p class="mb-sm-0 text-center text-sm-start">Showing {{ $students->count() }} entries</p>
 				<!-- Pagination -->
                 {{ $students->links() }}
 			</div>

@@ -18,11 +18,8 @@
                       <!-- Digit -->
                       <div>
                           <h3 class="mb-0 fw-bold">{{ $totalDorm }}</h3>
-                          <span class="mb-0 h6 fw-light">Total Dormitory</span>
+                          <span class="mb-0 h6 fw-light">Total Dormitories</span>
                       </div>
-                      <!-- Icon -->
-                      <div class="icon-lg rounded-circle flex-shrink-0 bg-primary text-white mb-0"><i
-                              class="fa-solid fa-hotel fa-fw"></i></div>
                   </div>
               </div>
           </div>
@@ -34,11 +31,8 @@
                       <!-- Digit -->
                       <div>
                           <h3 class="mb-0 fw-bold">{{ $totalBookedDorm }}</h3>
-                          <span class="mb-0 h6 fw-light">Booked Dorm</span>
+                          <span class="mb-0 h6 fw-light">Booked Dormitories</span>
                       </div>
-                      <!-- Icon -->
-                      <div class="icon-lg rounded-circle flex-shrink-0 bg-warning text-white mb-0"><i
-                              class="fa-regular fa-calendar-days fa-fw"></i></div>
                   </div>
               </div>
           </div>
@@ -49,12 +43,9 @@
                   <div class="d-flex justify-content-between align-items-center">
                       <!-- Digit -->
                       <div>
-                          <h3 class="mb-0 fw-bold">$2486.95</h3>
-                          <span class="mb-0 h6 fw-light">Earning</span>
+                          <h3 class="mb-0 fw-bold">{{ $totalRooms }}</h3>
+                          <span class="mb-0 h6 fw-light">Total Rooms</span>
                       </div>
-                      <!-- Icon -->
-                      <div class="icon-lg rounded-circle flex-shrink-0 bg-success text-white mb-0"><i
-                              class="fa-solid fa-money-bill-trend-up fa-fw"></i></div>
                   </div>
               </div>
           </div>
@@ -77,7 +68,6 @@
                                   src="{{ $dormOwner->profile_picture }}" alt="" />
                           @endif
                       </div>
-                      <!-- Title -->
 
                       @if ($dormOwner->email_verified_at == null)
                           <h5>
@@ -88,9 +78,11 @@
                               </span>
                           </h5>
                       @else
-                          <h5 class="mb-2"><span
-                                  class="mb-0 small badge text-bg-success">{{ $dormOwner->email_verified_at == null ? 'Unverified' : 'Verified' }}<i
-                                      class="fa-solid fa-star text-warning ms-1"></i>
+                         <h5 class="mb-2">
+                            <span class="mb-0 small badge text-bg-success">
+                                {{ $dormOwner->email_verified_at == null ? 'Unverified' : 'Verified' }}
+                                <i class="fa-solid fa-star text-warning ms-1"></i>
+                            </span>
                           </h5>
                       @endif
 
@@ -207,7 +199,7 @@
                                       <div class="d-flex align-items-center">
                                           <h6 class="fw-bold mb-0 me-1">
                                               {{ strtolower(str_replace('_', ' ', $dormitory->dorm_type)) }} | </h6>
-                                          <span class="mb-0 me-2 badge text-bg-secondary">Status:
+                                          <span class="mb-0 me-2 badge {{ $dormitory->status == \App\Enums\DormStatus::APPROVED->name ? 'text-bg-success': 'text-bg-secondary' }}">Status:
                                               {{ strtolower($dormitory->status) }}</span>
                                       </div>
                                       <div class="hstack gap-2 mt-3 mt-sm-0">

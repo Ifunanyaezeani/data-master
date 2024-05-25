@@ -114,7 +114,7 @@
                                       <div class="d-flex align-items-center">
                                           <h6 class="fw-bold mb-0 me-1">
                                               {{ strtolower(str_replace('_', ' ', $dorm->dorm_type)) }} | </h6>
-                                          <span class="mb-0 me-2 badge text-bg-secondary">Status:
+                                          <span class="mb-0 me-2 badge {{ $dorm->status == \App\Enums\DormStatus::APPROVED->name ? 'text-bg-success': 'text-bg-secondary' }}">Status:
                                               {{ strtolower($dorm->status) }}</span>
                                       </div>
                                       <div class="hstack gap-2 mt-3 mt-sm-0">
