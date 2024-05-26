@@ -34,6 +34,7 @@
                                 href="{{ route('student.setting') }}" >
                                 <i class="bi bi-gear fa-fw me-1"></i>Settings</a>
                         </li>
+                        <li><div id="google_translate_element"></div></li>
                     </ul>
                 </div>
             </div>

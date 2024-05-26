@@ -4,6 +4,7 @@
          <a class="navbar-brand" href="{{ route('index') }}" wire:navigate>
              <span class="navbar-brand-item"><Strong>Data Master</Strong></span>
          </a>
+         <div id="google_translate_element"></div>
 
          @guest
              <ul class="flex-row nav align-items-center list-unstyled ms-xl-auto">

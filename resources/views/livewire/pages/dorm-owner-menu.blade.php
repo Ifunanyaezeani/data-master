@@ -24,6 +24,7 @@
                 <li> <a class="nav-link {{ $this->active_link(route('dorm-owner.setting')) }}" href="{{ route('dorm-owner.setting') }}" wire:navigate>
                     <i class="bi bi-gear fa-fw me-1"></i>Settings</a>
                 </li>
+                <li><div id="google_translate_element"></div></li>
 
             </ul>
         </div>

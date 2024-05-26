@@ -9,6 +9,7 @@
                 </a>
             </div>
             <!-- Logo END -->
+            <div id="google_translate_element"></div>
 
             <!-- Toggler for sidebar START -->
             <div class="navbar-expand-xl sidebar-offcanvas-menu">

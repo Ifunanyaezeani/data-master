@@ -69,12 +69,12 @@
                                             <li class="nav-item">Air Conditioning</li>
                                             <li class="nav-item">Wifi</li>
                                             <li class="nav-item">Kitchen</li>
-                                           
+
                                             <li class="nav-item"><a href="#" class="mb-0 text-primary">More+</a>
                                             </li>
                                         </ul>
 
-                                       
+
 
                                         <!-- Price and Button -->
                                         <div
@@ -82,7 +82,7 @@
                                             <!-- Button -->
                                             <div class="d-flex align-items-center">
                                                 <h5 class="fw-bold mb-0 me-1">$3500</h5>
-                                              
+
                                             </div>
                                             <!-- Price -->
                                             <div class="mt-3 mt-sm-0">
@@ -163,7 +163,7 @@
                                             <li class="nav-item">Air Conditioning</li>
                                             <li class="nav-item">Wifi</li>
                                             <li class="nav-item">Kitchen</li>
-                                       
+
                                         </ul>
 
                                         <!-- List -->
@@ -179,7 +179,7 @@
                                             <!-- Button -->
                                             <div class="d-flex align-items-center">
                                                 <h5 class="fw-bold mb-0 me-1">$3000</h5>
-                                             
+
                                             </div>
                                             <!-- Price -->
                                             <div class="mt-3 mt-sm-0">
@@ -265,7 +265,7 @@
                                             <li class="nav-item">Air Conditioning</li>
                                             <li class="nav-item">Wifi</li>
                                             <li class="nav-item">Kitchen</li>
-                                          
+
                                         </ul>
 
                                         <!-- List -->
@@ -281,7 +281,7 @@
                                             <!-- Button -->
                                             <div class="d-flex align-items-center">
                                                 <h5 class="fw-bold mb-0 me-1">$4000</h5>
-                                            
+
                                             </div>
                                             <!-- Price -->
                                             <div class="mt-3 mt-sm-0">

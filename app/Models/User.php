@@ -42,6 +42,10 @@ class User extends Authenticatable
         ];
     }
 
+    public function roommatePairings()
+    {
+        return $this->hasMany(RoommatePairing::class);
+    }
 
     public function bookings()
     {
