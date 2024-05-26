@@ -11,6 +11,7 @@ use App\Livewire\Admin\Dashboard\DormOwners;
 use App\Livewire\Admin\Dashboard\Dormitories;
 use App\Livewire\Admin\Dashboard\DormitoryDetails;
 use App\Livewire\Admin\Dashboard\DormOwnerDetails;
+use App\Livewire\Admin\Dashboard\Review;
 use App\Livewire\Admin\Dashboard\Setting;
 use App\Livewire\Admin\Dashboard\StudentDetails;
 use App\Livewire\Student\Dashboard\DormitoryDetail;
@@ -36,6 +37,8 @@ Route::middleware(['auth:admin'])->prefix('/admin')->group(function () {
 
     Route::get('/bookings', Booking::class)->name('admin.bookings');
     Route::get('/booking/{booking}/details', BookingDetails::class)->name('admin.booking-details');
+
+    Route::get('/reviews', Review::class)->name('admin.review');
 
     Route::get('/setting', Setting::class)->name('admin.setting');
 });
