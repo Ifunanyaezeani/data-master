@@ -3,11 +3,12 @@
 namespace App\Livewire\Student\Auth;
 
 use App\Models\User;
-use Illuminate\Routing\Route;
 use Livewire\Component;
+use Illuminate\Routing\Route;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Session;
 
 #[Layout('layouts.auth')]
@@ -34,12 +35,14 @@ class Register extends Component
         $newStudentInfo = $this->validate();
 
         // create new user to the data base
-        User::create([
+        $user = User::create([
             'first_name' => $newStudentInfo['firstName'],
             'last_name' => $newStudentInfo['lastName'],
             'email' => $newStudentInfo['email'],
             'password' => Hash::make($newStudentInfo['password'])
         ]);
+
+        event(new Registered($user));
 
         // Flash message
         Session::flash('message', 'New account was successfully create as student, proceed to login');
