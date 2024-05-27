@@ -129,6 +129,8 @@
                                                         </div>
                                                     </div>
                                                     <!-- Slider END -->
+                                                    <!-- Button -->
+											        <a href="{{ $room->virtual_tour_url }}" target="_blank" class="btn btn-link text-decoration-underline p-0 mb-0 mt-1"><i class="bi bi-eye-fill me-1"></i>Virtual tour</a>
                                                 </div>
 
                                                 <!-- Card body -->

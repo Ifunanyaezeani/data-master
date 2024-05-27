@@ -1,4 +1,3 @@
-
 <div class="container vstack gap-4">
     <!-- Title START -->
     <div class="row">
@@ -85,6 +84,13 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">Virtual tour URL (optional)</label>
+                                <input type="text" class="form-control" placeholder="e.g. https://my.matterport.com/show/?m=Uoxs7zXDUZq" wire:model='vtu' />
+                            </div>
+                        </div>
+
                         <!-- room picture -->
                         <div class="mb-3 mt-4">
                             <label class="form-label">Room Pictures</label>
@@ -145,14 +151,20 @@
                                 <div class="row g-4">
                                     <!-- Card img -->
                                     <div class="col-md-4 position-relative">
-                                        <div class="tiny-slider arrow-round arrow-xs arrow-dark overflow-hidden rounded-2">
+                                        <div
+                                            class="tiny-slider arrow-round arrow-xs arrow-dark overflow-hidden rounded-2">
                                             <div class="tiny-slider-inner" data-autoplay="true" data-arrow="true"
                                                 data-dots="false" data-items="1">
                                                 @foreach ($room->room_pictures as $roomPicture)
-                                                    <div><img src="{{ $roomPicture }}" alt="" class="img-fluid" style="height: 150px; width: auto; object-fit: contain;"></div>
+                                                    <div><img src="{{ $roomPicture }}" alt=""
+                                                            class="img-fluid"
+                                                            style="height: 150px; width: auto; object-fit: contain;">
+                                                    </div>
                                                 @endforeach
                                             </div>
                                         </div>
+                                       <!-- Button -->
+                                        <a href="{{ $room->virtual_tour_url ?? 'https://my.matterport.com/show/?m=Uoxs7zXDUZq' }}" target="_blank" class="btn btn-link text-decoration-underline p-0 mb-0 mt-1"><i class="bi bi-eye-fill me-1"></i>Virtual tour</a>
                                     </div>
 
                                     <div class="col-md-7">
@@ -162,23 +174,28 @@
 
                                             <!-- Amenities -->
                                             <ul class="nav nav-divider mb-2">
-                                                <li class="nav-item"><i class="fa-regular fa-square me-1"></i>capacity: {{ $room->capacity }}</li>
-                                                <li class="nav-item"><i class="fa-solid fa-bed me-1"></i>{{ strtolower($room->room_type)  }} room</li>
+                                                <li class="nav-item"><i
+                                                        class="fa-regular fa-square me-1"></i>capacity:
+                                                    {{ $room->capacity }}</li>
+                                                <li class="nav-item"><i
+                                                        class="fa-solid fa-bed me-1"></i>{{ strtolower($room->room_type) }}
+                                                    room</li>
                                             </ul>
 
                                             <p class="text-success mb-0">{{ $room->availability }}</p>
 
                                             <!-- Price and Button -->
-                                            <div class="d-sm-flex justify-content-sm-between align-items-center mt-auto">
+                                            <div
+                                                class="d-sm-flex justify-content-sm-between align-items-center mt-auto">
                                                 <div class="d-flex align-items-center">
                                                     <h5 class="fw-bold mb-0 me-1">${{ $room->price }}</h5>
                                                     <span class="mb-0 me-2">/per year</span>
                                                 </div>
                                                 <div class="mt-3 mt-sm-0">
                                                     <a href="#" class="btn btn-sm btn-primary mb-0"
-                                                    wire:click='deleteRoom({{ $room->id }})'
-                                                    wire:confirm="Are you sure you want to delete this room? any booking rolated to this room will be deleted also."
-                                                    >Delete room</a>
+                                                        wire:click='deleteRoom({{ $room->id }})'
+                                                        wire:confirm="Are you sure you want to delete this room? any booking rolated to this room will be deleted also.">Delete
+                                                        room</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -3,6 +3,7 @@
 namespace App\Livewire\DormOwner\Dashboard;
 
 use App\Enums\DormStatus;
+use App\Enums\RoomStatus;
 use App\Models\Room;
 use Livewire\Component;
 use App\Models\Dormitory;
@@ -30,6 +31,8 @@ class AddRoom extends Component
 
     #[Validate('required')]
     public $price;
+
+    public $vtu;
 
     #[Rule('required')]
     #[Rule(['roomPictures.*' => 'image|max:2048'])]
@@ -59,7 +62,8 @@ class AddRoom extends Component
             'room_type' => $this->roomType,
             'capacity' => $this->capacity,
             'price' => $this->price,
-            'availability' => "Available",
+            'virtual_tour_url' => $this->vtu,
+            'availability' => RoomStatus::AVAILABLE->value,
             'room_pictures' => $roomImages
         ]);
         $dormitory = Dormitory::whereId($this->id)->first();
