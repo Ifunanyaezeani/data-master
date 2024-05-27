@@ -146,6 +146,7 @@
 
     </main>
 
+    <script src="//code.tidio.co/mwt34o9ickmikvpe8adsfmhsigh8yhjg.js" async></script>
     <script src="{{ asset('assets/vendor/tiny-slider/tiny-slider.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/functions.js') }}"></script>

@@ -18,7 +18,7 @@ class Login extends Component
     #[Validate('required')]
     public $password;
 
-    public $remember = false;
+    public $remember;
 
     public function attemptLogin(): void
     {
