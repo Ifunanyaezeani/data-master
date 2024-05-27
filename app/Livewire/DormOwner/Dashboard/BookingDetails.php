@@ -5,6 +5,7 @@ namespace App\Livewire\DormOwner\Dashboard;
 use DateTime;
 use App\Models\Booking;
 use Livewire\Component;
+use App\Enums\RoomStatus;
 use App\Enums\BookingStatus;
 use Livewire\Attributes\Layout;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,7 @@ class BookingDetails extends Component
     public function cancelBooking(Booking $bookingId)
     {
         $bookingId->update(['booking_status' => BookingStatus::CANCELED->name]);
+        $bookingId->room()->update(['availability' => RoomStatus::AVAILABLE->value]);
         Session::flash('message', 'Student booking was successfully canceled');
         $this->redirect(Route('dorm-owner.booking'), navigate: true);
     }
