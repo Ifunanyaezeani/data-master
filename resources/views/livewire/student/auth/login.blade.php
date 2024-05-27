@@ -39,7 +39,7 @@
                 <input type="checkbox" class="form-check-input" id="rememberCheck" wire:model="remember">
                 <label class="form-check-label" for="remember"><small>Remember me?</small></label>
             </div>
-            {{-- <a href="#" wire:navigate><small>Forgot password?</small></a> --}}
+            <a href="{{ route('password.request') }}" wire:navigate><small>Forgot password?</small></a>
         </div>
         <!-- Button -->
         <div class="d-grid gap-2">

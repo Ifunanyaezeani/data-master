@@ -1,21 +1,26 @@
 <?php
 
 use App\Livewire\Student\Auth\Login;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Livewire\Student\Auth\Register;
-use App\Livewire\Student\Dashboard\Dormitory;
-use App\Livewire\Student\Dashboard\DormitoryDetail;
+use App\Livewire\Student\Dashboard\Pair;
 use App\Livewire\Student\Dashboard\Forum;
 use App\Livewire\Student\Dashboard\Index;
-use App\Livewire\Student\Dashboard\Pair;
 use App\Livewire\Student\Dashboard\Review;
 use App\Livewire\Student\Dashboard\Setting;
-use Illuminate\Support\Facades\Route;
+use App\Livewire\Student\Auth\ForgotPassword;
+use App\Livewire\Student\Auth\ResetPassword;
+use App\Livewire\Student\Dashboard\Dormitory;
+use App\Livewire\Student\Dashboard\DormitoryDetail;
 
 Route::middleware(['guest'])->group(function () {
     // basic student guest route
     Route::prefix('/student/auth')->group(function () {
         Route::get('/login', Login::class)->name('login');
         Route::get('/register', Register::class)->name('register');
+        Route::get('/forgot-password', ForgotPassword::class)->name('password.request');
+        Route::get('/password/reset/{token}', ResetPassword::class)->name('password.reset');
     });
 });
 
