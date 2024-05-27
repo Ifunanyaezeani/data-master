@@ -26,7 +26,9 @@ class Login extends Component
 
         // check if this dorm owner has been approved by the admin
         $dow = DormOwner::whereEmail($this->email)->first();
-        if($dow->email_verified_at == null){
+        if($dow == null) {
+            $this->addError('email', 'Invalid email address');
+        }elseif($dow->email_verified_at == null){
             Session::flash('error_message', 'You\'ve not been been verified yet by the admin');
         }elseif (Auth::guard('dorm_owner')->attempt($credentials, $this->remember)) {
             session()->regenerate();
