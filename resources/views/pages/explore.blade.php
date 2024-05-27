@@ -168,20 +168,21 @@
                                                 <li class="nav-item"><small><b>With: </b>
                                                         {{ $activeDorm->amenities[0]->amenity_name }}</small></li>
                                                 <li class="nav-item">
-                                                    <small>{{ $activeDorm->amenities[1]->amenity_name }}</small></li>
+                                                    <small>and more ...</small></li>
                                             @endif
 
                                         </ul>
                                     </div>
+                                    <span class="mx-5 mb-4 badge text-bg-info">{{ strtolower(str_replace('_', ' ', $activeDorm->dorm_type)) }} Dormitory</span>
                                     <!-- Card body END -->
                                     <div class="card-footer pt-0">
-                                        <div class="d-sm-flex justify-content-sm-between align-items-center">
+                                        {{-- <div class="d-sm-flex justify-content-sm-between align-items-center"> --}}
                                             <div class="mt-2 mt-sm-0">
                                                 <a href="{{ route('explore.single-dorm', $activeDorm->slug) }}"
-                                                    class="btn btn-sm btn-primary-soft mb-0 w-100">View Detail<i
+                                                    class="btn btn-sm btn-block btn-primary-soft mb-0 w-100">View Detail<i
                                                         class="bi bi-arrow-right ms-2"></i></a>
                                             </div>
-                                        </div>
+                                        {{-- </div> --}}
                                     </div>
                                 </div>
                             </div>
