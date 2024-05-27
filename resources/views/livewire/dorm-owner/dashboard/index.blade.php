@@ -46,7 +46,7 @@
                 <!-- Card header START -->
                 <div class="card-header border-bottom">
                     <div class="d-sm-flex justify-content-between align-items-center">
-                        <h5 class="mb-2 mb-sm-0">Booking Dormiotries</h5>
+                        <h5 class="mb-2 mb-sm-0">Booked dormitories</h5>
                     </div>
                 </div>
                 <!-- Card header END -->

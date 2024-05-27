@@ -21,7 +21,7 @@
                     <a class="nav-link mb-0 active" data-bs-toggle="tab" href="#tab-1">Current Roomies</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mb-0" data-bs-toggle="tab" href="#tab-3">Passed Roomies</a>
+                    <a class="nav-link mb-0" data-bs-toggle="tab" href="#tab-3">Past Roomies</a>
                 </li>
             </ul>
 

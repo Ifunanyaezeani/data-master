@@ -13,7 +13,7 @@
             <div class="card border h-100">
                 <!-- Card header -->
                 <div class="card-header border-bottom">
-                    <h5 class="card-header-title">Dormiotry Review Metrics</h5>
+                    <h5 class="card-header-title">Dormitory Review Metrics</h5>
                 </div>
 
                 <!-- Card body START -->

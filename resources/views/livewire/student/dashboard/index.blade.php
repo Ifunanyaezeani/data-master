@@ -43,7 +43,7 @@
         </div>
 
         <!-- Content -->
-        <p class="mb-2">What woud you like to do? search for domitories, Compari dormitory prices, looking of roomies,
+        <p class="mb-2">What woud you like to do? search for domitories, Compare dormitory prices, looking for roomies,
             etc</p>
 
     </div>

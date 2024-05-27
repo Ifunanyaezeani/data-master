@@ -58,7 +58,7 @@
 
                     <div class="col-lg-4">
                         <div class="bg-light py-3 px-4 rounded-3">
-                            <h6 class="fw-light small mb-1">Check out (a year latter)</h6>
+                            <h6 class="fw-light small mb-1">Check out (a year later)</h6>
                             <h5 class="mb-1">{{ $booking->end_date->format('d F Y') }}</h5>
                         </div>
                     </div>
@@ -244,7 +244,7 @@
         <div class="card bg-transparent">
             <!-- Card header -->
             <div class="card-header border-bottom bg-transparent px-0 pt-0">
-                <h3 class="card-title mb-0">Submite Review</h3>
+                <h3 class="card-title mb-0">Submit Review</h3>
             </div>
 
             <!-- Card body START -->

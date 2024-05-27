@@ -55,7 +55,7 @@
         <div class="col-md-5">
             <div class="card border">
                 <div class="card-header border-bottom">
-                    <h5 class="card-header-title">Seleted and add amenity</h5>
+                    <h5 class="card-header-title">Select and add amenity</h5>
                 </div>
                 <div class="card-body">
                     <form wire:submit.prevent='save'>
