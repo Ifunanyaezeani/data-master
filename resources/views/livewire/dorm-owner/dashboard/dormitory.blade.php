@@ -55,8 +55,8 @@
                                         class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
                                         <!-- Button -->
                                         <div class="d-flex align-items-center">
-                                            <h5 class="fw-bold mb-0 me-1">{{ strtolower(str_replace('_', ' ', $dormitory->dorm_type)) }} | </h5>
-                                            <span class="mb-0 me-2 badge text-bg-secondary">Status: {{ strtolower($dormitory->status) }}</span>
+                                            <h5 class="fw-bold mb-0 me-1"><small>{{ strtolower(str_replace('_', ' ', $dormitory->dorm_type)) }}</small> | </h5>
+                                            <span class="mb-0 me-2 {{ $this->statusCode($dormitory->status) }}">Status: {{ strtolower($dormitory->status) }}</span>
                                         </div>
                                         <!-- Price -->
                                         <div class="hstack gap-2 mt-3 mt-sm-0">

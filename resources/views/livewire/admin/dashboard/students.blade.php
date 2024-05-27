@@ -9,7 +9,7 @@
 				</div>
 			</div>
 
-			<!-- Search START -->
+			{{-- <!-- Search START -->
 			<div class="row g-3 align-items-center justify-content-between mb-5">
 				<!-- Search -->
 				<div class="col-md-8">
@@ -19,7 +19,7 @@
 					</form>
 				</div>
 			</div>
-			<!-- Search  END -->
+			<!-- Search  END --> --}}
 
 			<!-- dorm-owners START -->
 			<div class="row g-4">

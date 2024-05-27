@@ -53,7 +53,7 @@
 
                 <!-- Card body START -->
                 <div class="card-body">
-                    <!-- Search and select START -->
+                    {{-- <!-- Search and select START -->
                     <div class="row g-3 align-items-center justify-content-between mb-3">
                         <!-- Search -->
                         <div class="col-md-8">
@@ -64,7 +64,7 @@
                                     type="submit"><i class="fas fa-search fs-6"></i></button>
                             </form>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- Search and select END -->
 
                     <!-- Hotel room list START -->

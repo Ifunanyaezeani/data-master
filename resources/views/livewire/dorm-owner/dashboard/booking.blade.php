@@ -8,7 +8,7 @@
     <!-- Title END -->
 
 
-        @if (session()->has('message'))
+    @if (session()->has('message'))
         <div class="alert alert-success d-flex align-items-center rounded-3 mb-0" role="alert">
             <h4 class="mb-0 alert-heading"><i class="bi bi-check2-circle me-2"></i> </h4>
             <div class="ms-3">
@@ -60,37 +60,42 @@
                             <!-- Table body START -->
                             <tbody class="border-top-0">
                                 @foreach ($bookings as $room)
-                                                                    <tr>
-                                    <td>
-                                        <h6 class="mb-0">DM-{{ $room->booking->id }}</h6>
-                                    </td>
-                                    <td>
-                                        <h6 class="mb-0"><a href="#">{{ $room->room_name }}</a></h6>
-                                    </td>
-                                    <td> {{ $room->room_type }} room</td>
-                                    <td>
-                                        <h6 class="mb-0 fw-light">{{ $room->booking->created_at->format('d F Y') }}</h6>
-                                    </td>
-                                    <td>
-                                        <div class="badge text-bg-success">{{ $room->booking->booking_status }}</div>
-                                    </td>
-                                    <td>
-                                        <div class="badge bg-success bg-opacity-10 text-success">{{ strtolower($room->booking->booking_status) }}</div>
-                                    </td>
-                                    <td>
-                                        @if ($room->booking->booking_status == App\Enums\BookingStatus::CANCELED->name)
-                                        <button
-                                            class="btn btn-sm btn-light mb-0"
-                                            wire:confirm="This booking has been canceled"
-                                        >
-                                            View details
-                                        </button>
-                                        @else
-                                        <a href="{{ route('dorm-owner.booking.details', $room->booking->id) }}" class="btn btn-sm btn-light mb-0" wire:navigate>View details</a>
-                                        @endif
+                                    <tr>
+                                        <td>
+                                            <h6 class="mb-0">DM-{{ $room->booking->id }}</h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0"><a href="#">{{ $room->room_name }}</a></h6>
+                                        </td>
+                                        <td> {{ $room->room_type }} room</td>
+                                        <td>
+                                            <h6 class="mb-0 fw-light">{{ $room->booking->created_at->format('d F Y') }}
+                                            </h6>
+                                        </td>
+                                        <td>
+                                            <div
+                                                class="{{ $this->statusCode($room->booking->booking_status) }}"
+                                            >
+                                            {{ strtolower($room->booking->booking_status) }}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="{{ $this->paymentStatus($room->booking->booking_status) }}">
+                                                {{ strtolower($room->booking->booking_status) }}</div>
+                                        </td>
+                                        <td>
+                                            @if ($room->booking->booking_status == App\Enums\BookingStatus::CANCELED->name)
+                                                <button class="btn btn-sm btn-light mb-0"
+                                                    wire:confirm="This booking has been canceled">
+                                                    View details
+                                                </button>
+                                            @else
+                                                <a href="{{ route('dorm-owner.booking.details', $room->booking->id) }}"
+                                                    class="btn btn-sm btn-light mb-0" wire:navigate>View details</a>
+                                            @endif
 
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
                                 @endforeach
                                 <!-- Table item -->
 
