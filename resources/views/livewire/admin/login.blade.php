@@ -51,7 +51,7 @@
             </button>
         </div>
 
-        <!-- Divider -->
+        {{-- <!-- Divider -->
         <div class="my-4 position-relative">
             <hr>
             <p class="px-2 small bg-mode position-absolute top-50 start-50 translate-middle">Or sign in with</p>
@@ -60,7 +60,7 @@
         <!-- Google and facebook button -->
         <div class="gap-3 vstack">
             <a href="#" class="mb-0 btn btn-light"><i class="fab fa-fw fa-google text-google-icon me-2"></i>Google</a>
-        </div>
+        </div> --}}
 
         <!-- Copyright -->
         <div class="mt-3 text-center text-primary-hover"> Copyrights {{date('Y')}} {{config('app.name')}}.</div>

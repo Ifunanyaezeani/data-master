@@ -111,8 +111,8 @@
                         <div class="row g-4 align-items-center">
                             <!-- Content -->
                             <div class="col-md-12">
-                                <h6>Looks like you have no pass roommate</h6>
-                                <h4 class="mb-2">You're going to see all you pass roomate here</h4>
+                                <h6>Looks like you have no roommate</h6>
+                                <h4 class="mb-2">You're going to see all you roomate here</h4>
                             </div>
                         </div>
                     </div>
