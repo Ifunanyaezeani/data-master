@@ -41,7 +41,7 @@ class Booking extends Component
         // Iterate over each dormitory
         foreach ($dormitories as $dormitory) {
             // Fetch rooms with any bookings for each dormitory
-            $rooms = $dormitory->rooms()->whereHas('booking')->with('booking')->get();
+            $rooms = $dormitory->rooms()->whereHas('booking')->with('booking')->latest()->get();
             // Merge the booked rooms into the array
             $this->bookedRooms = array_merge($this->bookedRooms, $rooms->all());
         }

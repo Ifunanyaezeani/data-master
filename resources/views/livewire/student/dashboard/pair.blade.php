@@ -60,8 +60,22 @@
 
                             <!-- Button -->
                             <div class="mt-2 mt-md-0">
-                                <a href="#" class="btn btn-success-soft mb-0">Accept</a>
-                                <a href="#" class="btn btn-danger-soft mb-0">Decline</a>
+                                <a
+                                    href="#"
+                                    class="btn btn-success-soft mb-0"
+                                    wire:click="accept()"
+                                    wire:confirm="Are you sure you want to delete this post?"
+                                >
+                                    Accept
+                                </a>
+                                <a
+                                    href="#"
+                                    class="btn btn-danger-soft mb-0"
+                                    wire:click="Decline()"
+                                    wire:confirm="Are you sure you want to delete this post?"
+                                >
+                                    Decline
+                                </a>
                             </div>
                         </div>
 

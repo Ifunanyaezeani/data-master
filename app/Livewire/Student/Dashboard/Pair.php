@@ -13,7 +13,7 @@ class Pair extends Component
     public function render()
     {
         return view('livewire.student.dashboard.pair', [
-            'pair_requests' => RoommatePairing::wherePairId(Auth::user()->id)->get(),
+            'pair_requests' => RoommatePairing::wherePairId(Auth::user()->id)->whereRoomMateStatus("Pending")->get(),
         ]);
     }
 }

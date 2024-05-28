@@ -254,11 +254,12 @@
                     <!-- Rating -->
                     <div class="form-control-bg-light mb-3">
                         <select class="form-select" wire:model='rating'>
+                            <option >--select star rating --</option>
                             <option value="5">★★★★★ (5/5)</option>
                             <option value="4">★★★★☆ (4/5)</option>
                             <option value="3">★★★☆☆ (3/5)</option>
                             <option value="2">★★☆☆☆ (2/5)</option>
-                            <option value="1" selected>★☆☆☆☆ (1/5)</option>
+                            <option value="1">★☆☆☆☆ (1/5)</option>
                         </select>
                     </div>
                     <!-- Message -->

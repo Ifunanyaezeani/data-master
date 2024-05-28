@@ -15,15 +15,17 @@ use Illuminate\Support\Facades\Session;
 class DormitoryDetail extends Component
 {
     public $bookingId;
+
     #[Validate('required')]
     public $rating;
+
     #[Validate('required')]
     public $comment;
 
     public function postReview(Dormitory $dorm)
     {
         $this->validate();
-        // dd($dorm->reviews());
+        // dd($this->rating, $this->comment);
         $dorm->reviews()->create([
             'user_id' => Auth::user()->id,
             'title' => "Student Review",

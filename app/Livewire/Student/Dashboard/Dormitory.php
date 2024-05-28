@@ -13,7 +13,7 @@ class Dormitory extends Component
     public function render()
     {
         return view('livewire.student.dashboard.dormitory',[
-            "bookedDorms" => Booking::whereUserId(Auth::user()->id)->with('room.dormitory')->get(),
+            "bookedDorms" => Booking::whereUserId(Auth::user()->id)->with('room.dormitory')->latest()->get(),
         ]);
     }
 }
