@@ -35,7 +35,13 @@ class Pair extends Component
     {
         return view('livewire.student.dashboard.pair', [
             'pair_requests' => RoommatePairing::wherePairId(Auth::user()->id)->whereRoomMateStatus("Pending")->latest()->get(),
-            'room_mates' => RoommatePairing::whereIsAccepted(true)->wherePairId(Auth::user()->id)->orWhere('user_id', Auth::user()->id)->latest()->get(),
+            'room_mates' => RoommatePairing::where('is_accepted', 1)
+                ->where(function ($query) {
+                    $query->where('pair_id', Auth::id())
+                        ->orWhere('user_id', Auth::id());
+                })
+                ->latest()
+                ->get(),
         ]);
     }
 }
