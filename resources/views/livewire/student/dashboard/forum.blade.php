@@ -71,8 +71,8 @@
                     </div>
                     <!-- Info -->
                     <div class="ms-2">
-                        <h5 class="mb-1">{{ $chat->user->first_name }} {{ $chat->user->last_name }}</h5>
-                        <p class="mb-0">{{ $chat->created_at->diffForHumans() }}</p>
+                        <h6 class="mb-0">{{ $chat->user->first_name }} {{ $chat->user->last_name }}</h6>
+                        <span class="mb-0"><small>{{ $chat->created_at->diffForHumans() }}</small></span>
                     </div>
                 </div>
             </div>
