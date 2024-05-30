@@ -63,6 +63,12 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link {{ $this->active_link(route('admin.calendar')) }}" href="{{ route('admin.calendar') }}" role="button">
+                         Events
+                    </a>
+                </li>
+
                 <!-- Title -->
                 <li class="nav-item ms-2 my-2">Extra Section</li>
                 <!-- Menu item -->

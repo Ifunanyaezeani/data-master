@@ -30,6 +30,11 @@
                                 <i class="bi bi-star fa-fw me-1"></i>Reviews</a>
                         </li>
 
+                         <li> <a class="nav-link {{ $this->active_link(route('student.events')) }}"
+                                href="{{ route('student.events') }}" >
+                                <i class="bi bi-calendar fa-fw me-1"></i>Events</a>
+                        </li>
+
                         <li> <a class="nav-link {{ $this->active_link(route('student.setting')) }}"
                                 href="{{ route('student.setting') }}" >
                                 <i class="bi bi-gear fa-fw me-1"></i>Settings</a>

@@ -11,6 +11,7 @@ use App\Livewire\Admin\Dashboard\DormOwners;
 use App\Livewire\Admin\Dashboard\Dormitories;
 use App\Livewire\Admin\Dashboard\DormitoryDetails;
 use App\Livewire\Admin\Dashboard\DormOwnerDetails;
+use App\Livewire\Admin\Dashboard\Event;
 use App\Livewire\Admin\Dashboard\Review;
 use App\Livewire\Admin\Dashboard\Setting;
 use App\Livewire\Admin\Dashboard\StudentDetails;
@@ -41,6 +42,9 @@ Route::middleware(['auth:admin'])->prefix('/admin')->group(function () {
 
     Route::get('/reviews', Review::class)->name('admin.review');
     Route::get('/student-pair', StudentPair::class)->name('admin.student-pair');
+
+    Route::get('/calendar', Event::class)->name('admin.calendar');
+    Route::post('/calenderAjax', [\App\Http\Controllers\CalendarController::class, 'ajax'])->name('admin.calenderAjax');
 
     Route::get('/setting', Setting::class)->name('admin.setting');
 });

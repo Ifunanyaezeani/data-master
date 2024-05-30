@@ -14,6 +14,7 @@ use App\Livewire\Student\Auth\ResetPassword;
 use App\Livewire\Student\Auth\ForgotPassword;
 use App\Livewire\Student\Dashboard\Dormitory;
 use App\Livewire\Student\Dashboard\DormitoryDetail;
+use App\Livewire\Student\Dashboard\Event;
 
 Route::middleware(['guest'])->group(function () {
     // basic student guest route
@@ -38,5 +39,8 @@ Route::middleware(['auth'])->prefix('/student')->group(function () {
 
     Route::get('/my-pair', Pair::class)->name('student.pair');
     Route::get('/my-review', Review::class)->name('student.review');
+
+    Route::get('/events', Event::class)->name('student.events');
+
     Route::get('/setting', Setting::class)->name('student.setting');
 });
