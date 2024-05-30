@@ -25,9 +25,6 @@ Route::middleware(['guest'])->group(function () {
     });
 });
 
-// Route::get('email/verify', VerifyEmail::class)->name('verification.notice');
-
-
 
 Route::middleware(['auth'])->prefix('/student')->group(function () {
     Route::get('email/verify/{id}/{hash}', [VerifyEmail::class, 'verify'])->name('verification.verify');

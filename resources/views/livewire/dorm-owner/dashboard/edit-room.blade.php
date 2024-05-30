@@ -2,7 +2,7 @@
     <!-- Title START -->
     <div class="row">
         <div class="col-12">
-            <h3 class="fs-4 mb-0"><i class="bi bi-house fa-fw me-1"></i>Add Room to <i>({{ $dorm->dorm_name }})</i></h3>
+            <h3 class="fs-4 mb-0"><i class="bi bi-house fa-fw me-1"></i>Edit Room <i>({{ $room->room_name }})</i></h3>
         </div>
     </div>
 
@@ -32,7 +32,7 @@
                     <h5 class="card-header-title">Enter Room Details</h5>
                 </div>
                 <div class="card-body">
-                    <form wire:submit.prevent='save'>
+                    <form wire:submit.prevent='updateRoom'>
                         <div class="row">
                             <!-- Full name -->
                             <div class="col-md-6 mb-3">
@@ -97,7 +97,7 @@
                             <div class="align-items-center">
                                 @if ($roomPictures)
                                     <label class="position-relative me-4 d-flex" for="uploadfile-1" title="dorm image">
-                                        @foreach ($roomPictures as $roomPicture)
+                                        @foreach ($newRoomPictures as $roomPicture)
                                             <span class="avatar avatar-xxxl">
                                                 <img id="uploadfile-1-preview"
                                                     class="avatar-img rounded border border-white border-3 shadow"
@@ -107,14 +107,25 @@
                                     </label>
                                 @endif
 
-                                <input id="uploadfile-1" class="form-control @error('dormPicture') is-invalid @enderror"
-                                    wire:model='roomPictures' type="file" multiple />
-                                @error('roomPictures.*')
+                                <input id="uploadfile-1" class="form-control @error('newRoomPictures') is-invalid @enderror"
+                                    wire:model='newRoomPictures' type="file" multiple />
+                                @error('newRoomPictures.*')
                                     <br><span class="invalid-feedback"><small><i>{{ $message }}</i></small></span>
                                 @enderror
-                                @error('roomPictures')
-                                    <br><span class="invalid-feedback"><small><i>{{ $message }}</i></small></span>
-                                @enderror
+                            </div>
+                            <label class="form-label mt-4">Current Room Pictures</label>
+                            <div class="align-items-center">
+                                @if ($roomPictures)
+                                    <label class="position-relative me-4" for="uploadfile-1" title="dorm image">
+                                        @foreach ($roomPictures as $roomPicture)
+                                            <span class="avatar avatar-xxxl">
+                                                <img id="uploadfile-1-preview"
+                                                    class="avatar-img rounded border border-white border-3 shadow"
+                                                    src="{{ $roomPicture }}" alt="" />
+                                            </span>
+                                        @endforeach
+                                    </label>
+                                @endif
                             </div>
                         </div>
 
@@ -122,8 +133,8 @@
                         <div class="d-flex justify-content-end mt-4">
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-primary mb-0 mt-2" wire:loading.attr="disabled">
-                                    <span wire:loading.remove>Save</span>
-                                    <span wire:loading wire:target="save" class="text-center">
+                                    <span wire:loading.remove>Update</span>
+                                    <span wire:loading wire:target="updateRoom" class="text-center">
                                         <span class="spinner-border spinner-border-sm" role="status"
                                             aria-hidden="true"></span>
                                     </span>
@@ -134,7 +145,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        {{-- <div class="col-md-6">
 
             <div class="card bg-transparent p-0">
                 <!-- Card header -->
@@ -193,7 +204,7 @@
                                                 </div>
                                                 <div class="mt-3 mt-sm-0">
                                                     <a href="#" class="btn btn-sm btn-info mb-0"
-                                                        wire:click='editRoom({{ $room->id }})'
+                                                        wire:click='editRoom'
                                                         wire:confirm="Are you sure you want to Edit this room? any booking rolated to this room will be edit also.">
                                                         Edit
                                                     </a>
@@ -217,7 +228,8 @@
                 <!-- Card body END -->
             </div>
 
-        </div>
+        </div> --}}
     </div>
 
 </div>
+

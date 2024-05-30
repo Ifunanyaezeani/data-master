@@ -14,6 +14,7 @@ use App\Livewire\DormOwner\Dashboard\AddAmenity;
 use App\Livewire\DormOwner\Dashboard\AddDormitory;
 use App\Livewire\DormOwner\Auth\Login as DormOwnerLogin;
 use App\Livewire\DormOwner\Dashboard\BookingDetails;
+use App\Livewire\DormOwner\Dashboard\EditRoom;
 
 Route::middleware(['guest:dorm_owner'])->prefix('/dorm-owner/auth')->group(function () {
     // basic dorm-owner guest route
@@ -32,5 +33,6 @@ Route::middleware(['auth:dorm_owner'])->prefix('/dashboard')->group(function () 
     Route::get('/add-dormitory', AddDormitory::class)->name('dorm-owner.add-dorm');
     Route::get('/dorm/{slug}', [Explore::class, 'singleDorm'])->name('dorm-owner.single-dorm');
     Route::get('/dormitory/{id}/add-room', AddRoom::class)->name('dorm-owner.add-room');
+    Route::get('/room/{room}/edit', EditRoom::class)->name('dorm-owner.edit-room');
     Route::get('/dormitory/{id}/add-amenities', AddAmenity::class)->name('dorm-owner.add-amenity');
 });

@@ -40,6 +40,11 @@ class AddRoom extends Component
 
     public $id;
 
+    public function editRoom(Room $room)
+    {
+        $this->redirect(Route('dorm-owner.edit-room', $room->id),navigate: false);
+    }
+
     public function deleteRoom(Room $roomId)
     {
         $roomId->delete();
