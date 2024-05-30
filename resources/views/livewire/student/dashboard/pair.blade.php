@@ -94,7 +94,7 @@
                                 <div class="row g-3">
                                     <div class="col-sm-6 col-md-4">
                                         <span>Date of birth</span>
-                                        <h6 class="mb-0">{{ $roommatepairing->user->birth_day->format('d F Y') }}</h6>
+                                        <h6 class="mb-0">{{ $roommatepairing->user->birth_day == null ? "Not set" : $roommatepairing->user->birth_day->format('d F Y') }}</h6>
                                     </div>
 
                                     <div class="col-sm-6 col-md-4">
