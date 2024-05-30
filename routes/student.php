@@ -7,10 +7,11 @@ use App\Livewire\Student\Auth\Register;
 use App\Livewire\Student\Dashboard\Pair;
 use App\Livewire\Student\Dashboard\Forum;
 use App\Livewire\Student\Dashboard\Index;
+use App\Livewire\Student\Auth\VerifyEmail;
 use App\Livewire\Student\Dashboard\Review;
 use App\Livewire\Student\Dashboard\Setting;
-use App\Livewire\Student\Auth\ForgotPassword;
 use App\Livewire\Student\Auth\ResetPassword;
+use App\Livewire\Student\Auth\ForgotPassword;
 use App\Livewire\Student\Dashboard\Dormitory;
 use App\Livewire\Student\Dashboard\DormitoryDetail;
 
@@ -24,8 +25,14 @@ Route::middleware(['guest'])->group(function () {
     });
 });
 
+// Route::get('email/verify', VerifyEmail::class)->name('verification.notice');
+
+
 
 Route::middleware(['auth'])->prefix('/student')->group(function () {
+    Route::get('email/verify/{id}/{hash}', [VerifyEmail::class, 'verify'])->name('verification.verify');
+    Route::post('email/resend', [VerifyEmail::class, 'resendVerification'])->name('verification.resend');
+
     Route::get('/', Index::class)->name('student.dashboard');
     Route::get('/forum', Forum::class)->name('student.forum');
 

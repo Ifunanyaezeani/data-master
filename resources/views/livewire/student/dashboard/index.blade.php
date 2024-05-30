@@ -7,6 +7,8 @@
     </div>
     <!-- Title END -->
 
+    <livewire:student.auth.verify-email />
+
     <div class="bg-light rounded">
         <!-- Progress bar -->
         @php
