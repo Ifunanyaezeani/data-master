@@ -14,6 +14,7 @@ use App\Livewire\Admin\Dashboard\DormOwnerDetails;
 use App\Livewire\Admin\Dashboard\Review;
 use App\Livewire\Admin\Dashboard\Setting;
 use App\Livewire\Admin\Dashboard\StudentDetails;
+use App\Livewire\Admin\Dashboard\StudentPair;
 use App\Livewire\Student\Dashboard\DormitoryDetail;
 
 Route::middleware(['guest:admin'])->group(function () {
@@ -39,6 +40,7 @@ Route::middleware(['auth:admin'])->prefix('/admin')->group(function () {
     Route::get('/booking/{booking}/details', BookingDetails::class)->name('admin.booking-details');
 
     Route::get('/reviews', Review::class)->name('admin.review');
+    Route::get('/student-pair', StudentPair::class)->name('admin.student-pair');
 
     Route::get('/setting', Setting::class)->name('admin.setting');
 });

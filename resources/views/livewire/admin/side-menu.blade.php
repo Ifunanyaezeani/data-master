@@ -46,19 +46,19 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ $this->active_link(route('admin.bookings')) }}" href="{{ route('admin.bookings') }}" role="button">
+                    <a class="nav-link {{ $this->active_link(route('admin.bookings')) }}" href="{{ route('admin.bookings') }}" wire:navigate role="button">
                          Bookings
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ $this->active_link(route('admin')) }}" href="#" role="button">
+                    <a class="nav-link {{ $this->active_link(route('admin.student-pair')) }}" href="{{ route('admin.student-pair') }}" wire:navigate role="button">
                          Student Pair
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ $this->active_link(route('admin.review')) }}" href="{{ route('admin.review') }}" role="button">
+                    <a class="nav-link {{ $this->active_link(route('admin.review')) }}" href="{{ route('admin.review') }}" wire:navigate role="button">
                          Reviews
                     </a>
                 </li>
@@ -75,7 +75,7 @@
             <!-- Sidebar menu end -->
 
             <!-- Sidebar footer START -->
-            <div class="d-flex align-items-center justify-content-between text-primary-hover mt-auto p-3 navbar-nav nav-item">
+            <div class="d-flex align-items-center cursor-pointer justify-content-between text-primary-hover mt-auto p-3 navbar-nav nav-item">
                 <a class="h6 fw-light mb-0 nav-link cursor-pointer" wire:click="logout" aria-label="Sign out">
                     <i class="bi bi-door-open-fill fa-fw me-2 cursor-pointer"></i> Log out
                 </a>
